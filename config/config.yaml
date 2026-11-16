@@ -28,7 +28,7 @@ cleaning:
   dask_blocksize: 64MB
 
 embedding:
-  # Model served live in the browser (transformers.js) — must match the index.
+  # Model served live in the browser (transformers.js) - must match the index.
   serving_model: sentence-transformers/all-MiniLM-L6-v2
   browser_model: Xenova/all-MiniLM-L6-v2
   # Models compared in the retrieval experiments.

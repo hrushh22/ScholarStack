@@ -1,4 +1,4 @@
-"""Step 10 — Generation experiments (needs GROQ_API_KEY).
+"""Step 10 - Generation experiments (needs GROQ_API_KEY).
 
 Systems, on the held-out generation subset (one JD per category):
   baseline           TF-IDF keyword advice (no retrieval, no generation)

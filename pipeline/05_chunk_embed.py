@@ -1,4 +1,4 @@
-"""Step 5 — Chunk & embed: build section-based and fixed-length chunks, then embed
+"""Step 5 - Chunk & embed: build section-based and fixed-length chunks, then embed
 them with every candidate sentence-transformer (batched, GPU/MPS when available).
 
 Output: data/processed/chunks_{section,fixed}.parquet, data/models/emb_*.npy,

@@ -1,4 +1,4 @@
-"""Step 1 — Acquire & store: download resumes, LinkedIn postings and O*NET.
+"""Step 1 - Acquire & store: download resumes, LinkedIn postings and O*NET.
 
     python pipeline/01_acquire.py            # download to data/raw
     python pipeline/01_acquire.py --upload   # also mirror to RAW_STORAGE_URL via fsspec

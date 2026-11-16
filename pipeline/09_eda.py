@@ -1,4 +1,4 @@
-"""Step 9 — Exploratory data analysis: figures and summary tables for the report.
+"""Step 9 - Exploratory data analysis: figures and summary tables for the report.
 
 Output: reports/figures/eda_*.png, reports/results/eda_summary.json
 """
@@ -14,7 +14,7 @@ from scholarstack.categories import CATEGORIES, pretty
 from scholarstack.chunking import load_chunks
 from scholarstack.config import CFG, log, path, seed_everything
 from scholarstack.embed import load_embeddings
-from scholarstack.viz import BLUE_RAMP, INK_2, MUTED, OTHER, SERIES, hbar, plt, savefig
+from scholarstack.viz import SCARLET_RAMP, INK_2, MUTED, OTHER, SERIES, hbar, plt, savefig
 
 if __name__ == "__main__":
     seed_everything()

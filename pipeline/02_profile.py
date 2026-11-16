@@ -1,4 +1,4 @@
-"""Step 2 — Profile & validate: stage postings to Parquet, then profile every source.
+"""Step 2 - Profile & validate: stage postings to Parquet, then profile every source.
 
 Output: data/interim/postings_raw/*.parquet, reports/results/data_profile.json
 """

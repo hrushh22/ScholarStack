@@ -1,10 +1,10 @@
 """Rule-based skill extraction aligned to O*NET.
 
 The lexicon has two parts:
-  * technology skills — O*NET "Software Skills" examples (hot / in-demand or used by
+  * technology skills - O*NET "Software Skills" examples (hot / in-demand or used by
     >= 3 occupations), with aliases derived automatically ("Microsoft Excel" -> "excel",
     "Structured query language SQL" -> "sql");
-  * domain & soft skills — config/skills_curated.yaml, each group aligned to an
+  * domain & soft skills - config/skills_curated.yaml, each group aligned to an
     O*NET knowledge/skill element.
 
 Matching uses an Aho-Corasick automaton with word-boundary checks, so a full pass

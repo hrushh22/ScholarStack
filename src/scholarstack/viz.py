@@ -1,7 +1,6 @@
 """Shared matplotlib style for every report figure.
 
-Palette: fixed categorical order (blue, orange, aqua, yellow, magenta, green,
-violet, red), one-hue blue ramp for magnitude, recessive hairline grid, thin
+Palette: scarlet first, then blue, green, gold, violet (fixed order), one-hue scarlet ramp for magnitude, recessive hairline grid, thin
 marks, values labelled selectively. Text never takes a series colour.
 """
 from __future__ import annotations
@@ -13,9 +12,10 @@ import matplotlib.pyplot as plt  # noqa: E402
 
 from .config import path  # noqa: E402
 
-SERIES = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#6250d6", "#e34948"]
-BLUE_RAMP = ["#cde2fb", "#b7d3f6", "#9ec5f4", "#86b6ef", "#6da7ec", "#5598e7", "#3987e5", "#2a78d6",
-             "#256abf", "#1c5cab", "#184f95", "#104281", "#0d366b"]
+# Scarlet first (SDSU), then the validated categorical hues; passes colour-blind checks in order.
+SERIES = ["#a6192e", "#2a78d6", "#1baf7a", "#eda100", "#6250d6", "#e87ba4", "#008300", "#eb6834"]
+SCARLET_RAMP = ["#f6dade", "#edb6bf", "#e1909d", "#d4697c", "#c5435b", "#a6192e", "#8c1426", "#6f0f1e"]
+NEUTRAL = "#b9b4ae"   # comparison systems, so ours stands out
 SURFACE, INK, INK_2, MUTED, GRID, AXIS = "#fcfcfb", "#0b0b0b", "#52514e", "#898781", "#e1e0d9", "#c3c2b7"
 OTHER = "#c3c2b7"
 

@@ -48,7 +48,7 @@ def acquire_all() -> dict:
     src = CFG["sources"]
     manifest = {"downloaded_at": datetime.now(timezone.utc).isoformat(), "files": {}}
 
-    # 1) Resume dataset — only the CSV is needed (the zip also holds ~2.4k PDFs).
+    # 1) Resume dataset - only the CSV is needed (the zip also holds ~2.4k PDFs).
     z = _download(KAGGLE_URL.format(slug=src["resumes"]["kaggle"]), raw / "resume-dataset.zip")
     with zipfile.ZipFile(z) as zf:
         zf.extract("Resume/Resume.csv", raw / "resumes")

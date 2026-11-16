@@ -22,7 +22,7 @@ export function outputText(out) {
   return parts.filter(Boolean).join("\n");
 }
 
-/** Evidence at two granularities — each chunk and each line in it (as metrics.evidence_units in Python). */
+/** Evidence at two granularities - each chunk and each line in it (as metrics.evidence_units in Python). */
 export function evidenceUnits(chunkTexts, minWords = 4) {
   const units = [];
   const owner = [];

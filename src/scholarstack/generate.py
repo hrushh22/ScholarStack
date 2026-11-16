@@ -30,7 +30,7 @@ PROMPTS = json.loads((ROOT / "supabase" / "functions" / "_shared" / "prompts.jso
 
 
 def fill(template: str, **values: str) -> str:
-    """{{name}} substitution — the same rule the TypeScript Edge Function uses."""
+    """{{name}} substitution - the same rule the TypeScript Edge Function uses."""
     return re.sub(r"\{\{(\w+)\}\}", lambda m: str(values.get(m.group(1), "")), template)
 
 
@@ -65,6 +65,40 @@ def format_onet(occ: pd.Series, market: dict | None) -> str:
 
 def applicant_block(resume: str | None) -> str:
     return fill(PROMPTS["applicant_block"], resume=truncate_words(resume, 900)) if resume else ""
+
+
+def normalize_output(out) -> dict:
+    """Coerce an LLM response into the schema. Smaller models sometimes return a plain
+    string where an object is expected (e.g. a skill as "Excel" instead of {"name": "Excel"})."""
+    if not isinstance(out, dict):
+        return {}
+
+    def stmt(x):
+        if isinstance(x, str):
+            return {"text": x, "sources": []}
+        if isinstance(x, dict):
+            x["text"] = str(x.get("text") or "")
+            x["sources"] = [s for s in (x.get("sources") or []) if isinstance(s, str)]
+            return x
+        return None
+
+    def as_list(v):
+        return v if isinstance(v, list) else ([v] if isinstance(v, (str, dict)) else [])
+
+    for key in ("summary", "education", "certifications"):
+        out[key] = [s for s in map(stmt, as_list(out.get(key))) if s]
+    groups = []
+    for g in as_list(out.get("skills")):
+        if isinstance(g, str):
+            groups.append({"group": "Skills", "items": [{"name": g, "source": ""}]})
+        elif isinstance(g, dict):
+            g["items"] = [{"name": i, "source": ""} if isinstance(i, str) else i
+                          for i in as_list(g.get("items")) if isinstance(i, (str, dict))]
+            groups.append(g)
+    out["skills"] = groups
+    out["experience"] = [{**r, "bullets": [s for s in map(stmt, as_list(r.get("bullets"))) if s]}
+                         for r in as_list(out.get("experience")) if isinstance(r, dict)]
+    return out
 
 
 def statements(output: dict) -> list[dict]:
@@ -141,7 +175,7 @@ class Generator:
         """LLM step only (retrieval already done) -> new dict with output and bookkeeping."""
         t0 = time.perf_counter()
         msg = self.llm.invoke(self.messages(ctx, mode, use_onet))
-        out = self.parser.invoke(msg)
+        out = normalize_output(self.parser.invoke(msg))
         res = dict(ctx)
         res["latency_s"] = time.perf_counter() - t0
         res["usage"] = getattr(msg, "usage_metadata", None) or {}

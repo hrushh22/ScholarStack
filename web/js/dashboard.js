@@ -1,19 +1,17 @@
-// Evaluation dashboard: native SVG charts (hover tooltips + table view) from data/results.json.
+// Results page: SVG charts (hover tooltips, a table under each chart) built from data/results.json.
 import { esc, pct, prettyCategory } from "./render.js";
 
-const COLORS = ["var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)", "#e87ba4"];
-const SYSTEM = { baseline: "TF-IDF keywords", llm_only: "LLM only (120B)", rag: "RAG (ours, 120B)", rag_small: "RAG, 20B model",
-  rag_small_no_onet: "RAG 20B, no O*NET", rag_small_k3: "RAG 20B, k = 3", rag_small_k15: "RAG 20B, k = 15" };
+const COLORS = ["var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)", "var(--s5)"];
+const SYSTEM = { baseline: "Keyword baseline", llm_only: "LLM only (120B)", rag: "ScholarStack (120B)", rag_small: "ScholarStack (20B)",
+  rag_small_no_onet: "20B, no O*NET", rag_small_k3: "20B, 3 excerpts", rag_small_k15: "20B, 15 excerpts" };
 const tip = () => document.getElementById("tooltip");
 
 function showTip(evt, html) {
   const t = tip();
   t.innerHTML = html;
   t.classList.remove("hidden");
-  const x = Math.min(evt.clientX + 14, innerWidth - t.offsetWidth - 8);
-  const y = Math.min(evt.clientY + 14, innerHeight - t.offsetHeight - 8);
-  t.style.left = `${x}px`;
-  t.style.top = `${y}px`;
+  t.style.left = `${Math.min(evt.clientX + 14, innerWidth - t.offsetWidth - 8)}px`;
+  t.style.top = `${Math.min(evt.clientY + 14, innerHeight - t.offsetHeight - 8)}px`;
 }
 const hideTip = () => tip().classList.add("hidden");
 
@@ -23,13 +21,13 @@ function legend(series) {
 }
 
 function table(headers, rows) {
-  return `<details class="small" style="margin-top:6px"><summary class="muted">Show table</summary>
+  return `<details class="small" style="margin-top:6px"><summary class="muted">Show the numbers</summary>
     <table class="data"><thead><tr>${headers.map((h, i) => `<th class="${i ? "num" : ""}">${esc(h)}</th>`).join("")}</tr></thead>
     <tbody>${rows.map((r) => `<tr>${r.map((c, i) => `<td class="${i ? "num" : ""}">${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></details>`;
 }
 
-/** Line chart: series [{name, color, points:[{x,y}]}] on shared x values. */
-function lineChart(el, { series, xs, yMax = 1, yFmt = (v) => pct(v), xLabel = "", title = "" }) {
+/** Line chart: series [{name, color, points:[{x,y}]}] over shared x values. */
+function lineChart(el, { series, xs, yMax = 1, yFmt = (v) => pct(v), xLabel = "", title = "", note = "" }) {
   const W = 560, H = 250, m = { l: 44, r: 14, t: 12, b: 36 };
   const iw = W - m.l - m.r, ih = H - m.t - m.b;
   const xMin = Math.min(...xs), xMax = Math.max(...xs);
@@ -42,9 +40,10 @@ function lineChart(el, { series, xs, yMax = 1, yFmt = (v) => pct(v), xLabel = ""
   const paths = series.map((s) => {
     const d = s.points.map((p, i) => `${i ? "L" : "M"}${sx(p.x).toFixed(1)},${sy(p.y).toFixed(1)}`).join("");
     const dots = s.points.map((p) => `<circle cx="${sx(p.x)}" cy="${sy(p.y)}" r="4" fill="${s.color}" stroke="var(--surface)" stroke-width="2"/>`).join("");
-    return `<path d="${d}" fill="none" stroke="${s.color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>${dots}`;
+    return `<path class="line" pathLength="1" d="${d}" fill="none" stroke="${s.color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>${dots}`;
   }).join("");
-  el.innerHTML = `${title ? `<h3>${esc(title)}</h3>` : ""}${legend(series)}<div class="chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(title)}">
+  el.innerHTML = `${title ? `<h3>${esc(title)}</h3>` : ""}${note ? `<p class="small muted">${note}</p>` : ""}${legend(series)}
+    <div class="chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(title)}">
     ${grid}<line x1="${m.l}" x2="${W - m.r}" y1="${sy(0)}" y2="${sy(0)}" stroke="var(--line-strong)"/>${xt}
     <text x="${m.l + iw / 2}" y="${H - 4}" text-anchor="middle">${esc(xLabel)}</text>
     <line class="xhair" x1="0" x2="0" y1="${m.t}" y2="${m.t + ih}" stroke="var(--line-strong)" visibility="hidden"/>
@@ -75,6 +74,7 @@ function barChart(el, { rows, max = 1, fmt = (v) => pct(v, 1), title = "", note 
   const H = m.t + rows.length * (groupH + groupGap);
   const sx = (v) => labelW + (Math.max(0, v) / max) * (W - labelW - m.r);
   let y = m.t;
+  let n = 0;
   const parts = rows.map((row) => {
     const top = y;
     y += groupH + groupGap;
@@ -83,7 +83,7 @@ function barChart(el, { rows, max = 1, fmt = (v) => pct(v, 1), title = "", note 
       const w = Math.max(0, sx(v.value ?? 0) - labelW);
       return `<g class="bar" data-tip="${esc(`<div class="t-title">${esc(row.label)}</div><div class="t-row"><span><span class="dot" style="background:${v.color}"></span> ${esc(v.name)}</span><b>${esc(fmt(v.value))}</b></div>`)}">
         <rect x="${labelW}" y="${by - 1}" width="${W - labelW}" height="${barH + 2}" fill="transparent"/>
-        <path d="M${labelW},${by}h${Math.max(0, w - 4)}a4,4 0 0 1 4,4v${barH - 8}a4,4 0 0 1 -4,4h${-Math.max(0, w - 4)}z" fill="${v.color}"/>
+        <path style="--i:${n++}" d="M${labelW},${by}h${Math.max(0, w - 4)}a4,4 0 0 1 4,4v${barH - 8}a4,4 0 0 1 -4,4h${-Math.max(0, w - 4)}z" fill="${v.color}"/>
         <text x="${labelW + w + 6}" y="${by + barH / 2 + 4}">${esc(fmt(v.value))}</text></g>`;
     }).join("");
     return `<text x="${labelW - 10}" y="${top + groupH / 2 + 4}" text-anchor="end">${esc(row.label)}</text>${bars}`;
@@ -98,15 +98,14 @@ function barChart(el, { rows, max = 1, fmt = (v) => pct(v, 1), title = "", note 
   });
 }
 
-function kpi(label, value, note) {
-  return `<div class="tile kpi"><div class="label">${esc(label)}</div><div class="value">${esc(value)}</div><div class="note">${esc(note)}</div></div>`;
-}
-
-const block = (id, cls = "card") => `<div class="${cls}" id="${id}"></div>`;
+const kpi = (label, value, note) =>
+  `<div class="tile kpi lit reveal"><div class="label">${esc(label)}</div><div class="value">${esc(value)}</div><div class="note">${esc(note)}</div></div>`;
+const block = (id) => `<div class="card lift reveal" id="${id}"></div>`;
+const section = (title, text) => `<div class="section-title reveal"><h2>${title}</h2><p>${text}</p></div>`;
 
 export async function renderDashboard(root, res, api) {
   if (!res) {
-    root.innerHTML = '<div class="empty">Evaluation results are not available yet. Run the pipeline (see README).</div>';
+    root.innerHTML = '<div class="empty">No results yet. Run the pipeline first (the README has the steps).</div>';
     return;
   }
   const ret = res.retrieval ?? [];
@@ -119,168 +118,169 @@ export async function renderDashboard(root, res, api) {
 
   root.innerHTML = `
     <div class="kpis">
-      ${kpi("Resumes indexed", (eda.resumes_clean ?? 2480).toLocaleString(), "27,207 section chunks, 24 categories")}
-      ${kpi("Job postings processed", (eda.postings_clean ?? 0).toLocaleString(), `of ${(eda.postings_raw ?? 0).toLocaleString()} raw (Dask)`)}
-      ${kpi("Retrieval precision@8", dense ? pct(dense.precision_category) : "–", `vs ${tf ? pct(tf.precision_category) : "–"} for TF-IDF`)}
-      ${gen.rag ? kpi("Statements verified in real resumes", pct(gen.rag.grounded), `vs ${pct(gen.llm_only?.grounded)} without retrieval`)
+      ${kpi("Resumes indexed", (eda.resumes_clean ?? 2480).toLocaleString(), "27,207 section chunks in 24 categories")}
+      ${kpi("Job postings processed", (eda.postings_clean ?? 0).toLocaleString(), `out of ${(eda.postings_raw ?? 0).toLocaleString()} raw, cleaned with Dask`)}
+      ${kpi("Right category in top 8", dense ? pct(dense.precision_category) : "-", `vs ${tf ? pct(tf.precision_category) : "-"} with TF-IDF`)}
+      ${gen.rag ? kpi("Lines backed by real resumes", pct(gen.rag.grounded), `vs ${pct(gen.llm_only?.grounded)} for the LLM alone`)
         : kpi("O*NET occupations", "1,016", "978 linked to LinkedIn demand")}
     </div>
 
-    <div class="section-title"><h2>Retrieval: finding the right evidence</h2>
-      <p>240 held-out job descriptions (10 per category). Relevance proxies: the retrieved excerpt comes from a resume in the
-      job's category, or shares at least one hard skill with it.</p></div>
+    ${section("Retrieval: finding the right evidence", "240 held-out postings, 10 per category. We count a retrieved excerpt as relevant if it comes from a resume in the posting's category, or if it shares at least one hard skill with the posting.")}
     <div class="grid-2">${block("c-ksweep")}${block("c-ksweep-skill")}</div>
     <div class="grid-2" style="margin-top:16px">${block("c-query")}${block("c-models")}</div>
     <div class="grid-2" style="margin-top:16px">${block("c-bycat")}${block("c-onet")}</div>
 
-    <div class="section-title"><h2>Generation: grounded vs. generic</h2>
-      <p>One held-out job description per category. Every generated statement is checked against real resume excerpts
-      retrieved for that job (the same evidence for every system).</p></div>
+    ${section("Generation: grounded or generic?", "One held-out posting per category. Every line each system writes is checked against excerpts from real resumes retrieved for that posting. All systems are checked against the same excerpts.")}
     <div id="gen-area"></div>
 
-    <div class="section-title"><h2>Scale &amp; speed</h2><p>Vector search and embedding throughput (Apple M-series laptop, CPU search).</p></div>
+    ${section("Scale and speed", "Vector search and embedding speed on a MacBook (Apple silicon, search on CPU).")}
     <div class="grid-2">${block("c-faiss")}${block("c-embed")}</div>
 
-    <div class="section-title"><h2>Live usage</h2><p>Runs and ratings collected by this website.</p></div>
-    <div class="card" id="c-usage"><p class="small muted">Loading…</p></div>
+    ${section("Live usage", "Runs and ratings from people using this site.")}
+    <div class="card reveal" id="c-usage"><p class="small muted">Loading...</p></div>
 
-    <div class="section-title"><h2>Exploratory data analysis</h2><p>Figures generated by <code>pipeline/09_eda.py</code> and <code>pipeline/14_report_figures.py</code>.</p></div>
+    ${section("Exploring the data", "Figures from <code>pipeline/09_eda.py</code> and <code>pipeline/14_report_figures.py</code>.")}
     <div class="fig-gallery" id="gallery"></div>`;
 
-  // --- retrieval charts
-  const sweep = [["section", "all-MiniLM-L6-v2", "MiniLM, section (served)"], ["section", "gte-small", "GTE-small, section"],
+  // --- retrieval
+  const sweep = [["section", "all-MiniLM-L6-v2", "MiniLM, section chunks (live)"], ["section", "gte-small", "GTE-small, section"],
     ["section", "bge-small-en-v1_5", "BGE-small, section"], ["fixed", "all-MiniLM-L6-v2", "MiniLM, fixed windows"],
-    ["section", "tf-idf", "TF-IDF baseline"]];
+    ["section", "tf-idf", "TF-IDF"]];
   const xs = [...new Set(ret.filter((r) => r.experiment === "model_chunking").map((r) => r.k))].sort((a, b) => a - b);
-  for (const [id, metric, title] of [["c-ksweep", "precision_category", "Category precision@k"],
-    ["c-ksweep-skill", "precision_skill", "Skill-overlap precision@k"]]) {
+  for (const [id, metric, title] of [["c-ksweep", "precision_category", "Right category, by k"],
+    ["c-ksweep-skill", "precision_skill", "Shares a hard skill, by k"]]) {
     lineChart(document.getElementById(id), {
-      title, xs, xLabel: "k",
+      title, xs, xLabel: "k (excerpts retrieved)",
       series: sweep.map(([ch, mo, name], i) => ({ name, color: COLORS[i],
         points: xs.map((x) => ({ x, y: at("model_chunking", ch, mo, x)?.[metric] })) })),
     });
   }
   const q = ["raw", "hybrid", "skills"].map((v) => ret.find((r) => r.experiment === "query" && r.query === v && r.k === 8));
-  const qLabel = { raw: "Raw job description", hybrid: "Title + skills + lead text", skills: "Title + extracted skills" };
+  const qLabel = { raw: "Whole job ad", hybrid: "Title, skills, first lines", skills: "Title + extracted skills" };
   barChart(document.getElementById("c-query"), {
-    title: "Query construction (P@8)", note: "Embedding the extracted skills avoids truncating long ads that start with boilerplate.",
+    title: "What we embed matters",
+    note: "Long ads often open with company boilerplate, and the model only reads the first 256 tokens. Embedding the title plus the skills we extracted works best.",
     rows: q.filter(Boolean).map((r) => ({ label: qLabel[r.query], values: [
-      { name: "Category", value: r.precision_category, color: COLORS[0] },
-      { name: "Skill overlap", value: r.precision_skill, color: COLORS[1] }] })),
+      { name: "Right category", value: r.precision_category, color: COLORS[0] },
+      { name: "Shares a skill", value: r.precision_skill, color: COLORS[1] }] })),
   });
   const models = [["all-MiniLM-L6-v2", "MiniLM-L6"], ["gte-small", "GTE-small"], ["bge-small-en-v1_5", "BGE-small"], ["tf-idf", "TF-IDF"]];
   barChart(document.getElementById("c-models"), {
-    title: "Embedding model × chunking (category P@8)",
+    title: "Embedding model and chunking",
+    note: "Right category in the top 8. MiniLM is about as good as GTE-small and five times faster, so it's the one running on this site.",
     rows: models.map(([mo, label]) => ({ label, values: [
       { name: "Section chunks", value: at("model_chunking", "section", mo)?.precision_category, color: COLORS[0] },
       { name: "Fixed windows", value: at("model_chunking", "fixed", mo)?.precision_category, color: COLORS[1] }] })),
   });
   const bycat = [...(res.retrieval_by_category ?? [])].sort((a, b) => b["p@8_category"] - a["p@8_category"]);
   barChart(document.getElementById("c-bycat"), {
-    title: "Category P@8 by job category", fmt: (v) => pct(v),
-    rows: bycat.map((r) => ({ label: prettyCategory(r.category), values: [{ name: "P@8", value: r["p@8_category"], color: COLORS[0] }] })),
+    title: "By job category", fmt: (v) => pct(v),
+    note: "Specific jobs (chef, trainer) are easy. Broad keyword categories like BPO and Automobile are hard because their resumes cover many unrelated jobs.",
+    rows: bycat.map((r) => ({ label: prettyCategory(r.category), values: [{ name: "Right category in top 8", value: r["p@8_category"], color: COLORS[0] }] })),
   });
   const o = res.onet_linking;
-  document.getElementById("c-onet").innerHTML = `<h3>Linking jobs to O*NET</h3>
-    <p class="small muted">Each posting title was matched to O*NET's 54k alternate titles with FAISS; a job description is
-    matched live to occupation profiles. Agreement between the two on the evaluation set:</p>
+  document.getElementById("c-onet").innerHTML = `<h3>Matching jobs to O*NET</h3>
+    <p class="small muted">We matched every posting title to O*NET's 54k alternate job titles with FAISS. On the live site,
+    the posting is matched to whole occupation profiles instead. Here's how often the two agree:</p>
     ${o ? `<div class="tiles" style="grid-template-columns:repeat(3,1fr)">
-      <div class="tile"><div class="label">Top-1 exact</div><div class="value">${pct(o.top1_exact)}</div></div>
-      <div class="tile"><div class="label">Top-3 exact</div><div class="value">${pct(o.top3_exact)}</div></div>
-      <div class="tile"><div class="label">Same major group</div><div class="value">${pct(o.top1_same_major_group)}</div></div></div>
-      <p class="small">O*NET distinguishes 1,016 occupations, so near-misses (e.g. “Accountants and Auditors” vs “Budget Analysts”)
-      are common; the profile still supplies relevant skills and demand.</p>` : "<p class='muted'>Not available.</p>"}
-    <p class="small"><b>${(eda.postings_mapped_to_category_pct ?? 0)}%</b> of postings map to one of the 24 resume categories by title;
-    87% of postings are linked to an O*NET occupation.</p>`;
+      <div class="tile lit"><div class="label">Same occupation</div><div class="value">${pct(o.top1_exact)}</div></div>
+      <div class="tile lit"><div class="label">In our top 3</div><div class="value">${pct(o.top3_exact)}</div></div>
+      <div class="tile lit"><div class="label">Same job family</div><div class="value">${pct(o.top1_same_major_group)}</div></div></div>
+      <p class="small">O*NET splits work into 1,016 occupations, so near misses happen a lot (Accountants and Auditors vs Budget
+      Analysts, say). Even then the profile still brings in the right kind of skills.</p>` : "<p class='muted'>Not available.</p>"}
+    <p class="small"><b>${(eda.postings_mapped_to_category_pct ?? 0)}%</b> of postings fall into one of the 24 resume categories by title,
+    and 87% are linked to an O*NET occupation.</p>`;
 
   // --- generation
   const ga = document.getElementById("gen-area");
   if (!res.generation?.length) {
-    ga.innerHTML = `<div class="card empty">Generation results appear here after running <code>pipeline/10_eval_generation.py</code>.</div>`;
+    ga.innerHTML = `<div class="card empty reveal">Generation results show up here after running <code>pipeline/10_eval_generation.py</code>.</div>`;
   } else {
     ga.innerHTML = `<div class="grid-2">${block("c-gen")}${block("c-judge")}</div><div class="grid-2" style="margin-top:16px">${block("c-gen2")}${block("c-calib")}</div>`;
     const order = ["llm_only", "rag_small", "rag", "rag_small_no_onet", "rag_small_k3", "rag_small_k15"].filter((s) => gen[s]);
-        barChart(document.getElementById("c-gen"), {
-      title: "Statements verified against real resumes",
-      note: "An independent verifier LLM checks each statement against the closest lines of real resumes retrieved for the job (same pool for every system).",
+    barChart(document.getElementById("c-gen"), {
+      title: "Lines backed by real resumes",
+      note: "A separate model (a different family than the writer) checks each line against the closest lines from real resumes retrieved for the job. The gray bar is the chance level: how often the same lines also pass against an unrelated job's resumes.",
       rows: order.filter((s) => gen[s]?.grounded != null).map((s) => ({ label: SYSTEM[s], values: [
-        { name: "Supported by this job's evidence", value: gen[s].grounded, color: COLORS[0] },
-        { name: "Chance level (unrelated job's evidence)", value: gen[s].chance_level ?? null, color: "var(--line-strong)" }] })),
+        { name: "Backed by this job's resumes", value: gen[s].grounded, color: COLORS[0] },
+        { name: "Chance level", value: gen[s].chance_level ?? null, color: "var(--line-strong)" }] })),
       fmt: (v) => pct(v),
     });
     barChart(document.getElementById("c-gen2"), {
       title: "Skill coverage",
       rows: ["baseline", ...order].filter((s) => gen[s]).map((s) => ({ label: SYSTEM[s], values: [
-        { name: "Job's hard skills", value: gen[s].jd_skill_coverage, color: COLORS[0] },
-        { name: "Occupation's in-demand skills", value: gen[s].market_skill_coverage, color: COLORS[1] }] })),
+        { name: "Skills from the posting", value: gen[s].jd_skill_coverage, color: COLORS[0] },
+        { name: "Skills employers ask for most", value: gen[s].market_skill_coverage, color: COLORS[1] }] })),
       fmt: (v) => pct(v),
     });
     const c = res.calibration ?? {};
-    document.getElementById("c-calib").innerHTML = `<h3>Is the grounding check trustworthy?</h3>
+    document.getElementById("c-calib").innerHTML = `<h3>Can we trust the grounding check?</h3>
       <dl class="kv">
-        <dt>Verifier</dt><dd>${esc(c.verifier ?? "–")} (different model family than the generator)</dd>
-        <dt>Chance level</dt><dd>${pct(c.negative_control_supported)} of statements also “match” evidence from an unrelated job
-          (generic lines such as communication or degrees) — n = ${c.negative_control_n ?? 0}. Grounding is judged by the lift above this:
-          RAG ${pct(gen.rag?.grounding_lift)}, LLM only ${pct(gen.llm_only?.grounding_lift)}.</dd>
-        <dt>Citations</dt><dd>${pct(gen.rag?.citation_rate)} of RAG statements cite at least one retrieved excerpt; ids that were not retrieved are removed</dd>
-        <dt>Live check</dt><dd>embedding similarity ≥ ${c.embedding_tau ?? "–"} agrees with the verifier on
-          ${pct(c.embedding_agreement_with_verifier)} of ${c.n_statements_verified ?? 0} statements (AUC ${c.embedding_auc_vs_verifier ?? "–"})</dd>
+        <dt>Checker</dt><dd>${esc(c.verifier ?? "-")}, a different model family than the writer</dd>
+        <dt>Chance level</dt><dd>${pct(c.negative_control_supported)} of lines also pass against an unrelated job's resumes
+          (generic lines like "strong communicator" or a degree). So we look at the gap above that: ScholarStack ${pct(gen.rag?.grounding_lift)},
+          the LLM alone ${pct(gen.llm_only?.grounding_lift)}.</dd>
+        <dt>Citations</dt><dd>${pct(gen.rag?.citation_rate)} of ScholarStack's lines cite at least one excerpt. Citations to anything we didn't retrieve get removed.</dd>
+        <dt>Live check</dt><dd>The quick check you see on the Generate page (embedding similarity of at least ${c.embedding_tau ?? "-"}) agrees with
+          the checker on ${pct(c.embedding_agreement_with_verifier)} of ${c.n_statements_verified ?? 0} lines.</dd>
       </dl>
-      <p class="small muted" style="margin-top:8px">A sample of verdicts is in <code>reports/results/groundedness_audit.csv</code> for manual review.</p>`;
+      <p class="small muted" style="margin-top:8px">A sample of the checker's calls is in <code>reports/results/groundedness_audit.csv</code> so we can review them by hand.</p>`;
     const judge = (res.judge ?? []).filter((j) => j.criterion === "preferred");
     const pairs = [...new Set(judge.map((j) => j.pair))];
-    document.getElementById("c-judge").innerHTML = `<h3>LLM-judge preference</h3><p class="small muted">A separate model acting as a
-      career advisor compares two outputs per job on specificity, actionability, alignment and realism; A/B order is randomised.</p>` + (pairs.length ? pairs.map((p) => {
+    document.getElementById("c-judge").innerHTML = `<h3>Which one would a career advisor pick?</h3><p class="small muted">A separate model plays
+      career advisor and compares two outputs for the same job on how specific, actionable, on-target and realistic they are. We shuffle
+      which one it sees first.</p>` + (pairs.length ? pairs.map((p) => {
       const rows = judge.filter((j) => j.pair === p);
       const [a, b] = p.split(" vs ");
       const share = (w) => rows.filter((r) => r.winner === w).length / rows.length;
       return `<p style="margin:14px 0 4px"><b>${esc(SYSTEM[a])}</b> vs <b>${esc(SYSTEM[b])}</b> <span class="muted small">(${rows.length} jobs)</span></p>
-        <div class="bars"><div class="bar-row"><span>${esc(SYSTEM[a])} preferred</span><span class="track"><span class="fill" style="display:block;width:${share(a) * 100}%"></span></span><span class="v">${pct(share(a))}</span></div>
-        <div class="bar-row"><span>Tie</span><span class="track"><span class="fill" style="display:block;background:var(--line-strong);width:${share("tie") * 100}%"></span></span><span class="v">${pct(share("tie"))}</span></div>
-        <div class="bar-row"><span>${esc(SYSTEM[b])} preferred</span><span class="track"><span class="fill" style="display:block;background:var(--s2);width:${share(b) * 100}%"></span></span><span class="v">${pct(share(b))}</span></div></div>`;
+        <div class="bars"><div class="bar-row"><span>Picked ${esc(SYSTEM[a])}</span><span class="track"><span class="fill" style="width:${share(a) * 100}%"></span></span><span class="v">${pct(share(a))}</span></div>
+        <div class="bar-row"><span>Tie</span><span class="track"><span class="fill" style="background:var(--line-strong);width:${share("tie") * 100}%"></span></span><span class="v">${pct(share("tie"))}</span></div>
+        <div class="bar-row"><span>Picked ${esc(SYSTEM[b])}</span><span class="track"><span class="fill" style="background:var(--s2);width:${share(b) * 100}%"></span></span><span class="v">${pct(share(b))}</span></div></div>`;
     }).join("") : "<p class='muted'>No judge results.</p>");
   }
 
   // --- scale
   const fa = res.faiss ?? [];
   document.getElementById("c-faiss").innerHTML = `<h3>FAISS index benchmark</h3>
-    <table class="data"><thead><tr><th>Index</th><th>Corpus</th><th class="num">Vectors</th><th class="num">Build (s)</th><th class="num">Latency (ms)</th><th class="num">Recall@10</th></tr></thead>
+    <table class="data"><thead><tr><th>Index</th><th>Data</th><th class="num">Vectors</th><th class="num">Build (s)</th><th class="num">Query (ms)</th><th class="num">Recall@10</th></tr></thead>
     <tbody>${fa.map((r) => `<tr><td>${esc(r.index)}</td><td>${esc(r.corpus)}</td><td class="num">${r.vectors.toLocaleString()}</td>
     <td class="num">${r.build_s.toFixed(2)}</td><td class="num">${r.latency_ms.toFixed(2)}</td><td class="num">${pct(r["recall@10"], 1)}</td></tr>`).join("")}</tbody></table>
-    <p class="small muted" style="margin-top:8px">The live site serves the same vectors from Postgres/pgvector (HNSW); the loader checks that its top-8 matches FAISS exact search.</p>`;
+    <p class="small muted" style="margin-top:8px">The site serves the same vectors from Postgres with pgvector (HNSW). When we load the
+    database we check that its top 8 matches FAISS exact search.</p>`;
   const et = res.embedding_timing ?? [];
-  document.getElementById("c-embed").innerHTML = `<h3>Batched embedding throughput</h3>
-    <table class="data"><thead><tr><th>Corpus</th><th>Model</th><th class="num">Texts</th><th class="num">Seconds</th><th class="num">Texts/s</th></tr></thead>
+  document.getElementById("c-embed").innerHTML = `<h3>Embedding in batches</h3>
+    <table class="data"><thead><tr><th>Data</th><th>Model</th><th class="num">Texts</th><th class="num">Seconds</th><th class="num">Per second</th></tr></thead>
     <tbody>${et.map((r) => `<tr><td>${esc(r.what)}</td><td>${esc(r.model)}</td><td class="num">${r.n.toLocaleString()}</td><td class="num">${r.seconds.toFixed(1)}</td><td class="num">${Math.round(r.per_sec)}</td></tr>`).join("")}
-    <tr><td>Job postings (all)</td><td>all-MiniLM-L6-v2</td><td class="num">106,291</td><td class="num">577</td><td class="num">184</td></tr></tbody></table>`;
+    <tr><td>All job postings</td><td>all-MiniLM-L6-v2</td><td class="num">106,291</td><td class="num">577</td><td class="num">184</td></tr></tbody></table>`;
 
   // --- gallery
-  const figs = [["eda_resume_categories", "Resumes per category: imbalance of 5.5x between the largest and smallest class."],
-    ["eda_lengths", "Resume and job-description length distributions, used to choose chunk sizes."],
-    ["eda_top_skills", "Skills in resumes vs. job postings for six categories."],
-    ["eda_embedding_space", "Resume embeddings cluster by occupation (10-NN purity 0.65)."],
-    ["eda_postings_overview", "Industries, work types and experience levels of the postings."],
-    ["eda_postings_missingness", "Missing values in the raw postings."],
-    ["eda_category_coverage", "Postings mapped to each resume category vs. resumes available."],
-    ["results_faiss_benchmark", "FAISS: exact vs. approximate indexes."]];
+  const figs = [["eda_resume_categories", "Resumes per category. The biggest class is 5.5 times the smallest."],
+    ["eda_lengths", "How long resumes and job ads are. We used this to pick chunk sizes."],
+    ["eda_top_skills", "Skills in resumes compared with what postings ask for, in six categories."],
+    ["eda_embedding_space", "Resume embeddings group by occupation (10-NN purity 0.65)."],
+    ["eda_postings_overview", "Industries, work types and experience levels in the postings."],
+    ["eda_postings_missingness", "Missing values in the raw postings. Salary is missing 71% of the time."],
+    ["eda_category_coverage", "Postings in each resume category next to the resumes we have."],
+    ["results_faiss_benchmark", "FAISS: exact search vs approximate indexes."]];
   document.getElementById("gallery").innerHTML = figs.map(([f, cap]) =>
-    `<figure><img src="figures/${f}.png" alt="${esc(cap)}" loading="lazy"><figcaption>${esc(cap)}</figcaption></figure>`).join("");
+    `<figure class="reveal"><img src="figures/${f}.png" alt="${esc(cap)}" loading="lazy"><figcaption>${esc(cap)}</figcaption></figure>`).join("");
 
   // --- live usage
   const u = document.getElementById("c-usage");
   if (!api.isConfigured()) {
-    u.innerHTML = "<p class='small muted'>Backend not configured.</p>";
+    u.innerHTML = "<p class='small muted'>The backend isn't set up on this copy of the site.</p>";
   } else {
     try {
       const s = await api.usageStats();
       const avg = s.avg_rating ?? {};
       u.innerHTML = `<div class="tiles" style="margin:0">
-        <div class="tile"><div class="label">Reference resumes generated</div><div class="value">${s.runs}</div></div>
-        <div class="tile"><div class="label">Ratings submitted</div><div class="value">${s.ratings}</div></div>
-        <div class="tile"><div class="label">Avg rating, RAG</div><div class="value">${avg.rag ?? "–"}</div><div class="note">out of 5</div></div>
-        <div class="tile"><div class="label">Avg rating, baselines</div><div class="value">${avg.baseline ?? "–"} / ${avg.llm_only ?? "–"}</div><div class="note">TF-IDF / LLM only</div></div></div>`;
+        <div class="tile lit"><div class="label">Reference resumes generated</div><div class="value">${s.runs}</div></div>
+        <div class="tile lit"><div class="label">Ratings</div><div class="value">${s.ratings}</div></div>
+        <div class="tile lit"><div class="label">Average rating, ScholarStack</div><div class="value">${avg.rag ?? "-"}</div><div class="note">out of 5</div></div>
+        <div class="tile lit"><div class="label">Average rating, baselines</div><div class="value">${avg.baseline ?? "-"} / ${avg.llm_only ?? "-"}</div><div class="note">keywords / LLM alone</div></div></div>`;
     } catch (e) {
-      u.innerHTML = `<p class="small muted">Usage stats unavailable: ${esc(e.message)}</p>`;
+      u.innerHTML = `<p class="small muted">Couldn't load usage numbers: ${esc(e.message)}</p>`;
     }
   }
 }

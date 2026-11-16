@@ -1,4 +1,4 @@
-"""Step 3 — Clean & filter: resumes (HTML -> sections), postings (Dask), O*NET profiles.
+"""Step 3 - Clean & filter: resumes (HTML -> sections), postings (Dask), O*NET profiles.
 
 Output: data/processed/{resumes.parquet, postings/, onet_occupations.parquet}
 """

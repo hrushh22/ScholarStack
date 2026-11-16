@@ -1,4 +1,4 @@
-"""Step 6 — Store & index: FAISS indexes over resume chunks and all job postings,
+"""Step 6 - Store & index: FAISS indexes over resume chunks and all job postings,
 plus a benchmark of exact vs. approximate index types (build time, latency, recall).
 
 Output: data/models/faiss_*.index, data/models/emb_postings_*.npy,

@@ -1,4 +1,4 @@
-"""Step 12 — Deploy the live backend to Supabase.
+"""Step 12 - Deploy the live backend to Supabase.
 
   1. reads the project's publishable (browser) key and stores it in .env
   2. stores the LLM settings as Edge Function secrets (the key never reaches the browser)
@@ -101,4 +101,4 @@ if __name__ == "__main__":
     r = httpx.get(url, headers={"apikey": browser_key}, timeout=60)
     log.info("health check %s -> %s %s", url, r.status_code, r.text[:200])
     subprocess.run([str(ROOT / ".venv" / "bin" / "python"), str(ROOT / "pipeline" / "13_export_web.py")], check=True)
-    log.info("done — commit web/js/config.js and push to publish the site")
+    log.info("done - commit web/js/config.js and push to publish the site")

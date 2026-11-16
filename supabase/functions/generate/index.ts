@@ -112,6 +112,32 @@ async function chat(messages: { role: string; content: string }[]) {
   throw new Error(`LLM request failed: ${lastError}`);
 }
 
+// Coerce the model's JSON into the schema (smaller models sometimes return strings where objects belong).
+// deno-lint-ignore no-explicit-any
+function normalizeOutput(out: any) {
+  if (!out || typeof out !== "object" || Array.isArray(out)) return {};
+  // deno-lint-ignore no-explicit-any
+  const asList = (v: any) => (Array.isArray(v) ? v : v && typeof v === "object" || typeof v === "string" ? [v] : []);
+  // deno-lint-ignore no-explicit-any
+  const stmt = (x: any) =>
+    typeof x === "string" ? { text: x, sources: [] }
+    : x && typeof x === "object"
+    ? { ...x, text: String(x.text ?? ""), sources: asList(x.sources).filter((s: unknown) => typeof s === "string") }
+    : null;
+  for (const key of ["summary", "education", "certifications"]) out[key] = asList(out[key]).map(stmt).filter(Boolean);
+  // deno-lint-ignore no-explicit-any
+  out.skills = asList(out.skills).map((g: any) =>
+    typeof g === "string" ? { group: "Skills", items: [{ name: g, source: "" }] }
+    : { ...g, items: asList(g?.items).map((i: unknown) => typeof i === "string" ? { name: i, source: "" } : i)
+      .filter((i: unknown) => i && typeof i === "object") }
+  );
+  // deno-lint-ignore no-explicit-any
+  out.experience = asList(out.experience).filter((r: any) => r && typeof r === "object")
+    // deno-lint-ignore no-explicit-any
+    .map((r: any) => ({ ...r, bullets: asList(r.bullets).map(stmt).filter(Boolean) }));
+  return out;
+}
+
 function parseJson(text: string) {
   const cleaned = text.trim().replace(/^```(?:json)?/i, "").replace(/```$/, "").trim();
   return JSON.parse(cleaned);
@@ -192,7 +218,7 @@ Deno.serve(async (req) => {
     }
 
     const { data, model } = await chat(messages);
-    const output = parseJson(data.choices?.[0]?.message?.content ?? "{}");
+    const output = normalizeOutput(parseJson(data.choices?.[0]?.message?.content ?? "{}"));
     const dropped = mode === "rag" ? validateCitations(output, new Set(chunks.map((c) => c.chunk_id))) : 0;
     const latency = Date.now() - started;
 

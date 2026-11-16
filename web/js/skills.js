@@ -1,4 +1,4 @@
-// Rule-based skill extraction — a port of src/scholarstack/skills.py (SkillExtractor).
+// Rule-based skill extraction - a port of src/scholarstack/skills.py (SkillExtractor).
 // Same lexicon (web/data/skills_lexicon.json), same whole-phrase + boundary rules,
 // same case-sensitive handling for ambiguous product names.
 

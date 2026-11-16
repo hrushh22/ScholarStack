@@ -1,8 +1,8 @@
-"""TF-IDF baselines — "generic keyword advice" with no retrieval of similar people
+"""TF-IDF baselines - "generic keyword advice" with no retrieval of similar people
 and no generation.
 
 * TfidfRetriever: sparse retrieval of resume chunks (retrieval-level baseline).
-* keyword_advice: the user-facing baseline — scores resume/JD keyword overlap and
+* keyword_advice: the user-facing baseline - scores resume/JD keyword overlap and
   lists the highest-weighted JD terms that the resume is missing.
 
 The fitted vocabulary + IDF weights are exported so the browser can run exactly

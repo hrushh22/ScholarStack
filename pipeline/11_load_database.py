@@ -1,4 +1,4 @@
-"""Step 11 — Load the serving database (Supabase Postgres + pgvector).
+"""Step 11 - Load the serving database (Supabase Postgres + pgvector).
 
 Applies supabase/migrations/*.sql, then bulk-loads (COPY) the resume chunks with
 their embeddings and the O*NET occupation profiles with LinkedIn demand stats.

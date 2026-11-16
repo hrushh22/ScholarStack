@@ -1,4 +1,4 @@
-# Minimal Supabase CLI config — only used to deploy the Edge Function.
+# Minimal Supabase CLI config - only used to deploy the Edge Function.
 project_id = "scholarstack"
 
 [functions.generate]

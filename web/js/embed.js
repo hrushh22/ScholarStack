@@ -1,4 +1,4 @@
-// Sentence embeddings in the browser with transformers.js — the same
+// Sentence embeddings in the browser with transformers.js - the same
 // all-MiniLM-L6-v2 model (mean pooling + L2 norm) used to build the index.
 import { env, pipeline } from "https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1";
 import { CONFIG } from "./config.js";

@@ -1,4 +1,4 @@
-"""Step 13 — Export everything the static web app needs into web/data/.
+"""Step 13 - Export everything the static web app needs into web/data/.
 
   skills_lexicon.json   lexicon for live skill extraction (same rules as Python)
   tfidf.json            vocabulary + IDF for the live TF-IDF baseline

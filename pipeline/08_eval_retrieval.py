@@ -1,4 +1,4 @@
-"""Step 8 — Retrieval experiments (no LLM needed).
+"""Step 8 - Retrieval experiments (no LLM needed).
 
 Compares, on the held-out set of 240 job descriptions:
   * query construction (raw JD vs. title+skills vs. hybrid)

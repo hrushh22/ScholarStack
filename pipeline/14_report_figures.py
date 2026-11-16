@@ -1,4 +1,4 @@
-"""Step 14 — Results figures for the report and slides (from reports/results/*.csv).
+"""Step 14 - Results figures for the report and slides (from reports/results/*.csv).
 
 Run after the evaluation steps; figures for missing results are skipped.
 """
@@ -8,7 +8,7 @@ import pandas as pd
 
 from scholarstack.categories import pretty
 from scholarstack.config import log, path
-from scholarstack.viz import INK_2, MUTED, SERIES, SURFACE, hbar, plt, savefig
+from scholarstack.viz import NEUTRAL, INK_2, MUTED, SERIES, SURFACE, hbar, plt, savefig
 
 R = path("results")
 SYSTEM_LABEL = {"baseline": "TF-IDF keywords", "llm_only": "LLM only (120B)", "rag": "RAG (ours, 120B)",
@@ -139,7 +139,7 @@ def generation_figures():
     rows = [o for o in order if not pd.isna(s.loc[o, "grounded"])]
     y = np.arange(len(rows))
     vals = [float(s.loc[o, "grounded"]) for o in rows]
-    ax.barh(y, vals, height=0.6, color=[SERIES[0] if o == "rag" else "#86b6ef" for o in rows])
+    ax.barh(y, vals, height=0.6, color=[SERIES[0] if o == "rag" else NEUTRAL for o in rows])
     for yi, o, v in zip(y, rows, vals):
         ax.text(v + 0.01, yi, f"{v:.0%}", va="center", fontsize=8.5, color=INK_2)
         chance = s.loc[o, "chance_level"] if "chance_level" in s and not pd.isna(s.loc[o, "chance_level"]) else None

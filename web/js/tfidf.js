@@ -1,4 +1,4 @@
-// TF-IDF keyword-advice baseline — a port of src/scholarstack/baseline.py.
+// TF-IDF keyword-advice baseline - a port of src/scholarstack/baseline.py.
 // Reproduces scikit-learn's TfidfVectorizer: lowercase, token pattern, stop words
 // removed before forming 1-2-grams, sublinear tf (1 + log tf), fitted idf, L2 norm.
 

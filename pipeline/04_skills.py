@@ -1,4 +1,4 @@
-"""Step 4 — Skill extraction: build the O*NET-aligned lexicon and extract skills
+"""Step 4 - Skill extraction: build the O*NET-aligned lexicon and extract skills
 from every resume and every job posting (postings in parallel with Dask).
 
 Output: data/processed/{skills_lexicon.json, resume_skills.parquet, posting_skills/},

@@ -37,7 +37,7 @@ def open_raw(relative: str, mode: str = "rb"):
 def upload_raw(files: list[Path]) -> None:
     base = env("RAW_STORAGE_URL")
     if not base:
-        log.info("RAW_STORAGE_URL not set — keeping raw data local only.")
+        log.info("RAW_STORAGE_URL not set - keeping raw data local only.")
         return
     fs, _ = fsspec.core.url_to_fs(base, **storage_options())
     root = path("raw")
