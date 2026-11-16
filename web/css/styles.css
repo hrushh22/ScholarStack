@@ -91,6 +91,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 24px 20px 64px; }
   box-shadow: var(--shadow);
 }
 .card + .card { margin-top: 16px; }
+.grid-2 > .card, .grid-3 > .card { margin-top: 0; }
 .card-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
 .card-head h2, .card-head h3 { margin: 0; }
 .grid-gen { display: grid; grid-template-columns: minmax(320px, 5fr) minmax(0, 7fr); gap: 20px; align-items: start; }
@@ -288,7 +289,8 @@ table.data td.num, table.data th.num { text-align: right; font-variant-numeric: 
 .section-title p { color: var(--ink-2); margin: 0; }
 
 /* ---------------------------------------------------------------- method */
-.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 10px; }
+.flow .node a { overflow-wrap: anywhere; }
 .flow .node { border: 1px solid var(--line); border-radius: 10px; padding: 12px; background: var(--surface); }
 .flow .node .n { font: 700 0.75rem var(--mono); color: var(--accent-ink); }
 .flow .node b { display: block; margin: 2px 0; }

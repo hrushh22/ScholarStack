@@ -78,6 +78,8 @@ alter table public.onet_occupations enable row level security;
 alter table public.runs             enable row level security;
 alter table public.feedback         enable row level security;
 
+grant usage on schema public to anon, authenticated;
+grant insert on public.feedback to anon, authenticated;
 drop policy if exists "anyone can rate" on public.feedback;
 create policy "anyone can rate" on public.feedback for insert to anon, authenticated with check (true);
 

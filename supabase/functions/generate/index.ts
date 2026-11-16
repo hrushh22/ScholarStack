@@ -196,7 +196,9 @@ Deno.serve(async (req) => {
 
     const { data: run } = await db.from("runs").insert({
       mode, job_title: title, jd_chars: jd.length, has_resume: !!resume, category, k, model,
-      retrieved_ids: chunks.map((c) => c.chunk_id), onet_code: occupation?.code ?? null, output,
+      retrieved_ids: chunks.map((c) => c.chunk_id), onet_code: occupation?.code ?? null,
+      // the gap analysis can quote the applicant's resume, which is never stored
+      output: { ...output, gap_analysis: output.gap_analysis ? "omitted" : null },
       latency_ms: latency, prompt_tokens: data.usage?.prompt_tokens, output_tokens: data.usage?.completion_tokens,
     }).select("id").single();
 
