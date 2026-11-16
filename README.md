@@ -159,7 +159,7 @@ CC BY 4.0 licence. Raw resume text is not redistributed in this repository.
 
 ## Team
 
-Hrushik Nimesh Mehta · Dhrumil Vinay Panchal · Sonika Srinivas · Parjanya Hebbale Krishna
+Hrushik Mehta · Dhrumil Panchal · Sonika Srinivas · Parjanya Hebbale Krishna
 
 ## References
 
