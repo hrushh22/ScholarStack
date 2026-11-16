@@ -1,0 +1,244 @@
+{
+  "resumes": {
+    "rows": 2484,
+    "columns": {
+      "ID": "int64",
+      "Resume_str": "str",
+      "Resume_html": "str",
+      "Category": "str"
+    },
+    "null_rate": {
+      "ID": 0.0,
+      "Resume_str": 0.0,
+      "Resume_html": 0.0,
+      "Category": 0.0
+    },
+    "duplicate_keys": 0,
+    "Resume_str_words": {
+      "mean": 811.3,
+      "median": 757.0,
+      "min": 0,
+      "max": 5190,
+      "outliers_low": 40,
+      "outliers_high": 135
+    },
+    "Resume_str_duplicate_texts": 2,
+    "category_counts": {
+      "INFORMATION-TECHNOLOGY": 120,
+      "BUSINESS-DEVELOPMENT": 120,
+      "ADVOCATE": 118,
+      "CHEF": 118,
+      "FINANCE": 118,
+      "ENGINEERING": 118,
+      "ACCOUNTANT": 118,
+      "FITNESS": 117,
+      "AVIATION": 117,
+      "SALES": 116,
+      "HEALTHCARE": 115,
+      "CONSULTANT": 115,
+      "BANKING": 115,
+      "CONSTRUCTION": 112,
+      "PUBLIC-RELATIONS": 111,
+      "HR": 110,
+      "DESIGNER": 107,
+      "ARTS": 103,
+      "TEACHER": 102,
+      "APPAREL": 97,
+      "DIGITAL-MEDIA": 96,
+      "AGRICULTURE": 63,
+      "AUTOMOBILE": 36,
+      "BPO": 22
+    }
+  },
+  "postings": {
+    "rows": 123849,
+    "columns": {
+      "job_id": "int64",
+      "company_name": "string",
+      "title": "string",
+      "description": "string",
+      "max_salary": "float64",
+      "pay_period": "string",
+      "location": "string",
+      "views": "float64",
+      "med_salary": "float64",
+      "min_salary": "float64",
+      "formatted_work_type": "string",
+      "applies": "float64",
+      "remote_allowed": "float64",
+      "formatted_experience_level": "string",
+      "skills_desc": "string",
+      "listed_time": "float64",
+      "normalized_salary": "float64"
+    },
+    "null_rate": {
+      "job_id": 0.0,
+      "company_name": 0.0139,
+      "title": 0.0,
+      "description": 0.0001,
+      "max_salary": 0.7594,
+      "pay_period": 0.7087,
+      "location": 0.0,
+      "views": 0.0136,
+      "med_salary": 0.9493,
+      "min_salary": 0.7594,
+      "formatted_work_type": 0.0,
+      "applies": 0.8117,
+      "remote_allowed": 0.8769,
+      "formatted_experience_level": 0.2375,
+      "skills_desc": 0.9803,
+      "listed_time": 0.0,
+      "normalized_salary": 0.7087
+    },
+    "duplicate_keys": 0,
+    "description_words": {
+      "mean": 523.0,
+      "median": 477.0,
+      "min": 0,
+      "max": 3400,
+      "outliers_low": 0,
+      "outliers_high": 2104
+    },
+    "description_duplicate_texts": 16090,
+    "work_type_counts": {
+      "Full-time": 98814,
+      "Contract": 12117,
+      "Part-time": 9696,
+      "Temporary": 1190,
+      "Internship": 983,
+      "Volunteer": 562,
+      "Other": 487
+    },
+    "experience_level_counts": {
+      "Mid-Senior level": 41489,
+      "Entry level": 36708,
+      "Not stated": 29409,
+      "Associate": 9826,
+      "Director": 3746,
+      "Internship": 1449,
+      "Executive": 1222
+    }
+  },
+  "onet": {
+    "Occupation Data": {
+      "rows": 1016,
+      "columns": [
+        "O*NET-SOC Code",
+        "Title",
+        "Description"
+      ],
+      "occupations": 1016
+    },
+    "Essential Skills": {
+      "rows": 18200,
+      "columns": [
+        "O*NET-SOC Code",
+        "Element ID",
+        "Element Name",
+        "Scale ID",
+        "Data Value",
+        "N",
+        "Standard Error",
+        "Lower CI Bound",
+        "Upper CI Bound",
+        "Recommend Suppress",
+        "Not Relevant",
+        "Date",
+        "Domain Source"
+      ],
+      "occupations": 910
+    },
+    "Transferable Skills": {
+      "rows": 45500,
+      "columns": [
+        "O*NET-SOC Code",
+        "Element ID",
+        "Element Name",
+        "Scale ID",
+        "Data Value",
+        "N",
+        "Standard Error",
+        "Lower CI Bound",
+        "Upper CI Bound",
+        "Recommend Suppress",
+        "Not Relevant",
+        "Date",
+        "Domain Source"
+      ],
+      "occupations": 910
+    },
+    "Knowledge": {
+      "rows": 60060,
+      "columns": [
+        "O*NET-SOC Code",
+        "Element ID",
+        "Element Name",
+        "Scale ID",
+        "Data Value",
+        "N",
+        "Standard Error",
+        "Lower CI Bound",
+        "Upper CI Bound",
+        "Recommend Suppress",
+        "Not Relevant",
+        "Date",
+        "Domain Source"
+      ],
+      "occupations": 910
+    },
+    "Software Skills": {
+      "rows": 31821,
+      "columns": [
+        "O*NET-SOC Code",
+        "Workplace Example",
+        "Element ID",
+        "Element Name",
+        "Hot Technology",
+        "In Demand"
+      ],
+      "occupations": 923
+    },
+    "Task Statements": {
+      "rows": 18838,
+      "columns": [
+        "O*NET-SOC Code",
+        "Task ID",
+        "Task",
+        "Task Type",
+        "Incumbents Responding",
+        "Date",
+        "Domain Source"
+      ],
+      "occupations": 923
+    },
+    "Job Titles": {
+      "rows": 54269,
+      "columns": [
+        "O*NET-SOC Code",
+        "Job Title",
+        "Short Title",
+        "Source(s)"
+      ],
+      "occupations": 1016
+    },
+    "Abilities": {
+      "rows": 94640,
+      "columns": [
+        "O*NET-SOC Code",
+        "Element ID",
+        "Element Name",
+        "Scale ID",
+        "Data Value",
+        "N",
+        "Standard Error",
+        "Lower CI Bound",
+        "Upper CI Bound",
+        "Recommend Suppress",
+        "Not Relevant",
+        "Date",
+        "Domain Source"
+      ],
+      "occupations": 910
+    }
+  }
+}

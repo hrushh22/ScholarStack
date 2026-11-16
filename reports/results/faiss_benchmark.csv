@@ -1,0 +1,7 @@
+index,vectors,build_s,latency_ms,recall@10,corpus
+Flat (exact),27207,0.014,0.714,1.0,resume chunks
+HNSW (M=32),27207,0.768,0.144,0.9676,resume chunks
+IVF-Flat,27207,0.298,0.059,0.8514,resume chunks
+Flat (exact),106291,0.054,1.956,1.0,job postings
+HNSW (M=32),106291,5.13,0.25,0.9914,job postings
+IVF-Flat,106291,1.947,0.101,0.9398,job postings

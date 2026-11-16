@@ -1,0 +1,14 @@
+[project]
+name = "scholarstack"
+version = "1.0.0"
+description = "Grounding resume advice in evidence: a RAG system for job-specific reference resumes (BDA 696)"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+license = { file = "LICENSE" }
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

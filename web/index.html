@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ScholarStack</title>
+  <meta name="description" content="Evidence-grounded reference resumes: retrieval-augmented generation over real resumes, LinkedIn postings and O*NET.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232a78d6'/%3E%3Cpath d='M8 11h16M8 16h16M8 21h10' stroke='white' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#generate">
+      <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#2a78d6"/><path d="M8 11h16M8 16h16M8 21h10" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg>
+      ScholarStack
+    </a>
+    <nav class="tabs" role="tablist" aria-label="Sections">
+      <button class="tab" role="tab" data-view="generate" aria-selected="true">Generate</button>
+      <button class="tab" role="tab" data-view="evaluation" aria-selected="false">Evaluation</button>
+      <button class="tab" role="tab" data-view="method" aria-selected="false">How it works</button>
+    </nav>
+    <span class="spacer"></span>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle dark mode">◐ Theme</button>
+    <a class="icon-btn" href="https://github.com/hrushh22/ScholarStack" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</header>
+
+<main>
+  <!-- ============================================================ GENERATE -->
+  <section class="view active" id="view-generate" aria-labelledby="gen-title">
+    <div class="hero">
+      <h1 id="gen-title">Resume advice grounded in evidence, not guesswork</h1>
+      <p>Paste a job description. ScholarStack finds resumes of people in similar roles, matches the job to its
+        O*NET occupation and LinkedIn demand, and writes a <b>reference resume</b> in which every line cites
+        the real resume excerpt it came from. Add your own resume to get a gap analysis.</p>
+    </div>
+
+    <div class="grid-gen">
+      <!-- inputs -->
+      <div class="sticky-col">
+        <div class="card">
+          <div class="card-head"><h2>Job description</h2><span class="small muted" id="jd-count"></span></div>
+          <label for="sample-jd">Try a real LinkedIn posting</label>
+          <select id="sample-jd"><option value="">Choose a sample role…</option></select>
+          <label for="job-title">Job title</label>
+          <input type="text" id="job-title" placeholder="e.g. Staff Accountant">
+          <label for="jd">Description</label>
+          <textarea id="jd" rows="11" placeholder="Paste the full job description here…"></textarea>
+          <div class="small muted" style="margin-top:8px">Skills detected <span id="skill-count"></span></div>
+          <div class="chips" id="jd-skills" style="margin-top:6px"></div>
+
+          <label for="resume" style="margin-top:18px">Your resume <span class="muted">(optional, for gap analysis)</span></label>
+          <select id="sample-resume"><option value="">Use a fictional sample resume…</option></select>
+          <textarea id="resume" rows="6" placeholder="Paste your resume as plain text. It is only used for this request and is not stored." style="margin-top:6px"></textarea>
+
+          <details class="options">
+            <summary>Options</summary>
+            <label for="k">Evidence excerpts retrieved (k): <span id="k-val">8</span></label>
+            <div class="range-row"><input type="range" id="k" min="3" max="15" value="8"></div>
+            <label for="category">Restrict evidence to a resume category</label>
+            <select id="category"><option value="">Any category (recommended)</option></select>
+            <label class="check"><input type="checkbox" id="compare-llm"> Also run the no-retrieval LLM for comparison</label>
+          </details>
+
+          <button class="btn block" id="go" type="button">Generate reference resume</button>
+          <div class="status-line" id="status"></div>
+          <div class="progress hidden" id="model-progress"><div></div></div>
+        </div>
+      </div>
+
+      <!-- results -->
+      <div>
+        <div class="notice hidden" id="backend-notice"></div>
+        <div class="pipeline" id="pipeline">
+          <div class="step" data-step="skills"><b>Skills</b><span>rule-based</span></div>
+          <div class="step" data-step="embed"><b>Embed</b><span>MiniLM</span></div>
+          <div class="step" data-step="retrieve"><b>Retrieve</b><span>pgvector</span></div>
+          <div class="step" data-step="onet"><b>O*NET</b><span>occupation</span></div>
+          <div class="step" data-step="generate"><b>Generate</b><span>LLM</span></div>
+          <div class="step" data-step="verify"><b>Verify</b><span>grounding</span></div>
+        </div>
+        <div class="tiles" id="tiles">
+          <div class="tile"><div class="label">Grounded statements</div><div class="value" id="t-grounded">–</div><div class="meter"><div id="m-grounded" style="width:0"></div></div><div class="note">supported by a cited real resume</div></div>
+          <div class="tile"><div class="label">JD skill coverage</div><div class="value" id="t-coverage">–</div><div class="meter"><div id="m-coverage" style="width:0"></div></div><div class="note">job's skills reflected</div></div>
+          <div class="tile"><div class="label">Evidence used</div><div class="value" id="t-evidence">–</div><div class="note" id="t-evidence-note">resume excerpts cited</div></div>
+          <div class="tile"><div class="label">Time</div><div class="value" id="t-time">–</div><div class="note" id="t-model">end to end</div></div>
+        </div>
+
+        <div class="card">
+          <div class="subtabs" role="tablist" aria-label="Results">
+            <button class="subtab" data-panel="resume" aria-selected="true">Reference resume</button>
+            <button class="subtab" data-panel="evidence" aria-selected="false">Evidence &amp; O*NET</button>
+            <button class="subtab" data-panel="gap" aria-selected="false">Gap analysis</button>
+            <button class="subtab" data-panel="compare" aria-selected="false">Compare with baselines</button>
+          </div>
+          <div class="panel" id="panel-resume">
+            <div class="empty">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg>
+              <div>Choose a sample role or paste a job description, then press <b>Generate</b>.</div>
+            </div>
+          </div>
+          <div class="panel hidden" id="panel-evidence"></div>
+          <div class="panel hidden" id="panel-gap"></div>
+          <div class="panel hidden" id="panel-compare"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ EVALUATION -->
+  <section class="view" id="view-evaluation" aria-labelledby="eval-title">
+    <div class="hero">
+      <h1 id="eval-title">Does grounding beat generic advice?</h1>
+      <p>Every number below comes from the offline pipeline in the repository, run on held-out job
+        descriptions that were never used to tune prompts or parameters.</p>
+    </div>
+    <div id="dashboard"></div>
+  </section>
+
+  <!-- ============================================================ METHOD -->
+  <section class="view" id="view-method" aria-labelledby="method-title">
+    <div class="hero">
+      <h1 id="method-title">How ScholarStack works</h1>
+      <p>A retrieval-augmented generation pipeline over three public data sources, built and evaluated in Python
+        and served from free infrastructure: GitHub Pages, Supabase (Postgres + pgvector) and Groq.</p>
+    </div>
+    <div id="method"></div>
+  </section>
+</main>
+
+<footer>
+  ScholarStack · BDA 696 Final Project, San Diego State University ·
+  Data: Kaggle resume dataset, LinkedIn job postings 2023–24, O*NET 31.0 (CC BY 4.0, U.S. DOL/ETA) ·
+  Reference resumes are examples to learn from; only include experience you actually have.
+</footer>
+
+<div class="popover hidden" id="popover" role="dialog" aria-live="polite"></div>
+<div class="tooltip hidden" id="tooltip" role="status"></div>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

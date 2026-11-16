@@ -1,0 +1,5 @@
+# Minimal Supabase CLI config — only used to deploy the Edge Function.
+project_id = "scholarstack"
+
+[functions.generate]
+verify_jwt = false

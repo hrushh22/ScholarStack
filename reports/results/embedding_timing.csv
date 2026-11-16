@@ -1,0 +1,10 @@
+what,model,n,seconds,per_sec
+resume chunks (section),all-MiniLM-L6-v2,27207,65.14,417.67
+resume chunks (fixed),all-MiniLM-L6-v2,21888,70.48,310.54
+O*NET profiles,all-MiniLM-L6-v2,1016,3.62,280.65
+resume chunks (section),bge-small-en-v1_5,27207,121.11,224.64
+resume chunks (fixed),bge-small-en-v1_5,21888,152.67,143.37
+O*NET profiles,bge-small-en-v1_5,1016,7.45,136.34
+resume chunks (section),gte-small,27207,104.92,259.31
+resume chunks (fixed),gte-small,21888,130.5,167.73
+O*NET profiles,gte-small,1016,6.61,153.76

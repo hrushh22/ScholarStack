@@ -1,0 +1,1201 @@
+category,skill,docs,share,source,name
+ACCOUNTANT,reconciliation,99,0.8389830508474576,resumes,reconciliation
+ACCOUNTANT,financial-statements,88,0.7457627118644068,resumes,financial statements
+ACCOUNTANT,microsoft-excel,83,0.7033898305084746,resumes,Microsoft Excel
+ACCOUNTANT,accounts-payable,78,0.6610169491525424,resumes,accounts payable
+ACCOUNTANT,general-ledger,77,0.652542372881356,resumes,general ledger
+ACCOUNTANT,reporting,77,0.652542372881356,resumes,reporting
+ACCOUNTANT,auditing,75,0.635593220338983,resumes,auditing
+ACCOUNTANT,payroll,72,0.6101694915254238,resumes,payroll
+ACCOUNTANT,accounts-receivable,66,0.559322033898305,resumes,accounts receivable
+ACCOUNTANT,journal-entries,63,0.5338983050847458,resumes,journal entries
+ACCOUNTANT,intuit-quickbooks,58,0.4915254237288136,resumes,Intuit QuickBooks
+ACCOUNTANT,budgeting,54,0.4576271186440678,resumes,budgeting
+ACCOUNTANT,communication,51,0.4322033898305085,resumes,communication
+ACCOUNTANT,treasury,49,0.4152542372881356,resumes,treasury
+ACCOUNTANT,fixed-assets,48,0.4067796610169492,resumes,fixed assets
+ACCOUNTANT,microsoft-office,48,0.4067796610169492,resumes,Microsoft Office
+ACCOUNTANT,administrative-support,40,0.3389830508474576,resumes,administrative support
+ACCOUNTANT,microsoft-outlook,39,0.3305084745762712,resumes,Microsoft Outlook
+ACCOUNTANT,tax-preparation,39,0.3305084745762712,resumes,tax preparation
+ACCOUNTANT,team-leadership,39,0.3305084745762712,resumes,team leadership
+ACCOUNTANT,contract-management,38,0.3220338983050847,resumes,contract management
+ACCOUNTANT,organization,38,0.3220338983050847,resumes,organization
+ACCOUNTANT,accruals,36,0.3050847457627119,resumes,accruals
+ACCOUNTANT,forecasting,36,0.3050847457627119,resumes,forecasting
+ACCOUNTANT,attention-to-detail,35,0.2966101694915254,resumes,attention to detail
+ADVOCATE,communication,70,0.5932203389830508,resumes,communication
+ADVOCATE,customer-service,67,0.5677966101694916,resumes,customer service
+ADVOCATE,team-leadership,66,0.559322033898305,resumes,team leadership
+ADVOCATE,organization,59,0.5,resumes,organization
+ADVOCATE,microsoft-excel,51,0.4322033898305085,resumes,Microsoft Excel
+ADVOCATE,teamwork,45,0.3813559322033898,resumes,teamwork
+ADVOCATE,customer-focus,37,0.3135593220338983,resumes,customer focus
+ADVOCATE,interpersonal-skills,37,0.3135593220338983,resumes,interpersonal skills
+ADVOCATE,problem-solving,35,0.2966101694915254,resumes,problem solving
+ADVOCATE,administrative-support,34,0.288135593220339,resumes,administrative support
+ADVOCATE,microsoft-office,34,0.288135593220339,resumes,Microsoft Office
+ADVOCATE,time-management,34,0.288135593220339,resumes,time management
+ADVOCATE,attention-to-detail,33,0.2796610169491525,resumes,attention to detail
+ADVOCATE,social-services,32,0.2711864406779661,resumes,social services
+ADVOCATE,crisis-intervention,30,0.2542372881355932,resumes,crisis intervention
+ADVOCATE,data-entry,28,0.23728813559322035,resumes,data entry
+ADVOCATE,student-assessment,27,0.2288135593220339,resumes,student assessment
+ADVOCATE,staff-training,26,0.22033898305084745,resumes,staff training
+ADVOCATE,decision-making,24,0.2033898305084746,resumes,decision making
+ADVOCATE,microsoft-powerpoint,23,0.19491525423728814,resumes,Microsoft PowerPoint
+ADVOCATE,presentation-skills,23,0.19491525423728814,resumes,presentation skills
+ADVOCATE,call-center-operations,21,0.17796610169491525,resumes,call center operations
+ADVOCATE,microsoft-outlook,21,0.17796610169491525,resumes,Microsoft Outlook
+ADVOCATE,payroll,21,0.17796610169491525,resumes,payroll
+ADVOCATE,client-advocacy,20,0.1694915254237288,resumes,client advocacy
+AGRICULTURE,team-leadership,37,0.5873015873015873,resumes,team leadership
+AGRICULTURE,communication,35,0.5555555555555556,resumes,communication
+AGRICULTURE,organization,30,0.47619047619047616,resumes,organization
+AGRICULTURE,microsoft-excel,25,0.3968253968253968,resumes,Microsoft Excel
+AGRICULTURE,presentation-skills,18,0.2857142857142857,resumes,presentation skills
+AGRICULTURE,teamwork,18,0.2857142857142857,resumes,teamwork
+AGRICULTURE,customer-service,16,0.25396825396825395,resumes,customer service
+AGRICULTURE,microsoft-office,16,0.25396825396825395,resumes,Microsoft Office
+AGRICULTURE,project-management,15,0.23809523809523808,resumes,project management
+AGRICULTURE,microsoft-powerpoint,14,0.2222222222222222,resumes,Microsoft PowerPoint
+AGRICULTURE,student-assessment,14,0.2222222222222222,resumes,student assessment
+AGRICULTURE,recruiting,13,0.20634920634920634,resumes,recruiting
+AGRICULTURE,staff-training,13,0.20634920634920634,resumes,staff training
+AGRICULTURE,attention-to-detail,12,0.19047619047619047,resumes,attention to detail
+AGRICULTURE,quality-inspection,11,0.1746031746031746,resumes,quality inspection
+AGRICULTURE,time-management,11,0.1746031746031746,resumes,time management
+AGRICULTURE,budgeting,10,0.15873015873015872,resumes,budgeting
+AGRICULTURE,reporting,10,0.15873015873015872,resumes,reporting
+AGRICULTURE,stakeholder-management,10,0.15873015873015872,resumes,stakeholder management
+AGRICULTURE,data-analysis,9,0.14285714285714285,resumes,data analysis
+AGRICULTURE,interpersonal-skills,9,0.14285714285714285,resumes,interpersonal skills
+AGRICULTURE,self-motivated,9,0.14285714285714285,resumes,self-motivated
+AGRICULTURE,statistical-analysis,9,0.14285714285714285,resumes,statistical analysis
+AGRICULTURE,administrative-support,8,0.12698412698412698,resumes,administrative support
+AGRICULTURE,lesson-planning,8,0.12698412698412698,resumes,lesson planning
+APPAREL,customer-service,57,0.5876288659793815,resumes,customer service
+APPAREL,communication,53,0.5463917525773195,resumes,communication
+APPAREL,visual-merchandising,51,0.5257731958762887,resumes,visual merchandising
+APPAREL,team-leadership,45,0.4639175257731959,resumes,team leadership
+APPAREL,organization,44,0.4536082474226804,resumes,organization
+APPAREL,microsoft-excel,38,0.3917525773195876,resumes,Microsoft Excel
+APPAREL,teamwork,34,0.35051546391752575,resumes,teamwork
+APPAREL,microsoft-office,28,0.28865979381443296,resumes,Microsoft Office
+APPAREL,product-development,25,0.25773195876288657,resumes,product development
+APPAREL,payroll,24,0.24742268041237114,resumes,payroll
+APPAREL,problem-solving,24,0.24742268041237114,resumes,problem solving
+APPAREL,time-management,24,0.24742268041237114,resumes,time management
+APPAREL,budgeting,22,0.2268041237113402,resumes,budgeting
+APPAREL,quality-inspection,22,0.2268041237113402,resumes,quality inspection
+APPAREL,microsoft-powerpoint,21,0.21649484536082475,resumes,Microsoft PowerPoint
+APPAREL,administrative-support,20,0.20618556701030927,resumes,administrative support
+APPAREL,customer-focus,20,0.20618556701030927,resumes,customer focus
+APPAREL,inventory-management,20,0.20618556701030927,resumes,inventory management
+APPAREL,reporting,20,0.20618556701030927,resumes,reporting
+APPAREL,attention-to-detail,19,0.1958762886597938,resumes,attention to detail
+APPAREL,presentation-skills,19,0.1958762886597938,resumes,presentation skills
+APPAREL,logistics,18,0.18556701030927836,resumes,logistics
+APPAREL,bilingual,17,0.17525773195876287,resumes,bilingual
+APPAREL,contract-management,17,0.17525773195876287,resumes,contract management
+APPAREL,recruiting,17,0.17525773195876287,resumes,recruiting
+ARTS,team-leadership,53,0.5145631067961165,resumes,team leadership
+ARTS,communication,50,0.4854368932038835,resumes,communication
+ARTS,customer-service,50,0.4854368932038835,resumes,customer service
+ARTS,organization,49,0.47572815533980584,resumes,organization
+ARTS,microsoft-office,34,0.3300970873786408,resumes,Microsoft Office
+ARTS,teamwork,34,0.3300970873786408,resumes,teamwork
+ARTS,lesson-planning,27,0.2621359223300971,resumes,lesson planning
+ARTS,microsoft-excel,27,0.2621359223300971,resumes,Microsoft Excel
+ARTS,time-management,27,0.2621359223300971,resumes,time management
+ARTS,staff-training,26,0.2524271844660194,resumes,staff training
+ARTS,presentation-skills,23,0.22330097087378642,resumes,presentation skills
+ARTS,attention-to-detail,22,0.21359223300970873,resumes,attention to detail
+ARTS,problem-solving,22,0.21359223300970873,resumes,problem solving
+ARTS,administrative-support,21,0.20388349514563106,resumes,administrative support
+ARTS,student-assessment,21,0.20388349514563106,resumes,student assessment
+ARTS,interpersonal-skills,18,0.17475728155339806,resumes,interpersonal skills
+ARTS,software-development,18,0.17475728155339806,resumes,software development
+ARTS,microsoft-powerpoint,17,0.1650485436893204,resumes,Microsoft PowerPoint
+ARTS,recruiting,16,0.1553398058252427,resumes,recruiting
+ARTS,social-media-marketing,16,0.1553398058252427,resumes,social media marketing
+ARTS,adobe-photoshop,15,0.14563106796116504,resumes,Adobe Photoshop
+ARTS,customer-focus,15,0.14563106796116504,resumes,customer focus
+ARTS,performance,15,0.14563106796116504,resumes,performance
+ARTS,project-management,15,0.14563106796116504,resumes,project management
+ARTS,self-motivated,15,0.14563106796116504,resumes,self-motivated
+AUTOMOBILE,customer-service,22,0.6111111111111112,resumes,customer service
+AUTOMOBILE,communication,18,0.5,resumes,communication
+AUTOMOBILE,team-leadership,17,0.4722222222222222,resumes,team leadership
+AUTOMOBILE,microsoft-excel,13,0.3611111111111111,resumes,Microsoft Excel
+AUTOMOBILE,teamwork,13,0.3611111111111111,resumes,teamwork
+AUTOMOBILE,time-management,12,0.3333333333333333,resumes,time management
+AUTOMOBILE,attention-to-detail,10,0.2777777777777778,resumes,attention to detail
+AUTOMOBILE,database-management,10,0.2777777777777778,resumes,database management
+AUTOMOBILE,quality-inspection,10,0.2777777777777778,resumes,quality inspection
+AUTOMOBILE,reporting,10,0.2777777777777778,resumes,reporting
+AUTOMOBILE,contract-management,9,0.25,resumes,contract management
+AUTOMOBILE,customer-focus,9,0.25,resumes,customer focus
+AUTOMOBILE,organization,9,0.25,resumes,organization
+AUTOMOBILE,problem-solving,9,0.25,resumes,problem solving
+AUTOMOBILE,call-center-operations,8,0.2222222222222222,resumes,call center operations
+AUTOMOBILE,project-management,8,0.2222222222222222,resumes,project management
+AUTOMOBILE,staff-training,8,0.2222222222222222,resumes,staff training
+AUTOMOBILE,administrative-support,7,0.19444444444444445,resumes,administrative support
+AUTOMOBILE,software-development,7,0.19444444444444445,resumes,software development
+AUTOMOBILE,account-management,6,0.16666666666666666,resumes,account management
+AUTOMOBILE,data-analysis,6,0.16666666666666666,resumes,data analysis
+AUTOMOBILE,data-entry,6,0.16666666666666666,resumes,data entry
+AUTOMOBILE,microsoft-office,6,0.16666666666666666,resumes,Microsoft Office
+AUTOMOBILE,microsoft-outlook,6,0.16666666666666666,resumes,Microsoft Outlook
+AUTOMOBILE,self-motivated,6,0.16666666666666666,resumes,self-motivated
+AVIATION,team-leadership,61,0.5258620689655172,resumes,team leadership
+AVIATION,quality-inspection,54,0.46551724137931033,resumes,quality inspection
+AVIATION,communication,51,0.4396551724137931,resumes,communication
+AVIATION,logistics,49,0.4224137931034483,resumes,logistics
+AVIATION,microsoft-excel,45,0.3879310344827586,resumes,Microsoft Excel
+AVIATION,customer-service,44,0.3793103448275862,resumes,customer service
+AVIATION,organization,43,0.3706896551724138,resumes,organization
+AVIATION,troubleshooting,43,0.3706896551724138,resumes,troubleshooting
+AVIATION,microsoft-office,35,0.3017241379310345,resumes,Microsoft Office
+AVIATION,inventory-management,30,0.25862068965517243,resumes,inventory management
+AVIATION,teamwork,29,0.25,resumes,teamwork
+AVIATION,time-management,27,0.23275862068965517,resumes,time management
+AVIATION,budgeting,25,0.21551724137931033,resumes,budgeting
+AVIATION,microsoft-powerpoint,25,0.21551724137931033,resumes,Microsoft PowerPoint
+AVIATION,reporting,23,0.19827586206896552,resumes,reporting
+AVIATION,aircraft-maintenance,22,0.1896551724137931,resumes,aircraft maintenance
+AVIATION,project-management,21,0.1810344827586207,resumes,project management
+AVIATION,attention-to-detail,20,0.1724137931034483,resumes,attention to detail
+AVIATION,it-asset-management,20,0.1724137931034483,resumes,IT asset management
+AVIATION,staff-training,20,0.1724137931034483,resumes,staff training
+AVIATION,faa-regulations,19,0.16379310344827586,resumes,FAA regulations
+AVIATION,lean-manufacturing,19,0.16379310344827586,resumes,lean manufacturing
+AVIATION,microsoft-outlook,19,0.16379310344827586,resumes,Microsoft Outlook
+AVIATION,presentation-skills,19,0.16379310344827586,resumes,presentation skills
+AVIATION,problem-solving,19,0.16379310344827586,resumes,problem solving
+BANKING,team-leadership,74,0.6434782608695652,resumes,team leadership
+BANKING,communication,58,0.5043478260869565,resumes,communication
+BANKING,customer-service,54,0.46956521739130436,resumes,customer service
+BANKING,microsoft-excel,52,0.45217391304347826,resumes,Microsoft Excel
+BANKING,lending,48,0.41739130434782606,resumes,lending
+BANKING,organization,42,0.3652173913043478,resumes,organization
+BANKING,reporting,37,0.3217391304347826,resumes,reporting
+BANKING,teamwork,36,0.3130434782608696,resumes,teamwork
+BANKING,microsoft-powerpoint,33,0.28695652173913044,resumes,Microsoft PowerPoint
+BANKING,microsoft-office,32,0.2782608695652174,resumes,Microsoft Office
+BANKING,project-management,30,0.2608695652173913,resumes,project management
+BANKING,staff-training,29,0.25217391304347825,resumes,staff training
+BANKING,risk-management,27,0.23478260869565218,resumes,risk management
+BANKING,presentation-skills,26,0.22608695652173913,resumes,presentation skills
+BANKING,problem-solving,26,0.22608695652173913,resumes,problem solving
+BANKING,financial-statements,25,0.21739130434782608,resumes,financial statements
+BANKING,treasury,25,0.21739130434782608,resumes,treasury
+BANKING,business-development,24,0.20869565217391303,resumes,business development
+BANKING,budgeting,23,0.2,resumes,budgeting
+BANKING,customer-focus,23,0.2,resumes,customer focus
+BANKING,microsoft-outlook,23,0.2,resumes,Microsoft Outlook
+BANKING,recruiting,22,0.19130434782608696,resumes,recruiting
+BANKING,social-services,22,0.19130434782608696,resumes,social services
+BANKING,time-management,22,0.19130434782608696,resumes,time management
+BANKING,auditing,21,0.1826086956521739,resumes,auditing
+BPO,team-leadership,15,0.6818181818181818,resumes,team leadership
+BPO,reporting,11,0.5,resumes,reporting
+BPO,customer-service,10,0.45454545454545453,resumes,customer service
+BPO,microsoft-office,9,0.4090909090909091,resumes,Microsoft Office
+BPO,communication,8,0.36363636363636365,resumes,communication
+BPO,customer-focus,8,0.36363636363636365,resumes,customer focus
+BPO,microsoft-excel,8,0.36363636363636365,resumes,Microsoft Excel
+BPO,organization,8,0.36363636363636365,resumes,organization
+BPO,problem-solving,8,0.36363636363636365,resumes,problem solving
+BPO,technical-support,8,0.36363636363636365,resumes,technical support
+BPO,call-center-operations,7,0.3181818181818182,resumes,call center operations
+BPO,quality-inspection,7,0.3181818181818182,resumes,quality inspection
+BPO,recruiting,7,0.3181818181818182,resumes,recruiting
+BPO,staff-training,7,0.3181818181818182,resumes,staff training
+BPO,sap,6,0.2727272727272727,resumes,SAP
+BPO,teamwork,6,0.2727272727272727,resumes,teamwork
+BPO,troubleshooting,6,0.2727272727272727,resumes,troubleshooting
+BPO,vendor-management,6,0.2727272727272727,resumes,vendor management
+BPO,administrative-support,5,0.22727272727272727,resumes,administrative support
+BPO,attention-to-detail,5,0.22727272727272727,resumes,attention to detail
+BPO,auditing,5,0.22727272727272727,resumes,auditing
+BPO,budgeting,5,0.22727272727272727,resumes,budgeting
+BPO,microsoft-powerpoint,5,0.22727272727272727,resumes,Microsoft PowerPoint
+BPO,operations-management,5,0.22727272727272727,resumes,operations management
+BPO,process-improvement,5,0.22727272727272727,resumes,process improvement
+BUSINESS-DEVELOPMENT,business-development,118,0.9915966386554622,resumes,business development
+BUSINESS-DEVELOPMENT,team-leadership,70,0.5882352941176471,resumes,team leadership
+BUSINESS-DEVELOPMENT,communication,56,0.47058823529411764,resumes,communication
+BUSINESS-DEVELOPMENT,customer-service,52,0.4369747899159664,resumes,customer service
+BUSINESS-DEVELOPMENT,presentation-skills,47,0.3949579831932773,resumes,presentation skills
+BUSINESS-DEVELOPMENT,contract-management,44,0.3697478991596639,resumes,contract management
+BUSINESS-DEVELOPMENT,lead-generation,44,0.3697478991596639,resumes,lead generation
+BUSINESS-DEVELOPMENT,teamwork,43,0.36134453781512604,resumes,teamwork
+BUSINESS-DEVELOPMENT,account-management,42,0.35294117647058826,resumes,account management
+BUSINESS-DEVELOPMENT,budgeting,42,0.35294117647058826,resumes,budgeting
+BUSINESS-DEVELOPMENT,customer-focus,40,0.33613445378151263,resumes,customer focus
+BUSINESS-DEVELOPMENT,network-administration,39,0.3277310924369748,resumes,network administration
+BUSINESS-DEVELOPMENT,negotiation,34,0.2857142857142857,resumes,negotiation
+BUSINESS-DEVELOPMENT,organization,34,0.2857142857142857,resumes,organization
+BUSINESS-DEVELOPMENT,forecasting,32,0.2689075630252101,resumes,forecasting
+BUSINESS-DEVELOPMENT,campaign-management,31,0.2605042016806723,resumes,campaign management
+BUSINESS-DEVELOPMENT,crm-data-entry,30,0.25210084033613445,resumes,CRM data entry
+BUSINESS-DEVELOPMENT,project-management,30,0.25210084033613445,resumes,project management
+BUSINESS-DEVELOPMENT,reporting,30,0.25210084033613445,resumes,reporting
+BUSINESS-DEVELOPMENT,staff-training,29,0.24369747899159663,resumes,staff training
+BUSINESS-DEVELOPMENT,microsoft-excel,28,0.23529411764705882,resumes,Microsoft Excel
+BUSINESS-DEVELOPMENT,microsoft-office,28,0.23529411764705882,resumes,Microsoft Office
+BUSINESS-DEVELOPMENT,interpersonal-skills,26,0.2184873949579832,resumes,interpersonal skills
+BUSINESS-DEVELOPMENT,problem-solving,26,0.2184873949579832,resumes,problem solving
+BUSINESS-DEVELOPMENT,strategic-planning,25,0.21008403361344538,resumes,strategic planning
+CHEF,food-preparation,96,0.8135593220338984,resumes,food preparation
+CHEF,customer-service,72,0.6101694915254238,resumes,customer service
+CHEF,food-safety,72,0.6101694915254238,resumes,food safety
+CHEF,catering,70,0.5932203389830508,resumes,catering
+CHEF,team-leadership,61,0.5169491525423728,resumes,team leadership
+CHEF,food-cost-control,51,0.4322033898305085,resumes,food cost control
+CHEF,communication,43,0.3644067796610169,resumes,communication
+CHEF,inventory-management,43,0.3644067796610169,resumes,inventory management
+CHEF,organization,38,0.3220338983050847,resumes,organization
+CHEF,budgeting,37,0.3135593220338983,resumes,budgeting
+CHEF,menu-development,37,0.3135593220338983,resumes,menu development
+CHEF,customer-focus,35,0.2966101694915254,resumes,customer focus
+CHEF,quality-inspection,35,0.2966101694915254,resumes,quality inspection
+CHEF,staff-training,33,0.2796610169491525,resumes,staff training
+CHEF,teamwork,33,0.2796610169491525,resumes,teamwork
+CHEF,kitchen-management,32,0.2711864406779661,resumes,kitchen management
+CHEF,microsoft-excel,31,0.2627118644067797,resumes,Microsoft Excel
+CHEF,baking,28,0.23728813559322035,resumes,baking
+CHEF,servsafe,27,0.2288135593220339,resumes,ServSafe
+CHEF,nutrition-coaching,25,0.211864406779661,resumes,nutrition coaching
+CHEF,bilingual,22,0.1864406779661017,resumes,bilingual
+CHEF,time-management,21,0.17796610169491525,resumes,time management
+CHEF,recruiting,20,0.1694915254237288,resumes,recruiting
+CHEF,attention-to-detail,18,0.15254237288135594,resumes,attention to detail
+CHEF,operations-management,18,0.15254237288135594,resumes,operations management
+CONSTRUCTION,communication,65,0.5855855855855856,resumes,communication
+CONSTRUCTION,team-leadership,65,0.5855855855855856,resumes,team leadership
+CONSTRUCTION,quality-inspection,61,0.5495495495495496,resumes,quality inspection
+CONSTRUCTION,project-management,52,0.46846846846846846,resumes,project management
+CONSTRUCTION,organization,42,0.3783783783783784,resumes,organization
+CONSTRUCTION,osha-safety,42,0.3783783783783784,resumes,OSHA safety
+CONSTRUCTION,budgeting,41,0.36936936936936937,resumes,budgeting
+CONSTRUCTION,cost-estimating,41,0.36936936936936937,resumes,cost estimating
+CONSTRUCTION,contract-management,40,0.36036036036036034,resumes,contract management
+CONSTRUCTION,microsoft-excel,40,0.36036036036036034,resumes,Microsoft Excel
+CONSTRUCTION,building-codes,38,0.34234234234234234,resumes,building codes
+CONSTRUCTION,teamwork,37,0.3333333333333333,resumes,teamwork
+CONSTRUCTION,logistics,36,0.32432432432432434,resumes,logistics
+CONSTRUCTION,subcontractor-management,36,0.32432432432432434,resumes,subcontractor management
+CONSTRUCTION,attention-to-detail,35,0.3153153153153153,resumes,attention to detail
+CONSTRUCTION,customer-service,33,0.2972972972972973,resumes,customer service
+CONSTRUCTION,time-management,28,0.25225225225225223,resumes,time management
+CONSTRUCTION,heavy-equipment,27,0.24324324324324326,resumes,heavy equipment
+CONSTRUCTION,reporting,27,0.24324324324324326,resumes,reporting
+CONSTRUCTION,problem-solving,26,0.23423423423423423,resumes,problem solving
+CONSTRUCTION,blueprint-reading,24,0.21621621621621623,resumes,blueprint reading
+CONSTRUCTION,microsoft-powerpoint,22,0.1981981981981982,resumes,Microsoft PowerPoint
+CONSTRUCTION,autodesk-autocad,21,0.1891891891891892,resumes,Autodesk AutoCAD
+CONSTRUCTION,microsoft-office,21,0.1891891891891892,resumes,Microsoft Office
+CONSTRUCTION,negotiation,21,0.1891891891891892,resumes,negotiation
+CONSULTANT,team-leadership,54,0.46956521739130436,resumes,team leadership
+CONSULTANT,communication,53,0.4608695652173913,resumes,communication
+CONSULTANT,project-management,48,0.41739130434782606,resumes,project management
+CONSULTANT,microsoft-excel,43,0.3739130434782609,resumes,Microsoft Excel
+CONSULTANT,reporting,41,0.3565217391304348,resumes,reporting
+CONSULTANT,organization,38,0.33043478260869563,resumes,organization
+CONSULTANT,customer-service,33,0.28695652173913044,resumes,customer service
+CONSULTANT,troubleshooting,32,0.2782608695652174,resumes,troubleshooting
+CONSULTANT,presentation-skills,31,0.26956521739130435,resumes,presentation skills
+CONSULTANT,budgeting,30,0.2608695652173913,resumes,budgeting
+CONSULTANT,microsoft-office,29,0.25217391304347825,resumes,Microsoft Office
+CONSULTANT,software-development,28,0.24347826086956523,resumes,software development
+CONSULTANT,teamwork,28,0.24347826086956523,resumes,teamwork
+CONSULTANT,contract-management,27,0.23478260869565218,resumes,contract management
+CONSULTANT,database-management,27,0.23478260869565218,resumes,database management
+CONSULTANT,sql,27,0.23478260869565218,resumes,SQL
+CONSULTANT,quality-inspection,26,0.22608695652173913,resumes,quality inspection
+CONSULTANT,customer-focus,24,0.20869565217391303,resumes,customer focus
+CONSULTANT,it-asset-management,24,0.20869565217391303,resumes,IT asset management
+CONSULTANT,logistics,24,0.20869565217391303,resumes,logistics
+CONSULTANT,network-administration,24,0.20869565217391303,resumes,network administration
+CONSULTANT,auditing,22,0.19130434782608696,resumes,auditing
+CONSULTANT,technical-support,21,0.1826086956521739,resumes,technical support
+CONSULTANT,staff-training,20,0.17391304347826086,resumes,staff training
+CONSULTANT,business-development,19,0.16521739130434782,resumes,business development
+DESIGNER,communication,45,0.4205607476635514,resumes,communication
+DESIGNER,team-leadership,45,0.4205607476635514,resumes,team leadership
+DESIGNER,adobe-photoshop,44,0.411214953271028,resumes,Adobe Photoshop
+DESIGNER,adobe-illustrator,39,0.3644859813084112,resumes,Adobe Illustrator
+DESIGNER,cad-modeling,36,0.3364485981308411,resumes,CAD modeling
+DESIGNER,microsoft-excel,36,0.3364485981308411,resumes,Microsoft Excel
+DESIGNER,customer-service,35,0.32710280373831774,resumes,customer service
+DESIGNER,presentation-skills,35,0.32710280373831774,resumes,presentation skills
+DESIGNER,illustration,34,0.3177570093457944,resumes,illustration
+DESIGNER,teamwork,33,0.308411214953271,resumes,teamwork
+DESIGNER,organization,32,0.29906542056074764,resumes,organization
+DESIGNER,microsoft-office,31,0.2897196261682243,resumes,Microsoft Office
+DESIGNER,autodesk-autocad,27,0.2523364485981308,resumes,Autodesk AutoCAD
+DESIGNER,graphic-design,27,0.2523364485981308,resumes,graphic design
+DESIGNER,adobe-indesign,26,0.24299065420560748,resumes,Adobe InDesign
+DESIGNER,microsoft-powerpoint,24,0.22429906542056074,resumes,Microsoft PowerPoint
+DESIGNER,project-management,24,0.22429906542056074,resumes,project management
+DESIGNER,time-management,23,0.21495327102803738,resumes,time management
+DESIGNER,html,22,0.205607476635514,resumes,HTML
+DESIGNER,budgeting,19,0.17757009345794392,resumes,budgeting
+DESIGNER,problem-solving,19,0.17757009345794392,resumes,problem solving
+DESIGNER,attention-to-detail,17,0.1588785046728972,resumes,attention to detail
+DESIGNER,interior-design,17,0.1588785046728972,resumes,interior design
+DESIGNER,quality-inspection,17,0.1588785046728972,resumes,quality inspection
+DESIGNER,software-development,17,0.1588785046728972,resumes,software development
+DIGITAL-MEDIA,social-media-marketing,53,0.5520833333333334,resumes,social media marketing
+DIGITAL-MEDIA,communication,50,0.5208333333333334,resumes,communication
+DIGITAL-MEDIA,campaign-management,46,0.4791666666666667,resumes,campaign management
+DIGITAL-MEDIA,team-leadership,40,0.4166666666666667,resumes,team leadership
+DIGITAL-MEDIA,digital-marketing,38,0.3958333333333333,resumes,digital marketing
+DIGITAL-MEDIA,facebook,33,0.34375,resumes,Facebook
+DIGITAL-MEDIA,teamwork,32,0.3333333333333333,resumes,teamwork
+DIGITAL-MEDIA,microsoft-excel,31,0.3229166666666667,resumes,Microsoft Excel
+DIGITAL-MEDIA,adobe-photoshop,30,0.3125,resumes,Adobe Photoshop
+DIGITAL-MEDIA,budgeting,30,0.3125,resumes,budgeting
+DIGITAL-MEDIA,organization,30,0.3125,resumes,organization
+DIGITAL-MEDIA,presentation-skills,29,0.3020833333333333,resumes,presentation skills
+DIGITAL-MEDIA,seo,29,0.3020833333333333,resumes,SEO
+DIGITAL-MEDIA,google-analytics,27,0.28125,resumes,Google Analytics
+DIGITAL-MEDIA,project-management,27,0.28125,resumes,project management
+DIGITAL-MEDIA,reporting,26,0.2708333333333333,resumes,reporting
+DIGITAL-MEDIA,twitter,26,0.2708333333333333,resumes,Twitter
+DIGITAL-MEDIA,customer-service,24,0.25,resumes,customer service
+DIGITAL-MEDIA,microsoft-office,23,0.23958333333333334,resumes,Microsoft Office
+DIGITAL-MEDIA,sem,23,0.23958333333333334,resumes,SEM
+DIGITAL-MEDIA,html,22,0.22916666666666666,resumes,HTML
+DIGITAL-MEDIA,email-marketing,21,0.21875,resumes,email marketing
+DIGITAL-MEDIA,instagram,20,0.20833333333333334,resumes,Instagram
+DIGITAL-MEDIA,logistics,20,0.20833333333333334,resumes,logistics
+DIGITAL-MEDIA,public-relations,19,0.19791666666666666,resumes,public relations
+ENGINEERING,team-leadership,64,0.5423728813559322,resumes,team leadership
+ENGINEERING,communication,55,0.4661016949152542,resumes,communication
+ENGINEERING,software-development,49,0.4152542372881356,resumes,software development
+ENGINEERING,project-management,43,0.3644067796610169,resumes,project management
+ENGINEERING,electrical-engineering,42,0.3559322033898305,resumes,electrical engineering
+ENGINEERING,troubleshooting,42,0.3559322033898305,resumes,troubleshooting
+ENGINEERING,quality-inspection,39,0.3305084745762712,resumes,quality inspection
+ENGINEERING,cad-modeling,38,0.3220338983050847,resumes,CAD modeling
+ENGINEERING,microsoft-excel,37,0.3135593220338983,resumes,Microsoft Excel
+ENGINEERING,microsoft-office,35,0.2966101694915254,resumes,Microsoft Office
+ENGINEERING,teamwork,35,0.2966101694915254,resumes,teamwork
+ENGINEERING,autodesk-autocad,34,0.288135593220339,resumes,Autodesk AutoCAD
+ENGINEERING,logistics,29,0.2457627118644068,resumes,logistics
+ENGINEERING,lean-manufacturing,28,0.23728813559322035,resumes,lean manufacturing
+ENGINEERING,it-asset-management,26,0.22033898305084745,resumes,IT asset management
+ENGINEERING,statistical-analysis,26,0.22033898305084745,resumes,statistical analysis
+ENGINEERING,electrical-systems,25,0.211864406779661,resumes,electrical systems
+ENGINEERING,product-development,24,0.2033898305084746,resumes,product development
+ENGINEERING,technical-support,24,0.2033898305084746,resumes,technical support
+ENGINEERING,customer-service,23,0.19491525423728814,resumes,customer service
+ENGINEERING,problem-solving,23,0.19491525423728814,resumes,problem solving
+ENGINEERING,c++,22,0.1864406779661017,resumes,C++
+ENGINEERING,cost-estimating,22,0.1864406779661017,resumes,cost estimating
+ENGINEERING,time-management,22,0.1864406779661017,resumes,time management
+ENGINEERING,agile,21,0.17796610169491525,resumes,agile
+FINANCE,reporting,75,0.6410256410256411,resumes,reporting
+FINANCE,budgeting,74,0.6324786324786325,resumes,budgeting
+FINANCE,team-leadership,65,0.5555555555555556,resumes,team leadership
+FINANCE,reconciliation,63,0.5384615384615384,resumes,reconciliation
+FINANCE,financial-statements,62,0.5299145299145299,resumes,financial statements
+FINANCE,auditing,61,0.5213675213675214,resumes,auditing
+FINANCE,microsoft-excel,59,0.5042735042735043,resumes,Microsoft Excel
+FINANCE,forecasting,58,0.49572649572649574,resumes,forecasting
+FINANCE,payroll,52,0.4444444444444444,resumes,payroll
+FINANCE,communication,51,0.4358974358974359,resumes,communication
+FINANCE,treasury,48,0.41025641025641024,resumes,treasury
+FINANCE,general-ledger,45,0.38461538461538464,resumes,general ledger
+FINANCE,accounts-payable,42,0.358974358974359,resumes,accounts payable
+FINANCE,teamwork,37,0.3162393162393162,resumes,teamwork
+FINANCE,microsoft-office,36,0.3076923076923077,resumes,Microsoft Office
+FINANCE,contract-management,34,0.2905982905982906,resumes,contract management
+FINANCE,customer-service,34,0.2905982905982906,resumes,customer service
+FINANCE,financial-analysis,34,0.2905982905982906,resumes,financial analysis
+FINANCE,organization,34,0.2905982905982906,resumes,organization
+FINANCE,time-management,33,0.28205128205128205,resumes,time management
+FINANCE,logistics,31,0.26495726495726496,resumes,logistics
+FINANCE,administrative-support,30,0.2564102564102564,resumes,administrative support
+FINANCE,journal-entries,30,0.2564102564102564,resumes,journal entries
+FINANCE,accounts-receivable,29,0.24786324786324787,resumes,accounts receivable
+FINANCE,project-management,27,0.23076923076923078,resumes,project management
+FITNESS,team-leadership,67,0.5726495726495726,resumes,team leadership
+FITNESS,customer-service,66,0.5641025641025641,resumes,customer service
+FITNESS,communication,65,0.5555555555555556,resumes,communication
+FITNESS,organization,58,0.49572649572649574,resumes,organization
+FITNESS,cpr-bls,46,0.39316239316239315,resumes,CPR/BLS
+FITNESS,group-fitness-instruction,42,0.358974358974359,resumes,group fitness instruction
+FITNESS,nutrition-coaching,36,0.3076923076923077,resumes,nutrition coaching
+FITNESS,personal-training,34,0.2905982905982906,resumes,personal training
+FITNESS,staff-training,34,0.2905982905982906,resumes,staff training
+FITNESS,teamwork,32,0.27350427350427353,resumes,teamwork
+FITNESS,interpersonal-skills,30,0.2564102564102564,resumes,interpersonal skills
+FITNESS,microsoft-excel,30,0.2564102564102564,resumes,Microsoft Excel
+FITNESS,payroll,28,0.23931623931623933,resumes,payroll
+FITNESS,microsoft-office,26,0.2222222222222222,resumes,Microsoft Office
+FITNESS,time-management,25,0.21367521367521367,resumes,time management
+FITNESS,fitness-assessment,22,0.18803418803418803,resumes,fitness assessment
+FITNESS,problem-solving,22,0.18803418803418803,resumes,problem solving
+FITNESS,recruiting,22,0.18803418803418803,resumes,recruiting
+FITNESS,fitness-certification,21,0.1794871794871795,resumes,fitness certification
+FITNESS,membership-sales,20,0.17094017094017094,resumes,membership sales
+FITNESS,budgeting,19,0.1623931623931624,resumes,budgeting
+FITNESS,customer-focus,19,0.1623931623931624,resumes,customer focus
+FITNESS,reporting,19,0.1623931623931624,resumes,reporting
+FITNESS,administrative-support,18,0.15384615384615385,resumes,administrative support
+FITNESS,microsoft-word,18,0.15384615384615385,resumes,Microsoft Word
+HEALTHCARE,team-leadership,70,0.6086956521739131,resumes,team leadership
+HEALTHCARE,communication,68,0.591304347826087,resumes,communication
+HEALTHCARE,customer-service,54,0.46956521739130436,resumes,customer service
+HEALTHCARE,organization,46,0.4,resumes,organization
+HEALTHCARE,teamwork,45,0.391304347826087,resumes,teamwork
+HEALTHCARE,reporting,42,0.3652173913043478,resumes,reporting
+HEALTHCARE,microsoft-office,41,0.3565217391304348,resumes,Microsoft Office
+HEALTHCARE,microsoft-excel,39,0.3391304347826087,resumes,Microsoft Excel
+HEALTHCARE,time-management,35,0.30434782608695654,resumes,time management
+HEALTHCARE,patient-care,33,0.28695652173913044,resumes,patient care
+HEALTHCARE,interpersonal-skills,32,0.2782608695652174,resumes,interpersonal skills
+HEALTHCARE,quality-inspection,32,0.2782608695652174,resumes,quality inspection
+HEALTHCARE,insurance-verification,31,0.26956521739130435,resumes,insurance verification
+HEALTHCARE,problem-solving,29,0.25217391304347825,resumes,problem solving
+HEALTHCARE,administrative-support,28,0.24347826086956523,resumes,administrative support
+HEALTHCARE,customer-focus,28,0.24347826086956523,resumes,customer focus
+HEALTHCARE,cpr-bls,24,0.20869565217391303,resumes,CPR/BLS
+HEALTHCARE,microsoft-powerpoint,24,0.20869565217391303,resumes,Microsoft PowerPoint
+HEALTHCARE,presentation-skills,24,0.20869565217391303,resumes,presentation skills
+HEALTHCARE,project-management,24,0.20869565217391303,resumes,project management
+HEALTHCARE,budgeting,22,0.19130434782608696,resumes,budgeting
+HEALTHCARE,database-management,22,0.19130434782608696,resumes,database management
+HEALTHCARE,recruiting,22,0.19130434782608696,resumes,recruiting
+HEALTHCARE,software-development,22,0.19130434782608696,resumes,software development
+HEALTHCARE,decision-making,21,0.1826086956521739,resumes,decision making
+HR,recruiting,82,0.7454545454545455,resumes,recruiting
+HR,payroll,75,0.6818181818181818,resumes,payroll
+HR,employee-relations,68,0.6181818181818182,resumes,employee relations
+HR,communication,65,0.5909090909090909,resumes,communication
+HR,microsoft-excel,62,0.5636363636363636,resumes,Microsoft Excel
+HR,team-leadership,60,0.5454545454545454,resumes,team leadership
+HR,performance-management,58,0.5272727272727272,resumes,performance management
+HR,onboarding,48,0.43636363636363634,resumes,onboarding
+HR,organization,48,0.43636363636363634,resumes,organization
+HR,hr-policies,47,0.42727272727272725,resumes,HR policies
+HR,customer-service,46,0.41818181818181815,resumes,customer service
+HR,hris,46,0.41818181818181815,resumes,HRIS
+HR,reporting,46,0.41818181818181815,resumes,reporting
+HR,administrative-support,43,0.39090909090909093,resumes,administrative support
+HR,microsoft-powerpoint,43,0.39090909090909093,resumes,Microsoft PowerPoint
+HR,staff-training,42,0.38181818181818183,resumes,staff training
+HR,training-and-development,40,0.36363636363636365,resumes,training and development
+HR,benefits-administration,39,0.35454545454545455,resumes,benefits administration
+HR,fmla,36,0.32727272727272727,resumes,FMLA
+HR,microsoft-outlook,35,0.3181818181818182,resumes,Microsoft Outlook
+HR,project-management,32,0.2909090909090909,resumes,project management
+HR,interpersonal-skills,31,0.2818181818181818,resumes,interpersonal skills
+HR,microsoft-office,31,0.2818181818181818,resumes,Microsoft Office
+HR,teamwork,31,0.2818181818181818,resumes,teamwork
+HR,attention-to-detail,28,0.2545454545454545,resumes,attention to detail
+INFORMATION-TECHNOLOGY,it-asset-management,77,0.6416666666666667,resumes,IT asset management
+INFORMATION-TECHNOLOGY,technical-support,66,0.55,resumes,technical support
+INFORMATION-TECHNOLOGY,communication,65,0.5416666666666666,resumes,communication
+INFORMATION-TECHNOLOGY,network-administration,65,0.5416666666666666,resumes,network administration
+INFORMATION-TECHNOLOGY,project-management,60,0.5,resumes,project management
+INFORMATION-TECHNOLOGY,troubleshooting,60,0.5,resumes,troubleshooting
+INFORMATION-TECHNOLOGY,team-leadership,58,0.48333333333333334,resumes,team leadership
+INFORMATION-TECHNOLOGY,sql,48,0.4,resumes,SQL
+INFORMATION-TECHNOLOGY,microsoft-active-directory,47,0.39166666666666666,resumes,Microsoft Active Directory
+INFORMATION-TECHNOLOGY,software-development,46,0.38333333333333336,resumes,software development
+INFORMATION-TECHNOLOGY,database-management,44,0.36666666666666664,resumes,database management
+INFORMATION-TECHNOLOGY,teamwork,44,0.36666666666666664,resumes,teamwork
+INFORMATION-TECHNOLOGY,cybersecurity,38,0.31666666666666665,resumes,cybersecurity
+INFORMATION-TECHNOLOGY,comptia-certification,33,0.275,resumes,CompTIA certification
+INFORMATION-TECHNOLOGY,budgeting,32,0.26666666666666666,resumes,budgeting
+INFORMATION-TECHNOLOGY,contract-management,32,0.26666666666666666,resumes,contract management
+INFORMATION-TECHNOLOGY,reporting,32,0.26666666666666666,resumes,reporting
+INFORMATION-TECHNOLOGY,customer-service,31,0.25833333333333336,resumes,customer service
+INFORMATION-TECHNOLOGY,linux,31,0.25833333333333336,resumes,Linux
+INFORMATION-TECHNOLOGY,microsoft-office,31,0.25833333333333336,resumes,Microsoft Office
+INFORMATION-TECHNOLOGY,problem-solving,31,0.25833333333333336,resumes,problem solving
+INFORMATION-TECHNOLOGY,traverse-pc,30,0.25,resumes,Traverse PC
+INFORMATION-TECHNOLOGY,microsoft-excel,28,0.23333333333333334,resumes,Microsoft Excel
+INFORMATION-TECHNOLOGY,xp,28,0.23333333333333334,resumes,XP
+INFORMATION-TECHNOLOGY,microsoft-sharepoint,26,0.21666666666666667,resumes,Microsoft SharePoint
+PUBLIC-RELATIONS,public-relations,106,0.954954954954955,resumes,public relations
+PUBLIC-RELATIONS,communication,80,0.7207207207207207,resumes,communication
+PUBLIC-RELATIONS,media-relations,71,0.6396396396396397,resumes,media relations
+PUBLIC-RELATIONS,team-leadership,70,0.6306306306306306,resumes,team leadership
+PUBLIC-RELATIONS,social-media-marketing,67,0.6036036036036037,resumes,social media marketing
+PUBLIC-RELATIONS,campaign-management,59,0.5315315315315315,resumes,campaign management
+PUBLIC-RELATIONS,organization,50,0.45045045045045046,resumes,organization
+PUBLIC-RELATIONS,microsoft-office,47,0.42342342342342343,resumes,Microsoft Office
+PUBLIC-RELATIONS,customer-service,44,0.3963963963963964,resumes,customer service
+PUBLIC-RELATIONS,microsoft-excel,43,0.38738738738738737,resumes,Microsoft Excel
+PUBLIC-RELATIONS,presentation-skills,43,0.38738738738738737,resumes,presentation skills
+PUBLIC-RELATIONS,budgeting,41,0.36936936936936937,resumes,budgeting
+PUBLIC-RELATIONS,project-management,39,0.35135135135135137,resumes,project management
+PUBLIC-RELATIONS,event-planning,36,0.32432432432432434,resumes,event planning
+PUBLIC-RELATIONS,teamwork,36,0.32432432432432434,resumes,teamwork
+PUBLIC-RELATIONS,microsoft-powerpoint,35,0.3153153153153153,resumes,Microsoft PowerPoint
+PUBLIC-RELATIONS,brand-management,31,0.27927927927927926,resumes,brand management
+PUBLIC-RELATIONS,adobe-photoshop,30,0.2702702702702703,resumes,Adobe Photoshop
+PUBLIC-RELATIONS,facebook,28,0.25225225225225223,resumes,Facebook
+PUBLIC-RELATIONS,interpersonal-skills,27,0.24324324324324326,resumes,interpersonal skills
+PUBLIC-RELATIONS,reporting,26,0.23423423423423423,resumes,reporting
+PUBLIC-RELATIONS,content-creation,22,0.1981981981981982,resumes,content creation
+PUBLIC-RELATIONS,logistics,22,0.1981981981981982,resumes,logistics
+PUBLIC-RELATIONS,twitter,22,0.1981981981981982,resumes,Twitter
+PUBLIC-RELATIONS,attention-to-detail,21,0.1891891891891892,resumes,attention to detail
+SALES,customer-service,89,0.7672413793103449,resumes,customer service
+SALES,communication,75,0.646551724137931,resumes,communication
+SALES,organization,57,0.49137931034482757,resumes,organization
+SALES,team-leadership,50,0.43103448275862066,resumes,team leadership
+SALES,time-management,45,0.3879310344827586,resumes,time management
+SALES,teamwork,44,0.3793103448275862,resumes,teamwork
+SALES,customer-focus,37,0.31896551724137934,resumes,customer focus
+SALES,visual-merchandising,33,0.28448275862068967,resumes,visual merchandising
+SALES,attention-to-detail,32,0.27586206896551724,resumes,attention to detail
+SALES,microsoft-excel,32,0.27586206896551724,resumes,Microsoft Excel
+SALES,interpersonal-skills,30,0.25862068965517243,resumes,interpersonal skills
+SALES,inventory-management,26,0.22413793103448276,resumes,inventory management
+SALES,contract-management,25,0.21551724137931033,resumes,contract management
+SALES,point-of-sale,24,0.20689655172413793,resumes,point of sale
+SALES,problem-solving,23,0.19827586206896552,resumes,problem solving
+SALES,self-motivated,23,0.19827586206896552,resumes,self-motivated
+SALES,b2c-sales,21,0.1810344827586207,resumes,B2C sales
+SALES,microsoft-office,21,0.1810344827586207,resumes,Microsoft Office
+SALES,quality-inspection,21,0.1810344827586207,resumes,quality inspection
+SALES,administrative-support,18,0.15517241379310345,resumes,administrative support
+SALES,branch-operations,18,0.15517241379310345,resumes,branch operations
+SALES,staff-training,18,0.15517241379310345,resumes,staff training
+SALES,bilingual,17,0.14655172413793102,resumes,bilingual
+SALES,presentation-skills,17,0.14655172413793102,resumes,presentation skills
+SALES,project-management,17,0.14655172413793102,resumes,project management
+TEACHER,lesson-planning,64,0.6274509803921569,resumes,lesson planning
+TEACHER,communication,57,0.5588235294117647,resumes,communication
+TEACHER,team-leadership,47,0.46078431372549017,resumes,team leadership
+TEACHER,organization,37,0.3627450980392157,resumes,organization
+TEACHER,student-assessment,37,0.3627450980392157,resumes,student assessment
+TEACHER,classroom-management,31,0.30392156862745096,resumes,classroom management
+TEACHER,teamwork,31,0.30392156862745096,resumes,teamwork
+TEACHER,customer-service,28,0.27450980392156865,resumes,customer service
+TEACHER,special-education,28,0.27450980392156865,resumes,special education
+TEACHER,microsoft-office,27,0.2647058823529412,resumes,Microsoft Office
+TEACHER,microsoft-excel,25,0.24509803921568626,resumes,Microsoft Excel
+TEACHER,cpr-bls,22,0.21568627450980393,resumes,CPR/BLS
+TEACHER,problem-solving,22,0.21568627450980393,resumes,problem solving
+TEACHER,interpersonal-skills,21,0.20588235294117646,resumes,interpersonal skills
+TEACHER,time-management,21,0.20588235294117646,resumes,time management
+TEACHER,microsoft-powerpoint,20,0.19607843137254902,resumes,Microsoft PowerPoint
+TEACHER,staff-training,20,0.19607843137254902,resumes,staff training
+TEACHER,presentation-skills,19,0.18627450980392157,resumes,presentation skills
+TEACHER,administrative-support,17,0.16666666666666666,resumes,administrative support
+TEACHER,teaching-certification,16,0.1568627450980392,resumes,teaching certification
+TEACHER,critical-thinking,14,0.13725490196078433,resumes,critical thinking
+TEACHER,differentiated-instruction,14,0.13725490196078433,resumes,differentiated instruction
+TEACHER,reporting,14,0.13725490196078433,resumes,reporting
+TEACHER,attention-to-detail,13,0.12745098039215685,resumes,attention to detail
+TEACHER,tutoring,13,0.12745098039215685,resumes,tutoring
+ACCOUNTANT,communication,1263,0.5231980115990058,postings,communication
+ACCOUNTANT,microsoft-excel,1134,0.46975973487986744,postings,Microsoft Excel
+ACCOUNTANT,reconciliation,1034,0.4283347141673571,postings,reconciliation
+ACCOUNTANT,reporting,987,0.4088649544324772,postings,reporting
+ACCOUNTANT,financial-statements,947,0.39229494614747307,postings,financial statements
+ACCOUNTANT,auditing,834,0.34548467274233635,postings,auditing
+ACCOUNTANT,attention-to-detail,789,0.3268434134217067,postings,attention to detail
+ACCOUNTANT,accounts-payable,744,0.30820215410107704,postings,accounts payable
+ACCOUNTANT,journal-entries,696,0.2883181441590721,postings,journal entries
+ACCOUNTANT,teamwork,691,0.2862468931234466,postings,teamwork
+ACCOUNTANT,general-ledger,681,0.28210439105219554,postings,general ledger
+ACCOUNTANT,cpa,646,0.2676056338028169,postings,CPA
+ACCOUNTANT,team-leadership,622,0.25766362883181443,postings,team leadership
+ACCOUNTANT,gaap,589,0.243993371996686,postings,GAAP
+ACCOUNTANT,accounts-receivable,534,0.2212096106048053,postings,accounts receivable
+ACCOUNTANT,time-management,512,0.212096106048053,postings,time management
+ACCOUNTANT,problem-solving,487,0.20173985086992544,postings,problem solving
+ACCOUNTANT,month-end-close,484,0.20049710024855014,postings,month-end close
+ACCOUNTANT,organization,480,0.1988400994200497,postings,organization
+ACCOUNTANT,microsoft-office,436,0.18061309030654515,postings,Microsoft Office
+ACCOUNTANT,budgeting,430,0.17812758906379453,postings,budgeting
+ACCOUNTANT,adaptability,417,0.17274233637116818,postings,adaptability
+ACCOUNTANT,payroll,391,0.1619718309859155,postings,payroll
+ACCOUNTANT,netsuite-erp,361,0.1495443247721624,postings,NetSuite ERP
+ACCOUNTANT,customer-service,331,0.1371168185584093,postings,customer service
+ADVOCATE,communication,37,0.6065573770491803,postings,communication
+ADVOCATE,customer-service,28,0.45901639344262296,postings,customer service
+ADVOCATE,client-advocacy,23,0.3770491803278688,postings,client advocacy
+ADVOCATE,social-services,20,0.32786885245901637,postings,social services
+ADVOCATE,adaptability,17,0.2786885245901639,postings,adaptability
+ADVOCATE,bilingual,15,0.2459016393442623,postings,bilingual
+ADVOCATE,teamwork,15,0.2459016393442623,postings,teamwork
+ADVOCATE,time-management,15,0.2459016393442623,postings,time management
+ADVOCATE,call-center-operations,14,0.22950819672131148,postings,call center operations
+ADVOCATE,crisis-intervention,13,0.21311475409836064,postings,crisis intervention
+ADVOCATE,microsoft-office,12,0.19672131147540983,postings,Microsoft Office
+ADVOCATE,organization,12,0.19672131147540983,postings,organization
+ADVOCATE,problem-solving,12,0.19672131147540983,postings,problem solving
+ADVOCATE,team-leadership,12,0.19672131147540983,postings,team leadership
+ADVOCATE,interpersonal-skills,11,0.18032786885245902,postings,interpersonal skills
+ADVOCATE,reporting,11,0.18032786885245902,postings,reporting
+ADVOCATE,microsoft-excel,9,0.14754098360655737,postings,Microsoft Excel
+ADVOCATE,insurance-verification,8,0.13114754098360656,postings,insurance verification
+ADVOCATE,crm-data-entry,7,0.11475409836065574,postings,CRM data entry
+ADVOCATE,decision-making,7,0.11475409836065574,postings,decision making
+ADVOCATE,microsoft-outlook,7,0.11475409836065574,postings,Microsoft Outlook
+ADVOCATE,case-management,6,0.09836065573770492,postings,case management
+ADVOCATE,data-entry,6,0.09836065573770492,postings,data entry
+ADVOCATE,recruiting,6,0.09836065573770492,postings,recruiting
+ADVOCATE,contract-management,5,0.08196721311475409,postings,contract management
+AGRICULTURE,team-leadership,28,0.358974358974359,postings,team leadership
+AGRICULTURE,communication,27,0.34615384615384615,postings,communication
+AGRICULTURE,crop-management,24,0.3076923076923077,postings,crop management
+AGRICULTURE,teamwork,16,0.20512820512820512,postings,teamwork
+AGRICULTURE,horticulture,15,0.19230769230769232,postings,horticulture
+AGRICULTURE,farm-equipment,14,0.1794871794871795,postings,farm equipment
+AGRICULTURE,adaptability,13,0.16666666666666666,postings,adaptability
+AGRICULTURE,customer-service,13,0.16666666666666666,postings,customer service
+AGRICULTURE,irrigation,11,0.14102564102564102,postings,irrigation
+AGRICULTURE,linkedin,11,0.14102564102564102,postings,LinkedIn
+AGRICULTURE,livestock-management,11,0.14102564102564102,postings,livestock management
+AGRICULTURE,logistics,10,0.1282051282051282,postings,logistics
+AGRICULTURE,attention-to-detail,9,0.11538461538461539,postings,attention to detail
+AGRICULTURE,organization,9,0.11538461538461539,postings,organization
+AGRICULTURE,cdl,8,0.10256410256410256,postings,CDL
+AGRICULTURE,heavy-equipment,8,0.10256410256410256,postings,heavy equipment
+AGRICULTURE,facebook,7,0.08974358974358974,postings,Facebook
+AGRICULTURE,interpersonal-skills,7,0.08974358974358974,postings,interpersonal skills
+AGRICULTURE,recruiting,7,0.08974358974358974,postings,recruiting
+AGRICULTURE,social-media-marketing,7,0.08974358974358974,postings,social media marketing
+AGRICULTURE,twitter,7,0.08974358974358974,postings,Twitter
+AGRICULTURE,bilingual,6,0.07692307692307693,postings,bilingual
+AGRICULTURE,budgeting,6,0.07692307692307693,postings,budgeting
+AGRICULTURE,food-safety,6,0.07692307692307693,postings,food safety
+AGRICULTURE,microsoft-excel,6,0.07692307692307693,postings,Microsoft Excel
+APPAREL,interpersonal-skills,45,0.4090909090909091,postings,interpersonal skills
+APPAREL,customer-service,44,0.4,postings,customer service
+APPAREL,teamwork,43,0.39090909090909093,postings,teamwork
+APPAREL,team-leadership,40,0.36363636363636365,postings,team leadership
+APPAREL,communication,37,0.33636363636363636,postings,communication
+APPAREL,attention-to-detail,29,0.2636363636363636,postings,attention to detail
+APPAREL,visual-merchandising,29,0.2636363636363636,postings,visual merchandising
+APPAREL,organization,26,0.23636363636363636,postings,organization
+APPAREL,time-management,18,0.16363636363636364,postings,time management
+APPAREL,adaptability,14,0.12727272727272726,postings,adaptability
+APPAREL,recruiting,13,0.11818181818181818,postings,recruiting
+APPAREL,microsoft-excel,11,0.1,postings,Microsoft Excel
+APPAREL,point-of-sale,11,0.1,postings,point of sale
+APPAREL,textiles,11,0.1,postings,textiles
+APPAREL,decision-making,10,0.09090909090909091,postings,decision making
+APPAREL,payroll,10,0.09090909090909091,postings,payroll
+APPAREL,self-motivated,10,0.09090909090909091,postings,self-motivated
+APPAREL,logistics,9,0.08181818181818182,postings,logistics
+APPAREL,product-development,9,0.08181818181818182,postings,product development
+APPAREL,staff-training,9,0.08181818181818182,postings,staff training
+APPAREL,inventory-management,8,0.07272727272727272,postings,inventory management
+APPAREL,linkedin,8,0.07272727272727272,postings,LinkedIn
+APPAREL,performance-management,8,0.07272727272727272,postings,performance management
+APPAREL,presentation-skills,8,0.07272727272727272,postings,presentation skills
+APPAREL,quality-inspection,8,0.07272727272727272,postings,quality inspection
+ARTS,communication,68,0.49635036496350365,postings,communication
+ARTS,teamwork,57,0.41605839416058393,postings,teamwork
+ARTS,team-leadership,41,0.29927007299270075,postings,team leadership
+ARTS,adaptability,27,0.19708029197080293,postings,adaptability
+ARTS,software-development,25,0.18248175182481752,postings,software development
+ARTS,recruiting,24,0.17518248175182483,postings,recruiting
+ARTS,attention-to-detail,22,0.16058394160583941,postings,attention to detail
+ARTS,organization,22,0.16058394160583941,postings,organization
+ARTS,customer-service,21,0.15328467153284672,postings,customer service
+ARTS,adobe-photoshop,20,0.145985401459854,postings,Adobe Photoshop
+ARTS,graphic-design,16,0.11678832116788321,postings,graphic design
+ARTS,autodesk-maya,15,0.10948905109489052,postings,Autodesk Maya
+ARTS,performance,15,0.10948905109489052,postings,performance
+ARTS,time-management,15,0.10948905109489052,postings,time management
+ARTS,adobe-illustrator,14,0.10218978102189781,postings,Adobe Illustrator
+ARTS,linkedin,14,0.10218978102189781,postings,LinkedIn
+ARTS,presentation-skills,14,0.10218978102189781,postings,presentation skills
+ARTS,social-media-marketing,14,0.10218978102189781,postings,social media marketing
+ARTS,bilingual,13,0.0948905109489051,postings,bilingual
+ARTS,curation,13,0.0948905109489051,postings,curation
+ARTS,microsoft-office,13,0.0948905109489051,postings,Microsoft Office
+ARTS,project-management,13,0.0948905109489051,postings,project management
+ARTS,contract-management,12,0.08759124087591241,postings,contract management
+ARTS,stakeholder-management,12,0.08759124087591241,postings,stakeholder management
+ARTS,content-creation,11,0.08029197080291971,postings,content creation
+AUTOMOBILE,communication,202,0.41140529531568226,postings,communication
+AUTOMOBILE,customer-service,166,0.3380855397148676,postings,customer service
+AUTOMOBILE,cost-estimating,137,0.2790224032586558,postings,cost estimating
+AUTOMOBILE,adaptability,135,0.27494908350305497,postings,adaptability
+AUTOMOBILE,ase-certification,127,0.25865580448065173,postings,ASE certification
+AUTOMOBILE,collision-repair,126,0.25661914460285135,postings,collision repair
+AUTOMOBILE,time-management,113,0.23014256619144602,postings,time management
+AUTOMOBILE,teamwork,108,0.219959266802444,postings,teamwork
+AUTOMOBILE,team-leadership,105,0.21384928716904278,postings,team leadership
+AUTOMOBILE,troubleshooting,69,0.14052953156822812,postings,troubleshooting
+AUTOMOBILE,quality-inspection,67,0.1364562118126273,postings,quality inspection
+AUTOMOBILE,automotive-repair,65,0.13238289205702647,postings,automotive repair
+AUTOMOBILE,problem-solving,49,0.09979633401221996,postings,problem solving
+AUTOMOBILE,dealership-operations,48,0.09775967413441955,postings,dealership operations
+AUTOMOBILE,attention-to-detail,46,0.09368635437881874,postings,attention to detail
+AUTOMOBILE,organization,45,0.09164969450101833,postings,organization
+AUTOMOBILE,staff-training,43,0.08757637474541752,postings,staff training
+AUTOMOBILE,electrical-systems,36,0.07331975560081466,postings,electrical systems
+AUTOMOBILE,customer-focus,35,0.07128309572301425,postings,customer focus
+AUTOMOBILE,ada,33,0.06720977596741344,postings,Ada
+AUTOMOBILE,fmla,32,0.06517311608961303,postings,FMLA
+AUTOMOBILE,reporting,30,0.06109979633401222,postings,reporting
+AUTOMOBILE,retail-operations,27,0.054989816700611,postings,retail operations
+AUTOMOBILE,diagnostics,26,0.05295315682281059,postings,diagnostics
+AUTOMOBILE,recruiting,26,0.05295315682281059,postings,recruiting
+AVIATION,communication,69,0.345,postings,communication
+AVIATION,faa-regulations,68,0.34,postings,FAA regulations
+AVIATION,team-leadership,67,0.335,postings,team leadership
+AVIATION,aircraft-maintenance,56,0.28,postings,aircraft maintenance
+AVIATION,customer-service,52,0.26,postings,customer service
+AVIATION,troubleshooting,43,0.215,postings,troubleshooting
+AVIATION,quality-inspection,42,0.21,postings,quality inspection
+AVIATION,teamwork,36,0.18,postings,teamwork
+AVIATION,adaptability,32,0.16,postings,adaptability
+AVIATION,blueprint-reading,29,0.145,postings,blueprint reading
+AVIATION,avionics,23,0.115,postings,avionics
+AVIATION,attention-to-detail,22,0.11,postings,attention to detail
+AVIATION,recruiting,20,0.1,postings,recruiting
+AVIATION,flight-operations,19,0.095,postings,flight operations
+AVIATION,microsoft-excel,19,0.095,postings,Microsoft Excel
+AVIATION,reporting,19,0.095,postings,reporting
+AVIATION,electrical-systems,18,0.09,postings,electrical systems
+AVIATION,time-management,18,0.09,postings,time management
+AVIATION,pilot-certification,17,0.085,postings,pilot certification
+AVIATION,problem-solving,17,0.085,postings,problem solving
+AVIATION,electrical-engineering,15,0.075,postings,electrical engineering
+AVIATION,microsoft-office,15,0.075,postings,Microsoft Office
+AVIATION,organization,14,0.07,postings,organization
+AVIATION,logistics,13,0.065,postings,logistics
+AVIATION,staff-training,13,0.065,postings,staff training
+BANKING,customer-service,486,0.5785714285714286,postings,customer service
+BANKING,communication,466,0.5547619047619048,postings,communication
+BANKING,lending,455,0.5416666666666666,postings,lending
+BANKING,team-leadership,301,0.35833333333333334,postings,team leadership
+BANKING,branch-operations,262,0.3119047619047619,postings,branch operations
+BANKING,regulatory-compliance,244,0.2904761904761905,postings,regulatory compliance
+BANKING,teamwork,222,0.2642857142857143,postings,teamwork
+BANKING,decision-making,218,0.25952380952380955,postings,decision making
+BANKING,organization,206,0.24523809523809523,postings,organization
+BANKING,recruiting,194,0.23095238095238096,postings,recruiting
+BANKING,sourcing,178,0.2119047619047619,postings,sourcing
+BANKING,staff-training,166,0.1976190476190476,postings,staff training
+BANKING,interpersonal-skills,158,0.1880952380952381,postings,interpersonal skills
+BANKING,linkedin,149,0.1773809523809524,postings,LinkedIn
+BANKING,time-management,148,0.1761904761904762,postings,time management
+BANKING,problem-solving,143,0.17023809523809524,postings,problem solving
+BANKING,social-services,136,0.1619047619047619,postings,social services
+BANKING,reporting,128,0.1523809523809524,postings,reporting
+BANKING,risk-management,124,0.14761904761904762,postings,risk management
+BANKING,adaptability,119,0.14166666666666666,postings,adaptability
+BANKING,attention-to-detail,107,0.12738095238095237,postings,attention to detail
+BANKING,negotiation,101,0.12023809523809524,postings,negotiation
+BANKING,credit-analysis,96,0.11428571428571428,postings,credit analysis
+BANKING,complaint-resolution,90,0.10714285714285714,postings,complaint resolution
+BANKING,lead-generation,84,0.1,postings,lead generation
+BPO,customer-service,645,0.885989010989011,postings,customer service
+BPO,communication,421,0.5782967032967034,postings,communication
+BPO,call-center-operations,249,0.34203296703296704,postings,call center operations
+BPO,bilingual,204,0.2802197802197802,postings,bilingual
+BPO,teamwork,165,0.22664835164835165,postings,teamwork
+BPO,problem-solving,163,0.2239010989010989,postings,problem solving
+BPO,adaptability,150,0.20604395604395603,postings,adaptability
+BPO,team-leadership,149,0.20467032967032966,postings,team leadership
+BPO,time-management,142,0.19505494505494506,postings,time management
+BPO,ada,131,0.17994505494505494,postings,Ada
+BPO,customer-focus,124,0.17032967032967034,postings,customer focus
+BPO,microsoft-office,124,0.17032967032967034,postings,Microsoft Office
+BPO,attention-to-detail,122,0.16758241758241757,postings,attention to detail
+BPO,organization,119,0.16346153846153846,postings,organization
+BPO,microsoft-excel,106,0.14560439560439561,postings,Microsoft Excel
+BPO,interpersonal-skills,74,0.10164835164835165,postings,interpersonal skills
+BPO,data-entry,72,0.0989010989010989,postings,data entry
+BPO,troubleshooting,72,0.0989010989010989,postings,troubleshooting
+BPO,recruiting,65,0.08928571428571429,postings,recruiting
+BPO,administrative-support,64,0.08791208791208792,postings,administrative support
+BPO,decision-making,60,0.08241758241758242,postings,decision making
+BPO,lead-generation,55,0.07554945054945054,postings,lead generation
+BPO,microsoft-outlook,54,0.07417582417582418,postings,Microsoft Outlook
+BPO,staff-training,54,0.07417582417582418,postings,staff training
+BPO,crm-data-entry,51,0.07005494505494506,postings,CRM data entry
+BUSINESS-DEVELOPMENT,business-development,682,0.883419689119171,postings,business development
+BUSINESS-DEVELOPMENT,communication,516,0.6683937823834197,postings,communication
+BUSINESS-DEVELOPMENT,teamwork,350,0.4533678756476684,postings,teamwork
+BUSINESS-DEVELOPMENT,team-leadership,285,0.36917098445595853,postings,team leadership
+BUSINESS-DEVELOPMENT,lead-generation,239,0.30958549222797926,postings,lead generation
+BUSINESS-DEVELOPMENT,crm-data-entry,206,0.266839378238342,postings,CRM data entry
+BUSINESS-DEVELOPMENT,presentation-skills,204,0.26424870466321243,postings,presentation skills
+BUSINESS-DEVELOPMENT,negotiation,195,0.25259067357512954,postings,negotiation
+BUSINESS-DEVELOPMENT,interpersonal-skills,187,0.2422279792746114,postings,interpersonal skills
+BUSINESS-DEVELOPMENT,stakeholder-management,169,0.2189119170984456,postings,stakeholder management
+BUSINESS-DEVELOPMENT,time-management,159,0.20595854922279794,postings,time management
+BUSINESS-DEVELOPMENT,adaptability,135,0.17487046632124353,postings,adaptability
+BUSINESS-DEVELOPMENT,customer-service,135,0.17487046632124353,postings,customer service
+BUSINESS-DEVELOPMENT,network-administration,132,0.17098445595854922,postings,network administration
+BUSINESS-DEVELOPMENT,recruiting,132,0.17098445595854922,postings,recruiting
+BUSINESS-DEVELOPMENT,self-motivated,123,0.15932642487046633,postings,self-motivated
+BUSINESS-DEVELOPMENT,reporting,121,0.1567357512953368,postings,reporting
+BUSINESS-DEVELOPMENT,salesforce,119,0.15414507772020725,postings,Salesforce
+BUSINESS-DEVELOPMENT,organization,118,0.15284974093264247,postings,organization
+BUSINESS-DEVELOPMENT,problem-solving,112,0.14507772020725387,postings,problem solving
+BUSINESS-DEVELOPMENT,microsoft-excel,107,0.13860103626943004,postings,Microsoft Excel
+BUSINESS-DEVELOPMENT,account-management,105,0.13601036269430053,postings,account management
+BUSINESS-DEVELOPMENT,microsoft-office,99,0.12823834196891193,postings,Microsoft Office
+BUSINESS-DEVELOPMENT,market-research,96,0.12435233160621761,postings,market research
+BUSINESS-DEVELOPMENT,partnerships,95,0.12305699481865284,postings,partnerships
+CHEF,food-preparation,455,0.794066317626527,postings,food preparation
+CHEF,food-safety,349,0.6090750436300174,postings,food safety
+CHEF,customer-service,298,0.5200698080279232,postings,customer service
+CHEF,communication,218,0.38045375218150085,postings,communication
+CHEF,team-leadership,197,0.343804537521815,postings,team leadership
+CHEF,teamwork,180,0.31413612565445026,postings,teamwork
+CHEF,catering,142,0.24781849912739964,postings,catering
+CHEF,adaptability,119,0.20767888307155322,postings,adaptability
+CHEF,organization,109,0.19022687609075042,postings,organization
+CHEF,kitchen-management,90,0.15706806282722513,postings,kitchen management
+CHEF,attention-to-detail,59,0.10296684118673648,postings,attention to detail
+CHEF,servsafe,58,0.1012216404886562,postings,ServSafe
+CHEF,time-management,58,0.1012216404886562,postings,time management
+CHEF,staff-training,50,0.08726003490401396,postings,staff training
+CHEF,nutrition-coaching,49,0.08551483420593368,postings,nutrition coaching
+CHEF,food-cost-control,46,0.08027923211169284,postings,food cost control
+CHEF,recruiting,36,0.06282722513089005,postings,recruiting
+CHEF,menu-development,34,0.059336823734729496,postings,menu development
+CHEF,inventory-management,31,0.05410122164048865,postings,inventory management
+CHEF,microsoft-excel,30,0.05235602094240838,postings,Microsoft Excel
+CHEF,decision-making,28,0.04886561954624782,postings,decision making
+CHEF,baking,27,0.04712041884816754,postings,baking
+CHEF,process-documentation,26,0.04537521815008726,postings,process documentation
+CHEF,interpersonal-skills,25,0.04363001745200698,postings,interpersonal skills
+CHEF,problem-solving,25,0.04363001745200698,postings,problem solving
+CONSTRUCTION,communication,673,0.5337034099920698,postings,communication
+CONSTRUCTION,team-leadership,538,0.42664551942902457,postings,team leadership
+CONSTRUCTION,cost-estimating,438,0.3473433782712133,postings,cost estimating
+CONSTRUCTION,subcontractor-management,419,0.33227597145122917,postings,subcontractor management
+CONSTRUCTION,project-management,399,0.3164155432196669,postings,project management
+CONSTRUCTION,quality-inspection,370,0.2934179222839017,postings,quality inspection
+CONSTRUCTION,teamwork,323,0.25614591593973035,postings,teamwork
+CONSTRUCTION,budgeting,260,0.20618556701030927,postings,budgeting
+CONSTRUCTION,microsoft-excel,240,0.19032513877874702,postings,Microsoft Excel
+CONSTRUCTION,osha-safety,225,0.17842981760507534,postings,OSHA safety
+CONSTRUCTION,problem-solving,212,0.1681205392545599,postings,problem solving
+CONSTRUCTION,attention-to-detail,206,0.1633624107850912,postings,attention to detail
+CONSTRUCTION,microsoft-office,203,0.16098334655035687,postings,Microsoft Office
+CONSTRUCTION,organization,198,0.1570182394924663,postings,organization
+CONSTRUCTION,time-management,198,0.1570182394924663,postings,time management
+CONSTRUCTION,stakeholder-management,195,0.15463917525773196,postings,stakeholder management
+CONSTRUCTION,contract-management,193,0.15305313243457574,postings,contract management
+CONSTRUCTION,blueprint-reading,189,0.14988104678826328,postings,blueprint reading
+CONSTRUCTION,logistics,189,0.14988104678826328,postings,logistics
+CONSTRUCTION,reporting,189,0.14988104678826328,postings,reporting
+CONSTRUCTION,building-codes,184,0.14591593973037273,postings,building codes
+CONSTRUCTION,customer-service,154,0.12212529738302934,postings,customer service
+CONSTRUCTION,interpersonal-skills,140,0.11102299762093576,postings,interpersonal skills
+CONSTRUCTION,recruiting,139,0.11022997620935765,postings,recruiting
+CONSTRUCTION,adaptability,123,0.09754163362410785,postings,adaptability
+CONSULTANT,communication,666,0.5702054794520548,postings,communication
+CONSULTANT,teamwork,414,0.3544520547945205,postings,teamwork
+CONSULTANT,team-leadership,376,0.3219178082191781,postings,team leadership
+CONSULTANT,stakeholder-management,316,0.2705479452054795,postings,stakeholder management
+CONSULTANT,problem-solving,262,0.2243150684931507,postings,problem solving
+CONSULTANT,project-management,214,0.1832191780821918,postings,project management
+CONSULTANT,reporting,202,0.17294520547945205,postings,reporting
+CONSULTANT,time-management,198,0.1695205479452055,postings,time management
+CONSULTANT,adaptability,188,0.16095890410958905,postings,adaptability
+CONSULTANT,presentation-skills,182,0.1558219178082192,postings,presentation skills
+CONSULTANT,attention-to-detail,160,0.136986301369863,postings,attention to detail
+CONSULTANT,recruiting,160,0.136986301369863,postings,recruiting
+CONSULTANT,interpersonal-skills,159,0.13613013698630136,postings,interpersonal skills
+CONSULTANT,agile,155,0.1327054794520548,postings,agile
+CONSULTANT,microsoft-excel,154,0.13184931506849315,postings,Microsoft Excel
+CONSULTANT,customer-service,151,0.1292808219178082,postings,customer service
+CONSULTANT,sap,150,0.1284246575342466,postings,SAP
+CONSULTANT,logistics,133,0.11386986301369863,postings,logistics
+CONSULTANT,software-development,130,0.1113013698630137,postings,software development
+CONSULTANT,organization,127,0.10873287671232877,postings,organization
+CONSULTANT,staff-training,119,0.10188356164383562,postings,staff training
+CONSULTANT,student-assessment,114,0.0976027397260274,postings,student assessment
+CONSULTANT,troubleshooting,110,0.09417808219178082,postings,troubleshooting
+CONSULTANT,microsoft-office,102,0.08732876712328767,postings,Microsoft Office
+CONSULTANT,microsoft-powerpoint,101,0.08647260273972603,postings,Microsoft PowerPoint
+DESIGNER,communication,520,0.5764966740576497,postings,communication
+DESIGNER,teamwork,442,0.49002217294900224,postings,teamwork
+DESIGNER,ux-design,291,0.32261640798226165,postings,UX design
+DESIGNER,ui-design,255,0.2827050997782705,postings,UI design
+DESIGNER,graphic-design,254,0.28159645232815966,postings,graphic design
+DESIGNER,attention-to-detail,232,0.2572062084257206,postings,attention to detail
+DESIGNER,stakeholder-management,196,0.21729490022172948,postings,stakeholder management
+DESIGNER,adobe-photoshop,192,0.21286031042128603,postings,Adobe Photoshop
+DESIGNER,figma,187,0.2073170731707317,postings,Figma
+DESIGNER,adobe-illustrator,184,0.2039911308203991,postings,Adobe Illustrator
+DESIGNER,team-leadership,182,0.2017738359201774,postings,team leadership
+DESIGNER,cad-modeling,175,0.19401330376940132,postings,CAD modeling
+DESIGNER,time-management,173,0.1917960088691796,postings,time management
+DESIGNER,adaptability,156,0.1729490022172949,postings,adaptability
+DESIGNER,problem-solving,155,0.17184035476718404,postings,problem solving
+DESIGNER,autodesk-autocad,153,0.1696230598669623,postings,Autodesk AutoCAD
+DESIGNER,presentation-skills,150,0.1662971175166297,postings,presentation skills
+DESIGNER,organization,136,0.15077605321507762,postings,organization
+DESIGNER,project-management,135,0.14966740576496673,postings,project management
+DESIGNER,adobe-indesign,118,0.13082039911308205,postings,Adobe InDesign
+DESIGNER,microsoft-office,111,0.12305986696230599,postings,Microsoft Office
+DESIGNER,illustration,110,0.12195121951219512,postings,illustration
+DESIGNER,typography,106,0.11751662971175167,postings,typography
+DESIGNER,mechanical-design,105,0.1164079822616408,postings,mechanical design
+DESIGNER,social-media-marketing,105,0.1164079822616408,postings,social media marketing
+DIGITAL-MEDIA,social-media-marketing,294,0.7798408488063661,postings,social media marketing
+DIGITAL-MEDIA,communication,256,0.6790450928381963,postings,communication
+DIGITAL-MEDIA,campaign-management,204,0.5411140583554377,postings,campaign management
+DIGITAL-MEDIA,digital-marketing,189,0.5013262599469496,postings,digital marketing
+DIGITAL-MEDIA,teamwork,164,0.4350132625994695,postings,teamwork
+DIGITAL-MEDIA,content-creation,149,0.3952254641909814,postings,content creation
+DIGITAL-MEDIA,facebook,135,0.35809018567639256,postings,Facebook
+DIGITAL-MEDIA,instagram,129,0.3421750663129973,postings,Instagram
+DIGITAL-MEDIA,reporting,114,0.30238726790450926,postings,reporting
+DIGITAL-MEDIA,seo,97,0.2572944297082228,postings,SEO
+DIGITAL-MEDIA,tiktok,96,0.2546419098143236,postings,TikTok
+DIGITAL-MEDIA,linkedin,89,0.23607427055702918,postings,LinkedIn
+DIGITAL-MEDIA,attention-to-detail,88,0.23342175066312998,postings,attention to detail
+DIGITAL-MEDIA,time-management,83,0.22015915119363394,postings,time management
+DIGITAL-MEDIA,adaptability,78,0.20689655172413793,postings,adaptability
+DIGITAL-MEDIA,organization,69,0.1830238726790451,postings,organization
+DIGITAL-MEDIA,analytics-reporting,66,0.17506631299734748,postings,analytics reporting
+DIGITAL-MEDIA,video-production,66,0.17506631299734748,postings,video production
+DIGITAL-MEDIA,team-leadership,64,0.16976127320954906,postings,team leadership
+DIGITAL-MEDIA,google,63,0.16710875331564987,postings,Google
+DIGITAL-MEDIA,graphic-design,60,0.15915119363395225,postings,graphic design
+DIGITAL-MEDIA,stakeholder-management,60,0.15915119363395225,postings,stakeholder management
+DIGITAL-MEDIA,google-analytics,59,0.15649867374005305,postings,Google Analytics
+DIGITAL-MEDIA,project-management,59,0.15649867374005305,postings,project management
+DIGITAL-MEDIA,youtube,52,0.13793103448275862,postings,YouTube
+ENGINEERING,communication,4601,0.4838573982542854,postings,communication
+ENGINEERING,teamwork,3824,0.4021453359974761,postings,teamwork
+ENGINEERING,software-development,3001,0.3155957513934168,postings,software development
+ENGINEERING,team-leadership,2655,0.2792091702597539,postings,team leadership
+ENGINEERING,problem-solving,2345,0.2466084761804606,postings,problem solving
+ENGINEERING,troubleshooting,2317,0.24366389736039543,postings,troubleshooting
+ENGINEERING,python,1999,0.21022189504679778,postings,Python
+ENGINEERING,agile,1493,0.15700914922704806,postings,agile
+ENGINEERING,stakeholder-management,1453,0.15280260805552634,postings,stakeholder management
+ENGINEERING,electrical-engineering,1451,0.15259228099695027,postings,electrical engineering
+ENGINEERING,it-asset-management,1374,0.14449468924177095,postings,IT asset management
+ENGINEERING,aws,1359,0.14291723630245032,postings,AWS
+ENGINEERING,adaptability,1309,0.13765905983804816,postings,adaptability
+ENGINEERING,devops,1282,0.134819644547271,postings,DevOps
+ENGINEERING,project-management,1262,0.13271637396151015,postings,project management
+ENGINEERING,lean-manufacturing,1222,0.12850983278998843,postings,lean manufacturing
+ENGINEERING,microsoft-azure,1198,0.1259859080870754,postings,Microsoft Azure
+ENGINEERING,network-administration,1175,0.12356714691345042,postings,network administration
+ENGINEERING,recruiting,1145,0.12041224103480913,postings,recruiting
+ENGINEERING,oracle-java,1120,0.11778315280260805,postings,Oracle Java
+ENGINEERING,web-development,1080,0.11357661163108634,postings,web development
+ENGINEERING,sql,1078,0.11336628457251026,postings,SQL
+ENGINEERING,time-management,1076,0.11315595751393417,postings,time management
+ENGINEERING,apis,1074,0.11294563045535808,postings,APIs
+ENGINEERING,quality-inspection,1068,0.11231464927962982,postings,quality inspection
+FINANCE,communication,1045,0.5567394778902504,postings,communication
+FINANCE,reporting,914,0.48694725625998936,postings,reporting
+FINANCE,team-leadership,789,0.4203516249334044,postings,team leadership
+FINANCE,microsoft-excel,693,0.3692061800745871,postings,Microsoft Excel
+FINANCE,teamwork,682,0.3633457645178476,postings,teamwork
+FINANCE,forecasting,631,0.33617474693660093,postings,forecasting
+FINANCE,budgeting,554,0.29515183803942463,postings,budgeting
+FINANCE,financial-statements,493,0.2626531699520511,postings,financial statements
+FINANCE,financial-analysis,478,0.25466169419286094,postings,financial analysis
+FINANCE,decision-making,437,0.2328183271177411,postings,decision making
+FINANCE,wealth-management,437,0.2328183271177411,postings,wealth management
+FINANCE,attention-to-detail,401,0.2136387852956846,postings,attention to detail
+FINANCE,stakeholder-management,384,0.20458177943526903,postings,stakeholder management
+FINANCE,adaptability,379,0.20191795418220565,postings,adaptability
+FINANCE,time-management,372,0.1981885988279169,postings,time management
+FINANCE,problem-solving,370,0.19712306872669152,postings,problem solving
+FINANCE,cpa,345,0.18380394246137455,postings,CPA
+FINANCE,treasury,337,0.1795418220564731,postings,treasury
+FINANCE,fp-a,334,0.17794352690463505,postings,FP&A
+FINANCE,presentation-skills,332,0.1768779968034097,postings,presentation skills
+FINANCE,organization,279,0.14864144912093766,postings,organization
+FINANCE,auditing,277,0.14757591901971231,postings,auditing
+FINANCE,interpersonal-skills,270,0.14384656366542356,postings,interpersonal skills
+FINANCE,customer-service,249,0.13265849760255727,postings,customer service
+FINANCE,microsoft-office,241,0.12839637719765584,postings,Microsoft Office
+FITNESS,cpr-bls,38,0.4935064935064935,postings,CPR/BLS
+FITNESS,group-fitness-instruction,34,0.44155844155844154,postings,group fitness instruction
+FITNESS,communication,33,0.42857142857142855,postings,communication
+FITNESS,personal-training,31,0.4025974025974026,postings,personal training
+FITNESS,customer-service,29,0.37662337662337664,postings,customer service
+FITNESS,fitness-certification,23,0.2987012987012987,postings,fitness certification
+FITNESS,software-development,22,0.2857142857142857,postings,software development
+FITNESS,team-leadership,22,0.2857142857142857,postings,team leadership
+FITNESS,staff-training,20,0.2597402597402597,postings,staff training
+FITNESS,nutrition-coaching,19,0.24675324675324675,postings,nutrition coaching
+FITNESS,exercise-programming,17,0.22077922077922077,postings,exercise programming
+FITNESS,fitness-assessment,16,0.2077922077922078,postings,fitness assessment
+FITNESS,recruiting,13,0.16883116883116883,postings,recruiting
+FITNESS,adaptability,11,0.14285714285714285,postings,adaptability
+FITNESS,microsoft-excel,11,0.14285714285714285,postings,Microsoft Excel
+FITNESS,onboarding,11,0.14285714285714285,postings,onboarding
+FITNESS,teamwork,11,0.14285714285714285,postings,teamwork
+FITNESS,yoga-instruction,11,0.14285714285714285,postings,yoga instruction
+FITNESS,organization,10,0.12987012987012986,postings,organization
+FITNESS,interpersonal-skills,9,0.11688311688311688,postings,interpersonal skills
+FITNESS,student-assessment,9,0.11688311688311688,postings,student assessment
+FITNESS,microsoft-office,8,0.1038961038961039,postings,Microsoft Office
+FITNESS,time-management,8,0.1038961038961039,postings,time management
+FITNESS,reporting,7,0.09090909090909091,postings,reporting
+FITNESS,membership-sales,6,0.07792207792207792,postings,membership sales
+HEALTHCARE,rn-license,5779,0.5769192372965958,postings,RN license
+HEALTHCARE,patient-care,4645,0.4637116901267845,postings,patient care
+HEALTHCARE,cpr-bls,4341,0.4333632824198862,postings,CPR/BLS
+HEALTHCARE,team-leadership,4019,0.40121792951981633,postings,team leadership
+HEALTHCARE,communication,3234,0.3228511530398323,postings,communication
+HEALTHCARE,teamwork,2602,0.25975841070180694,postings,teamwork
+HEALTHCARE,customer-service,1693,0.16901267844664072,postings,customer service
+HEALTHCARE,recruiting,1273,0.12708395727263652,postings,recruiting
+HEALTHCARE,adaptability,1116,0.11141060197663971,postings,adaptability
+HEALTHCARE,patient-assessment,1105,0.11031246880303484,postings,patient assessment
+HEALTHCARE,problem-solving,1005,0.10032943995208146,postings,problem solving
+HEALTHCARE,time-management,997,0.09953079764400519,postings,time management
+HEALTHCARE,decision-making,937,0.09354098033343317,postings,decision making
+HEALTHCARE,reporting,928,0.09264250773684736,postings,reporting
+HEALTHCARE,interpersonal-skills,925,0.09234301687131875,postings,interpersonal skills
+HEALTHCARE,social-services,819,0.08176100628930817,postings,social services
+HEALTHCARE,student-assessment,759,0.07577118897873615,postings,student assessment
+HEALTHCARE,attention-to-detail,738,0.07367475292003593,postings,attention to detail
+HEALTHCARE,electronic-medical-records,677,0.06758510532095438,postings,electronic medical records
+HEALTHCARE,care-planning,634,0.06329240291504443,postings,care planning
+HEALTHCARE,organization,628,0.06269342118398723,postings,organization
+HEALTHCARE,quality-inspection,622,0.06209443945293002,postings,quality inspection
+HEALTHCARE,regulatory-compliance,611,0.060996306279325146,postings,regulatory compliance
+HEALTHCARE,critical-thinking,578,0.05770190675851053,postings,critical thinking
+HEALTHCARE,infection-control,576,0.05750224618149147,postings,infection control
+HR,communication,1066,0.6112385321100917,postings,communication
+HR,recruiting,1007,0.5774082568807339,postings,recruiting
+HR,team-leadership,674,0.38646788990825687,postings,team leadership
+HR,teamwork,565,0.32396788990825687,postings,teamwork
+HR,payroll,554,0.3176605504587156,postings,payroll
+HR,onboarding,497,0.2849770642201835,postings,onboarding
+HR,employee-relations,453,0.25974770642201833,postings,employee relations
+HR,time-management,424,0.24311926605504589,postings,time management
+HR,microsoft-excel,423,0.24254587155963303,postings,Microsoft Excel
+HR,reporting,421,0.24139908256880735,postings,reporting
+HR,attention-to-detail,420,0.2408256880733945,postings,attention to detail
+HR,hris,378,0.21674311926605505,postings,HRIS
+HR,microsoft-office,361,0.2069954128440367,postings,Microsoft Office
+HR,adaptability,341,0.19552752293577982,postings,adaptability
+HR,organization,341,0.19552752293577982,postings,organization
+HR,performance-management,335,0.19208715596330275,postings,performance management
+HR,customer-service,334,0.1915137614678899,postings,customer service
+HR,problem-solving,309,0.1771788990825688,postings,problem solving
+HR,interpersonal-skills,302,0.1731651376146789,postings,interpersonal skills
+HR,sourcing,268,0.1536697247706422,postings,sourcing
+HR,stakeholder-management,257,0.1473623853211009,postings,stakeholder management
+HR,decision-making,255,0.14621559633027523,postings,decision making
+HR,staff-training,254,0.14564220183486237,postings,staff training
+HR,shrm-certification,243,0.1393348623853211,postings,SHRM certification
+HR,training-and-development,187,0.10722477064220183,postings,training and development
+INFORMATION-TECHNOLOGY,communication,663,0.5571428571428572,postings,communication
+INFORMATION-TECHNOLOGY,technical-support,535,0.4495798319327731,postings,technical support
+INFORMATION-TECHNOLOGY,troubleshooting,535,0.4495798319327731,postings,troubleshooting
+INFORMATION-TECHNOLOGY,it-asset-management,524,0.4403361344537815,postings,IT asset management
+INFORMATION-TECHNOLOGY,teamwork,402,0.3378151260504202,postings,teamwork
+INFORMATION-TECHNOLOGY,team-leadership,362,0.3042016806722689,postings,team leadership
+INFORMATION-TECHNOLOGY,network-administration,359,0.30168067226890755,postings,network administration
+INFORMATION-TECHNOLOGY,problem-solving,338,0.28403361344537814,postings,problem solving
+INFORMATION-TECHNOLOGY,customer-service,317,0.26638655462184874,postings,customer service
+INFORMATION-TECHNOLOGY,stakeholder-management,279,0.23445378151260504,postings,stakeholder management
+INFORMATION-TECHNOLOGY,time-management,246,0.20672268907563024,postings,time management
+INFORMATION-TECHNOLOGY,project-management,233,0.1957983193277311,postings,project management
+INFORMATION-TECHNOLOGY,cybersecurity,208,0.17478991596638654,postings,cybersecurity
+INFORMATION-TECHNOLOGY,microsoft-active-directory,201,0.1689075630252101,postings,Microsoft Active Directory
+INFORMATION-TECHNOLOGY,adaptability,196,0.16470588235294117,postings,adaptability
+INFORMATION-TECHNOLOGY,reporting,194,0.16302521008403362,postings,reporting
+INFORMATION-TECHNOLOGY,comptia-certification,187,0.15714285714285714,postings,CompTIA certification
+INFORMATION-TECHNOLOGY,software-development,178,0.1495798319327731,postings,software development
+INFORMATION-TECHNOLOGY,microsoft-office,164,0.13781512605042018,postings,Microsoft Office
+INFORMATION-TECHNOLOGY,agile,158,0.13277310924369748,postings,agile
+INFORMATION-TECHNOLOGY,attention-to-detail,152,0.12773109243697478,postings,attention to detail
+INFORMATION-TECHNOLOGY,microsoft-azure,141,0.11848739495798319,postings,Microsoft Azure
+INFORMATION-TECHNOLOGY,interpersonal-skills,133,0.11176470588235295,postings,interpersonal skills
+INFORMATION-TECHNOLOGY,decision-making,132,0.11092436974789915,postings,decision making
+INFORMATION-TECHNOLOGY,microsoft-excel,132,0.11092436974789915,postings,Microsoft Excel
+PUBLIC-RELATIONS,communication,181,0.8116591928251121,postings,communication
+PUBLIC-RELATIONS,public-relations,116,0.5201793721973094,postings,public relations
+PUBLIC-RELATIONS,social-media-marketing,109,0.48878923766816146,postings,social media marketing
+PUBLIC-RELATIONS,teamwork,102,0.45739910313901344,postings,teamwork
+PUBLIC-RELATIONS,team-leadership,90,0.40358744394618834,postings,team leadership
+PUBLIC-RELATIONS,media-relations,89,0.3991031390134529,postings,media relations
+PUBLIC-RELATIONS,campaign-management,84,0.37668161434977576,postings,campaign management
+PUBLIC-RELATIONS,stakeholder-management,81,0.3632286995515695,postings,stakeholder management
+PUBLIC-RELATIONS,attention-to-detail,64,0.28699551569506726,postings,attention to detail
+PUBLIC-RELATIONS,time-management,64,0.28699551569506726,postings,time management
+PUBLIC-RELATIONS,presentation-skills,61,0.273542600896861,postings,presentation skills
+PUBLIC-RELATIONS,organization,60,0.26905829596412556,postings,organization
+PUBLIC-RELATIONS,project-management,59,0.2645739910313901,postings,project management
+PUBLIC-RELATIONS,reporting,53,0.23766816143497757,postings,reporting
+PUBLIC-RELATIONS,adaptability,49,0.21973094170403587,postings,adaptability
+PUBLIC-RELATIONS,microsoft-office,48,0.21524663677130046,postings,Microsoft Office
+PUBLIC-RELATIONS,content-creation,46,0.2062780269058296,postings,content creation
+PUBLIC-RELATIONS,interpersonal-skills,37,0.16591928251121077,postings,interpersonal skills
+PUBLIC-RELATIONS,microsoft-powerpoint,36,0.16143497757847533,postings,Microsoft PowerPoint
+PUBLIC-RELATIONS,self-motivated,31,0.13901345291479822,postings,self-motivated
+PUBLIC-RELATIONS,microsoft-excel,30,0.13452914798206278,postings,Microsoft Excel
+PUBLIC-RELATIONS,brand-management,25,0.11210762331838565,postings,brand management
+PUBLIC-RELATIONS,microsoft-sharepoint,25,0.11210762331838565,postings,Microsoft SharePoint
+PUBLIC-RELATIONS,problem-solving,25,0.11210762331838565,postings,problem solving
+PUBLIC-RELATIONS,recruiting,24,0.10762331838565023,postings,recruiting
+SALES,communication,3214,0.5826686004350979,postings,communication
+SALES,customer-service,2148,0.38941261783901376,postings,customer service
+SALES,teamwork,1644,0.29804205946337925,postings,teamwork
+SALES,team-leadership,1450,0.2628716461203771,postings,team leadership
+SALES,lead-generation,1119,0.20286439448875998,postings,lead generation
+SALES,time-management,1066,0.19325598259608412,postings,time management
+SALES,crm-data-entry,959,0.17385786802030456,postings,CRM data entry
+SALES,organization,921,0.16696881798404642,postings,organization
+SALES,presentation-skills,917,0.16624365482233502,postings,presentation skills
+SALES,interpersonal-skills,899,0.1629804205946338,postings,interpersonal skills
+SALES,adaptability,862,0.1562726613488035,postings,adaptability
+SALES,negotiation,817,0.1481145757795504,postings,negotiation
+SALES,self-motivated,773,0.14013778100072516,postings,self-motivated
+SALES,microsoft-office,674,0.12218999274836838,postings,Microsoft Office
+SALES,recruiting,667,0.12092095721537346,postings,recruiting
+SALES,customer-focus,644,0.116751269035533,postings,customer focus
+SALES,reporting,641,0.11620739666424945,postings,reporting
+SALES,microsoft-excel,633,0.11475707034082669,postings,Microsoft Excel
+SALES,problem-solving,605,0.10968092820884699,postings,problem solving
+SALES,staff-training,589,0.10678027556200145,postings,staff training
+SALES,attention-to-detail,575,0.1042422044960116,postings,attention to detail
+SALES,b2c-sales,565,0.10242929659173314,postings,B2C sales
+SALES,business-development,548,0.09934735315445975,postings,business development
+SALES,salesforce,546,0.09898477157360407,postings,Salesforce
+SALES,visual-merchandising,545,0.09880348078317622,postings,visual merchandising
+TEACHER,communication,310,0.4189189189189189,postings,communication
+TEACHER,team-leadership,210,0.28378378378378377,postings,team leadership
+TEACHER,teaching-certification,201,0.2716216216216216,postings,teaching certification
+TEACHER,teamwork,184,0.24864864864864866,postings,teamwork
+TEACHER,lesson-planning,177,0.2391891891891892,postings,lesson planning
+TEACHER,special-education,173,0.23378378378378378,postings,special education
+TEACHER,student-assessment,172,0.23243243243243245,postings,student assessment
+TEACHER,staff-training,104,0.14054054054054055,postings,staff training
+TEACHER,early-childhood-education,90,0.12162162162162163,postings,early childhood education
+TEACHER,classroom-management,83,0.11216216216216217,postings,classroom management
+TEACHER,recruiting,80,0.10810810810810811,postings,recruiting
+TEACHER,bilingual,78,0.10540540540540541,postings,bilingual
+TEACHER,interpersonal-skills,76,0.10270270270270271,postings,interpersonal skills
+TEACHER,cpr-bls,75,0.10135135135135136,postings,CPR/BLS
+TEACHER,tutoring,72,0.0972972972972973,postings,tutoring
+TEACHER,training-and-development,60,0.08108108108108109,postings,training and development
+TEACHER,time-management,57,0.07702702702702703,postings,time management
+TEACHER,organization,55,0.07432432432432433,postings,organization
+TEACHER,problem-solving,50,0.06756756756756757,postings,problem solving
+TEACHER,adaptability,48,0.06486486486486487,postings,adaptability
+TEACHER,instructional-materials-design,48,0.06486486486486487,postings,instructional materials design
+TEACHER,reporting,46,0.062162162162162166,postings,reporting
+TEACHER,software-development,43,0.05810810810810811,postings,software development
+TEACHER,decision-making,40,0.05405405405405406,postings,decision making
+TEACHER,microsoft-office,31,0.041891891891891894,postings,Microsoft Office

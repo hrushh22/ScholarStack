@@ -1,0 +1,345 @@
+# Curated domain & soft skills used by the rule-based skill extractor.
+# Format:  group -> { canonical skill: [aliases...] }   (matching is case-insensitive, whole-phrase)
+# Each group is mapped to an O*NET skill/knowledge element so extracted skills
+# can be aligned with occupation requirements. Technology skills come from O*NET
+# "Software Skills" automatically and do not need to be listed here.
+
+_onet_alignment:
+  Accounting & Audit: Economics and Accounting
+  Finance & Banking: Economics and Accounting
+  Sales & Business Development: Sales and Marketing
+  Marketing, Media & PR: Sales and Marketing
+  Human Resources: Personnel and Human Resources
+  Healthcare: Medicine and Dentistry
+  Education & Training: Education and Training
+  Culinary & Hospitality: Food Production
+  Construction & Trades: Building and Construction
+  Engineering: Engineering and Technology
+  Information Technology: Computers and Electronics
+  Data & Analytics: Mathematics
+  Design & Creative: Design
+  Arts & Media Production: Fine Arts
+  Aviation: Transportation
+  Automotive: Mechanical
+  Agriculture: Food Production
+  Apparel & Retail: Sales and Marketing
+  Fitness & Wellness: Therapy and Counseling
+  Advocacy & Customer Care: Customer and Personal Service
+  Legal & Compliance: Law and Government
+  Management & Operations: Administration and Management
+  Soft Skills: Communications and Media
+
+Accounting & Audit:
+  accounts payable: [accounts payable, a/p]
+  accounts receivable: [accounts receivable, a/r]
+  general ledger: [general ledger, gl reconciliation]
+  reconciliation: [reconciliation, reconciliations, account reconciliation, bank reconciliation]
+  journal entries: [journal entries, journal entry]
+  month-end close: [month-end close, month end close, month-end closing, year-end close]
+  GAAP: [gaap, us gaap]
+  IFRS: [ifrs]
+  financial statements: [financial statements, financial statement preparation, financial reporting]
+  auditing: [auditing, internal audit, external audit, audit]
+  tax preparation: [tax preparation, tax returns, tax compliance]
+  payroll: [payroll, payroll processing]
+  bookkeeping: [bookkeeping]
+  cost accounting: [cost accounting]
+  fixed assets: [fixed assets, depreciation]
+  accruals: [accruals, accrual]
+  variance analysis: [variance analysis]
+  SOX compliance: [sox, sarbanes-oxley, sox compliance]
+  CPA: [cpa, certified public accountant]
+
+Finance & Banking:
+  financial analysis: [financial analysis, financial modeling, financial modelling]
+  budgeting: [budgeting, budget preparation, budget management, budgets]
+  forecasting: [forecasting, forecasts, financial forecasting]
+  FP&A: [fp&a, financial planning and analysis]
+  valuation: [valuation, dcf]
+  investment analysis: [investment analysis, portfolio management, asset management]
+  risk management: [risk management, risk assessment, credit risk, market risk]
+  credit analysis: [credit analysis, underwriting, loan underwriting]
+  lending: [lending, loan origination, loan processing, mortgage]
+  treasury: [treasury, cash management, cash flow]
+  KYC/AML: [kyc, aml, anti-money laundering, know your customer, bsa]
+  branch operations: [branch operations, teller operations, cash handling, cash drawer]
+  wealth management: [wealth management, financial planning]
+  CFA: [cfa]
+  Series 7: [series 7, series 63, finra]
+
+Sales & Business Development:
+  business development: [business development, new business development]
+  lead generation: [lead generation, prospecting, cold calling, outbound calls]
+  account management: [account management, key accounts, client retention]
+  pipeline management: [pipeline management, sales pipeline, sales funnel]
+  negotiation: [negotiation, negotiating, contract negotiation]
+  B2B sales: [b2b, b2b sales, enterprise sales]
+  B2C sales: [b2c, retail sales]
+  sales forecasting: [sales forecasting, quota attainment, sales quota, quota]
+  territory management: [territory management]
+  partnerships: [strategic partnerships, partnership development, alliances]
+  market research: [market research, competitive analysis, market analysis]
+  upselling: [upselling, cross-selling, up-selling]
+  customer acquisition: [customer acquisition, client acquisition]
+  proposal writing: [proposal writing, rfp, rfps, request for proposal]
+  sales presentations: [sales presentations, product demonstrations, product demos]
+
+Marketing, Media & PR:
+  digital marketing: [digital marketing, online marketing]
+  social media marketing: [social media, social media marketing, social media management]
+  content creation: [content creation, content development, content strategy, copywriting]
+  SEO: [seo, search engine optimization]
+  SEM: [sem, ppc, pay-per-click, paid search]
+  email marketing: [email marketing, email campaigns]
+  brand management: [brand management, branding, brand strategy]
+  campaign management: [campaign management, marketing campaigns, campaigns]
+  media relations: [media relations, press releases, press release, media kits]
+  public relations: [public relations]
+  crisis communications: [crisis communications, crisis communication]
+  event planning: [event planning, event management]
+  video production: [video production, video editing, videography]
+  photography: [photography, photo editing]
+  analytics reporting: [web analytics, campaign analytics, kpis, kpi]
+  media buying: [media buying, media planning]
+  community management: [community management, community outreach]
+
+Human Resources:
+  recruiting: [recruiting, recruitment, talent acquisition, sourcing candidates, full-cycle recruiting]
+  onboarding: [onboarding, new hire orientation]
+  employee relations: [employee relations, labor relations]
+  benefits administration: [benefits administration, benefits enrollment, open enrollment]
+  compensation: [compensation analysis, compensation planning, compensation structures, compensation and benefits administration]
+  performance management: [performance management, performance reviews, performance appraisals]
+  HR policies: [hr policies, policy development, employee handbook]
+  HRIS: [hris]
+  FMLA: [fmla]
+  employment law: [employment law, flsa, ada compliance, labor law]
+  training and development: [training and development, employee training, learning and development]
+  succession planning: [succession planning, workforce planning]
+  SHRM certification: [shrm-cp, shrm-scp, phr, sphr]
+
+Healthcare:
+  patient care: [patient care, direct patient care]
+  patient assessment: [patient assessment, patient assessments, vital signs]
+  medication administration: [medication administration, administering medications]
+  electronic medical records: [emr, ehr, electronic medical records, electronic health records]
+  HIPAA: [hipaa]
+  CPR/BLS: [cpr, bls, basic life support, acls]
+  care planning: [care plans, care planning, care coordination]
+  case management: [case management]
+  infection control: [infection control]
+  medical terminology: [medical terminology]
+  medical billing: [medical billing, medical coding, icd-10, cpt coding]
+  phlebotomy: [phlebotomy]
+  patient education: [patient education]
+  clinical documentation: [clinical documentation, charting]
+  RN license: [registered nurse, rn license, licensed practical nurse, lpn, cna, certified nursing assistant]
+  insurance verification: [insurance verification, medicare, medicaid, prior authorization, prior authorizations]
+
+Education & Training:
+  lesson planning: [lesson planning, lesson plans, curriculum development, curriculum design]
+  classroom management: [classroom management]
+  differentiated instruction: [differentiated instruction, individualized instruction]
+  student assessment: [student assessment, assessments, grading, progress monitoring]
+  special education: [special education, iep, ieps]
+  instructional design: [instructional design, e-learning, elearning]
+  tutoring: [tutoring, mentoring students]
+  early childhood education: [early childhood education, early childhood development]
+  parent communication: [parent communication, parent-teacher conferences]
+  teaching certification: [teaching certificate, teaching certification, teaching license, state certification]
+  ESL: [esl, english as a second language, tesol]
+  STEM education: [stem]
+
+Culinary & Hospitality:
+  menu development: [menu development, menu planning, menu design]
+  food safety: [food safety, food handling, haccp, sanitation]
+  ServSafe: [servsafe]
+  food preparation: [food preparation, food prep, cooking, culinary]
+  inventory management: [inventory management, inventory control, stock management]
+  food cost control: [food cost, cost control, food costing]
+  kitchen management: [kitchen management, kitchen operations, back of house]
+  catering: [catering, banquets, banquet]
+  baking: [baking, pastry]
+  customer service: [customer service, guest service, guest services, hospitality]
+  vendor management: [vendor management, vendor relations, supplier management]
+
+Construction & Trades:
+  project scheduling: [project scheduling, construction scheduling]
+  cost estimating: [cost estimating, estimating, estimates, takeoffs]
+  blueprint reading: [blueprint reading, blueprints, construction drawings, reading drawings]
+  OSHA safety: [osha, osha 30, osha 10, job site safety, site safety, safety compliance]
+  subcontractor management: [subcontractor management, subcontractors, contractor management]
+  site supervision: [site supervision, field supervision, jobsite supervision]
+  building codes: [building codes, code compliance, permits, permitting]
+  carpentry: [carpentry, framing]
+  electrical systems: [electrical systems, electrical wiring, wiring]
+  plumbing: [plumbing]
+  HVAC: [hvac]
+  heavy equipment: [heavy equipment, forklift, equipment operation]
+  quality inspection: [quality inspection, inspections, quality assurance, qa/qc, quality control]
+  welding: [welding]
+
+Engineering:
+  mechanical design: [mechanical design, product design, design engineering]
+  CAD modeling: [cad, 3d modeling, 2d drafting, drafting]
+  root cause analysis: [root cause analysis, rca, failure analysis]
+  lean manufacturing: [lean manufacturing, lean six sigma, six sigma, kaizen, continuous improvement, 5s]
+  process improvement: [process improvement, process optimization]
+  manufacturing processes: [manufacturing processes, manufacturing operations, manufacturing engineering]
+  testing and validation: [test plans, test cases, testing and validation, verification and validation, product testing, quality testing]
+  technical documentation: [technical documentation, technical writing]
+  FEA: [fea, finite element analysis]
+  PLC programming: [plc, plc programming, plcs]
+  electrical engineering: [circuit design, pcb design, electronics]
+  systems engineering: [systems engineering, requirements management]
+  project engineering: [project engineering, engineering project management]
+  professional engineer license: [professional engineer, pe license, eit]
+
+Information Technology:
+  technical support: [technical support, help desk, helpdesk, desktop support, service desk]
+  troubleshooting: [troubleshooting, troubleshoot, diagnose]
+  network administration: [network administration, networking, lan, wan, tcp/ip, vpn, dns, dhcp]
+  system administration: [system administration, systems administration, server administration]
+  cybersecurity: [cybersecurity, cyber security, information security, network security]
+  cloud computing: [cloud computing, cloud infrastructure, cloud]
+  software development: [software development, software engineering, programming, coding]
+  web development: [web development, front-end, frontend, back-end, backend, full stack, full-stack]
+  database management: [database management, database administration, databases]
+  ITIL: [itil, it service management]
+  agile: [agile, scrum, kanban, sprint planning]
+  DevOps: [devops, ci/cd, continuous integration]
+  APIs: [api, apis, rest api, restful]
+  IT asset management: [asset management, hardware installation, hardware]
+  CompTIA certification: [comptia, a+, network+, security+, ccna, mcse]
+
+Data & Analytics:
+  data analysis: [data analysis, data analytics, analyzing data]
+  data visualization: [data visualization, dashboards, dashboard]
+  statistical analysis: [statistical analysis, statistics, regression]
+  machine learning: [machine learning, deep learning, ml]
+  reporting: [reporting, ad hoc reports, management reports]
+  data entry: [data entry]
+  ETL: [etl, data pipelines, data warehousing]
+  A/B testing: [a/b testing, experimentation]
+
+Design & Creative:
+  graphic design: [graphic design, visual design, layout design]
+  UX design: [ux, user experience, ux design, user research, usability testing]
+  UI design: [ui, user interface, ui design, wireframes, wireframing, prototyping, mockups]
+  typography: [typography]
+  branding design: [logo design, brand identity, visual identity]
+  interior design: [interior design, space planning, furniture selection]
+  instructional materials design: [instructional materials]
+  print design: [print design, print production, prepress]
+  illustration: [illustration, drawing, sketching]
+  color theory: [color theory]
+  portfolio: [design portfolio]
+
+Arts & Media Production:
+  arts education: [arts education, art instruction]
+  curation: [curation, curating, exhibitions, exhibition design, collections management]
+  performance: [performing arts, theater, theatre, music performance]
+  arts administration: [arts administration, grant writing, fundraising]
+  community arts programming: [arts programming, program development]
+
+Aviation:
+  aircraft maintenance: [aircraft maintenance, aircraft inspection, airframe, powerplant, a&p]
+  FAA regulations: [faa, faa regulations, federal aviation regulations]
+  flight operations: [flight operations, flight planning, dispatch]
+  avionics: [avionics]
+  aviation safety: [aviation safety, safety management system]
+  ground operations: [ground operations, ramp operations, ground handling]
+  pilot certification: [commercial pilot, atp, private pilot, flight hours, instrument rating]
+  logistics: [logistics, supply chain, shipping and receiving, procurement]
+
+Automotive:
+  automotive repair: [automotive repair, vehicle repair, auto repair, vehicle maintenance, preventive maintenance]
+  diagnostics: [diagnostics, diagnostic tools, vehicle diagnostics]
+  ASE certification: [ase, ase certified, ase certification]
+  dealership operations: [dealership, dealer operations, service advisor, service writer]
+  parts management: [parts management, parts inventory, parts ordering]
+  collision repair: [collision repair, auto body, body work]
+  fleet management: [fleet management, fleet maintenance]
+  CDL: [cdl, commercial driver's license, commercial drivers license]
+
+Agriculture:
+  crop management: [crop management, crop production, crops, agronomy]
+  irrigation: [irrigation]
+  soil science: [soil science, soil testing, soil fertility]
+  livestock management: [livestock, animal husbandry, livestock management]
+  pest management: [pest management, integrated pest management, ipm, pesticide application]
+  agricultural extension: [extension programs, extension agent, 4-h, farmer outreach]
+  horticulture: [horticulture, greenhouse, nursery]
+  farm equipment: [farm equipment, tractor, tractors]
+  food security: [food security, sustainable agriculture, agricultural development]
+
+Apparel & Retail:
+  visual merchandising: [visual merchandising, merchandising, merchandise displays, planograms]
+  retail operations: [retail operations, store operations, store management, loss prevention]
+  point of sale: [point of sale, pos, cash register]
+  product development: [product development, line development, tech packs]
+  pattern making: [pattern making, patternmaking, garment construction, sewing]
+  fashion trends: [fashion trends, trend analysis, trend forecasting]
+  sourcing: [sourcing, vendor sourcing, production sourcing]
+  textiles: [textiles, fabrics, fabric]
+  wholesale: [wholesale]
+
+Fitness & Wellness:
+  personal training: [personal training, one-on-one training, client training]
+  group fitness instruction: [group fitness, group exercise, fitness classes, zumba]
+  exercise programming: [exercise programming, workout programs, program design, strength training]
+  nutrition coaching: [nutrition, nutrition coaching, nutritional guidance, diet]
+  fitness assessment: [fitness assessments, fitness assessment, body composition]
+  yoga instruction: [yoga, pilates]
+  wellness coaching: [wellness coaching, health coaching]
+  fitness certification: [nasm, ace certified, acsm, nsca, certified personal trainer]
+  membership sales: [membership sales, memberships]
+
+Advocacy & Customer Care:
+  client advocacy: [advocacy, patient advocacy, client advocacy, customer advocacy]
+  crisis intervention: [crisis intervention, de-escalation, conflict resolution]
+  social services: [social services, community resources, referrals]
+  call center operations: [call center, contact center, inbound calls, outbound calls, high call volume]
+  complaint resolution: [complaint resolution, issue resolution, problem resolution, resolving complaints]
+  CRM data entry: [crm]
+  workforce management: [workforce management, wfm, scheduling and forecasting]
+  quality monitoring: [quality monitoring, call monitoring, call quality]
+  sla management: [sla, slas, service level agreements]
+
+Legal & Compliance:
+  legal research: [legal research, legal writing]
+  litigation support: [litigation, litigation support]
+  contract management: [contract management, contracts, contract review]
+  regulatory compliance: [regulatory compliance, compliance management, compliance audits, regulatory requirements, regulatory affairs]
+  policy analysis: [policy analysis]
+
+Management & Operations:
+  project management: [project management, project planning, project coordination]
+  team leadership: [team leadership, leadership, supervising, supervision, team management, people management, managing teams]
+  operations management: [operations management, daily operations]
+  strategic planning: [strategic planning, strategy development, business strategy]
+  stakeholder management: [stakeholder management, stakeholder engagement, stakeholders]
+  change management: [change management]
+  process documentation: [standard operating procedures, sops, process documentation]
+  staff training: [staff training, training staff, coaching, mentoring]
+  P&L management: [p&l, profit and loss, p&l management]
+  PMP: [pmp, project management professional]
+  scheduling: [staff scheduling, shift scheduling]
+  administrative support: [administrative support, office administration, clerical, filing, calendar management]
+
+Soft Skills:
+  communication: [communication skills, verbal communication, written communication, excellent communication, communication]
+  teamwork: [teamwork, team player, collaboration, collaborative, cross-functional]
+  problem solving: [problem solving, problem-solving, complex problem solving]
+  critical thinking: [critical thinking]
+  time management: [time management, multitasking, multi-tasking, prioritization, prioritize]
+  attention to detail: [attention to detail, detail-oriented, detail oriented]
+  customer focus: [customer focus, customer satisfaction, client satisfaction, client relations]
+  adaptability: [adaptability, flexibility, fast-paced environment, fast paced environment]
+  organization: [organizational skills, organized, organization skills]
+  presentation skills: [presentation skills, public speaking, presentations]
+  interpersonal skills: [interpersonal skills, relationship building, rapport]
+  decision making: [decision making, decision-making, judgment]
+  bilingual: [bilingual, spanish, multilingual]
+  active listening: [active listening]
+  self-motivated: [self-motivated, self-starter]

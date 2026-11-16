@@ -1,0 +1,33 @@
+# --- secrets -------------------------------------------------------------
+.env
+.env.*
+!.env.example
+
+# --- data & generated artifacts (reproducible from the pipeline) ----------
+data/raw/*
+data/interim/*
+data/processed/*
+data/models/*
+!data/**/.gitkeep
+!data/README.md
+.cache/
+
+# --- python ----------------------------------------------------------------
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# --- supabase cli ------------------------------------------------------------
+supabase/.temp/
+supabase/.branches/
+.tools/
+
+# --- editor / os -------------------------------------------------------------
+.DS_Store
+.vscode/
+.idea/
+.claude/
+CLAUDE.md
