@@ -20,9 +20,10 @@ const CORS = {
 };
 
 const LLM_BASE_URL = Deno.env.get("LLM_BASE_URL") ?? "https://api.groq.com/openai/v1";
-const LLM_MODEL = Deno.env.get("LLM_MODEL") ?? "llama-3.3-70b-versatile";
-const LLM_FALLBACK_MODEL = Deno.env.get("LLM_FALLBACK_MODEL") ?? "llama-3.1-8b-instant";
+const LLM_MODEL = Deno.env.get("LLM_MODEL") ?? "openai/gpt-oss-120b";
+const LLM_FALLBACK_MODEL = Deno.env.get("LLM_FALLBACK_MODEL") ?? "openai/gpt-oss-20b";
 const LLM_KEY = Deno.env.get("GROQ_API_KEY") ?? "";
+const REASONING_EFFORT = Deno.env.get("LLM_REASONING_EFFORT") ?? "low";
 const MAX_INPUT_CHARS = 15000;
 
 function serviceKey(): string {
@@ -91,8 +92,9 @@ async function chat(messages: { role: string; content: string }[]) {
       const res = await fetch(`${LLM_BASE_URL}/chat/completions`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${LLM_KEY}` },
-        body: JSON.stringify({ model, messages, temperature: 0.2, max_tokens: 2200,
-          response_format: { type: "json_object" } }),
+        body: JSON.stringify({ model, messages, temperature: 0.2, max_tokens: 4000,
+          response_format: { type: "json_object" },
+          ...(model.startsWith("openai/gpt-oss") ? { reasoning_effort: REASONING_EFFORT } : {}) }),
       });
       if (res.ok) {
         const data = await res.json();

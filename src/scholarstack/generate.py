@@ -104,12 +104,12 @@ def validate_citations(output: dict, retrieved_ids: set[str]) -> int:
 
 
 class Generator:
-    def __init__(self, retriever: Retriever | None = None, model: str | None = None):
+    def __init__(self, retriever: Retriever | None = None, model: str | None = None, with_fallback: bool = True):
         self.ex = SkillExtractor()
         self.retriever = retriever or Retriever()
         self.onet = OnetMatcher()
         self.market = load_market_stats().set_index("code").to_dict("index")
-        self.llm = chat_model(model)
+        self.llm = chat_model(model, with_fallback=with_fallback)
         self.parser = JsonOutputParser()
         self.query_variant = CFG["retrieval"]["query_variant"]
 
@@ -126,32 +126,37 @@ class Generator:
                 "market": self.market.get(occ["code"]), "jd_skill_names": skills}
 
     # -- prompting ---------------------------------------------------------
-    def messages(self, ctx: dict, mode: str):
+    def messages(self, ctx: dict, mode: str, use_onet: bool = True):
         common = dict(title=ctx["title"] or "(not given)", jd=truncate_words(ctx["jd"], 900),
                       jd_skills=", ".join(ctx["jd_skill_names"]) or "(none detected)",
                       applicant=applicant_block(ctx.get("resume")), schema=PROMPTS["schema"])
         if mode == "rag":
-            user = fill(PROMPTS["user_rag"], onet=format_onet(ctx["occupation"], ctx["market"]),
-                        evidence=format_evidence(ctx["chunks"]), **common)
+            onet = format_onet(ctx["occupation"], ctx["market"]) if use_onet else "(not provided)"
+            user = fill(PROMPTS["user_rag"], onet=onet, evidence=format_evidence(ctx["chunks"]), **common)
             return [SystemMessage(PROMPTS["system_rag"]), HumanMessage(user)]
         user = fill(PROMPTS["user_llm_only"], **common)
         return [SystemMessage(PROMPTS["system_llm_only"]), HumanMessage(user)]
 
-    def chain(self, mode: str = "rag"):
-        def run(inp: dict) -> dict:
-            ctx = self.retrieve(inp)
-            t0 = time.perf_counter()
-            msg = self.llm.invoke(self.messages(ctx, mode))
-            out = self.parser.invoke(msg)
-            ctx["latency_s"] = time.perf_counter() - t0
-            ctx["usage"] = (getattr(msg, "usage_metadata", None) or {})
-            ctx["model"] = (getattr(msg, "response_metadata", None) or {}).get("model_name", "")
-            ctx["invalid_citations"] = validate_citations(out, set(ctx["chunks"]["chunk_id"])) if mode == "rag" else 0
-            ctx["output"] = out
-            ctx["mode"] = mode
-            return ctx
+    def complete(self, ctx: dict, mode: str = "rag", use_onet: bool = True) -> dict:
+        """LLM step only (retrieval already done) -> new dict with output and bookkeeping."""
+        t0 = time.perf_counter()
+        msg = self.llm.invoke(self.messages(ctx, mode, use_onet))
+        out = self.parser.invoke(msg)
+        res = dict(ctx)
+        res["latency_s"] = time.perf_counter() - t0
+        res["usage"] = getattr(msg, "usage_metadata", None) or {}
+        meta = getattr(msg, "response_metadata", None) or {}
+        res["model"] = meta.get("model_name", "")
+        # Groq reports its own processing time; wall-clock latency would include our rate-limiter waits.
+        res["llm_time_s"] = (meta.get("token_usage") or {}).get("total_time")
+        res["invalid_citations"] = validate_citations(out, set(ctx["chunks"]["chunk_id"])) if mode == "rag" else 0
+        res["output"] = out
+        res["mode"] = mode
+        return res
 
-        return RunnableLambda(run)
+    def chain(self, mode: str = "rag"):
+        """retrieve -> prompt -> LLM -> parse/validate, as one LangChain runnable."""
+        return RunnableLambda(self.retrieve) | RunnableLambda(lambda ctx: self.complete(ctx, mode))
 
     def generate(self, jd: str, resume: str | None = None, mode: str = "rag", **kw) -> dict:
         return self.chain(mode).invoke({"jd": jd, "resume": resume, **kw})

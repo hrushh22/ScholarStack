@@ -11,9 +11,9 @@ from scholarstack.config import log, path
 from scholarstack.viz import INK_2, MUTED, SERIES, SURFACE, hbar, plt, savefig
 
 R = path("results")
-SYSTEM_LABEL = {"baseline": "TF-IDF keywords", "llm_only": "LLM only", "rag": "RAG (ours)",
-                "rag_no_onet": "RAG without O*NET", "rag_small": "RAG, 8B model", "rag_k3": "RAG, k = 3",
-                "rag_k15": "RAG, k = 15"}
+SYSTEM_LABEL = {"baseline": "TF-IDF keywords", "llm_only": "LLM only (120B)", "rag": "RAG (ours, 120B)",
+                "rag_small": "RAG, 20B model", "rag_small_no_onet": "RAG 20B, no O*NET", "rag_small_k3": "RAG 20B, k = 3",
+                "rag_small_k15": "RAG 20B, k = 15"}
 
 
 def end_label(ax, x, y, text):
@@ -133,58 +133,56 @@ def generation_figures():
     if not f.exists():
         return
     s = pd.read_csv(f).set_index("system")
-    order = [x for x in ["baseline", "llm_only", "rag_small", "rag_no_onet", "rag_k3", "rag", "rag_k15"] if x in s.index]
-    metrics = [("grounded", "Grounded statements"), ("jd_skill_coverage", "JD skill coverage"),
-               ("market_skill_coverage", "Market (O*NET-linked) skill coverage")]
-    fig, axes = plt.subplots(1, 3, figsize=(15, 3.8), sharey=True)
-    for ax, (m, title) in zip(axes, metrics):
-        vals = [s.loc[o, m] if m in s and not pd.isna(s.loc[o, m]) else 0 for o in order]
-        colors = [SERIES[0] if o == "rag" else "#86b6ef" for o in order]
-        y = np.arange(len(order))
-        ax.barh(y, vals, color=colors, height=0.62)
-        for yi, v, o in zip(y, vals, order):
-            txt = "n/a" if (m == "grounded" and o == "baseline") else f"{v:.0%}"
-            ax.text(v + 0.01, yi, txt, va="center", fontsize=8.5, color=INK_2)
-        ax.set_yticks(y, [SYSTEM_LABEL[o] for o in order])
-        ax.invert_yaxis()
-        ax.set_xlim(0, 1.12)
-        ax.grid(axis="y", visible=False)
-        ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0%}"))
-        ax.set_title(title)
-    fig.tight_layout()
-    n = int(s["n"].max())
-    savefig(fig, "results_generation", f"{n} held-out job descriptions (one per category). Grounded = statement has "
-            "cosine >= 0.55 with a real resume chunk retrieved for that job.")
-
-    f = R / "groundedness_threshold_curve.csv"
-    if f.exists():
-        c = pd.read_csv(f).set_index("system")
-        taus = [float(col.split("@")[1]) for col in c.columns]
-        fig, ax = plt.subplots(figsize=(7, 3.8))
-        for i, o in enumerate([x for x in ["rag", "rag_no_onet", "rag_small", "llm_only"] if x in c.index]):
-            ax.plot(taus, c.loc[o].values, color=SERIES[i], marker="o", markersize=5, markeredgecolor=SURFACE,
-                    markeredgewidth=1.5, label=SYSTEM_LABEL[o])
-        ax.axvline(0.55, color=MUTED, linewidth=1)
-        ax.set_xlabel("Support threshold (cosine)")
-        ax.set_ylabel("Share of statements supported")
-        ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0%}"))
-        ax.set_ylim(0, 1.05)
-        ax.set_title("Groundedness is robust to the threshold choice")
-        ax.legend(loc="lower left")
-        savefig(fig, "results_groundedness_threshold")
+    order = [x for x in ["llm_only", "rag_small", "rag", "rag_small_no_onet", "rag_small_k3", "rag_small_k15"] if x in s.index]
+    fig, axes = plt.subplots(1, 2, figsize=(14, 3.9), gridspec_kw={"width_ratios": [1.1, 1]})
+    ax = axes[0]
+    rows = [o for o in order if not pd.isna(s.loc[o, "grounded"])]
+    y = np.arange(len(rows))
+    vals = [float(s.loc[o, "grounded"]) for o in rows]
+    ax.barh(y, vals, height=0.6, color=[SERIES[0] if o == "rag" else "#86b6ef" for o in rows])
+    for yi, o, v in zip(y, rows, vals):
+        ax.text(v + 0.01, yi, f"{v:.0%}", va="center", fontsize=8.5, color=INK_2)
+        chance = s.loc[o, "chance_level"] if "chance_level" in s and not pd.isna(s.loc[o, "chance_level"]) else None
+        if chance is not None:
+            ax.plot([chance, chance], [yi - 0.38, yi + 0.38], color="#0b0b0b", linewidth=2)
+    ax.set_yticks(y, [SYSTEM_LABEL[o] for o in rows])
+    ax.invert_yaxis()
+    ax.set_xlim(0, 1.1)
+    ax.grid(axis="y", visible=False)
+    ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0%}"))
+    ax.set_title("Statements supported by real resumes for the job")
+    ax.text(0, -0.17, "Black tick = chance level: share also 'supported' by evidence from an unrelated job.",
+            transform=ax.transAxes, fontsize=8.5, color=INK_2)
+    ax = axes[1]
+    rows = ["baseline"] + order
+    y = np.arange(len(rows))
+    for j, (m, lab) in enumerate((("jd_skill_coverage", "Job's hard skills"), ("market_skill_coverage", "Occupation's in-demand skills"))):
+        vals = [float(s.loc[o, m]) if o in s.index else 0 for o in rows]
+        ax.barh(y + (j - 0.5) * 0.36, vals, height=0.34, color=SERIES[j], label=lab)
+        for yi, v in zip(y, vals):
+            ax.text(v + 0.01, yi + (j - 0.5) * 0.36, f"{v:.0%}", va="center", fontsize=8, color=INK_2)
+    ax.set_yticks(y, [SYSTEM_LABEL[o] for o in rows])
+    ax.invert_yaxis()
+    ax.set_xlim(0, 1.12)
+    ax.grid(axis="y", visible=False)
+    ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0%}"))
+    ax.set_title("Skill coverage")
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.12), ncol=2)
+    fig.tight_layout(w_pad=3)
+    savefig(fig, "results_generation", f"{int(s.loc['rag', 'n'])} held-out job descriptions (ablations on a subset). "
+            "Verifier: an independent LLM checks each statement against the 3 closest lines of the shared evidence pool.")
 
     f = R / "judge_eval.csv"
     if f.exists():
         j = pd.read_csv(f)
         pref = j[j.criterion == "preferred"]
         if len(pref):
-            fig, ax = plt.subplots(figsize=(8, 2.2))
+            fig, ax = plt.subplots(figsize=(8.5, 2.2))
             for yi, (pair, g) in enumerate(pref.groupby("pair")):
                 a, b = pair.split(" vs ")
                 shares = [(g.winner == a).mean(), (g.winner == "tie").mean(), (g.winner == b).mean()]
                 left = 0
-                for share, color, lab in zip(shares, [SERIES[0], "#c3c2b7", SERIES[1]],
-                                             [SYSTEM_LABEL[a], "Tie", SYSTEM_LABEL[b]]):
+                for share, color in zip(shares, [SERIES[0], "#c3c2b7", SERIES[1]]):
                     if share > 0:
                         ax.barh(yi, share, left=left, color=color, height=0.5, edgecolor=SURFACE, linewidth=2)
                         if share >= 0.08:

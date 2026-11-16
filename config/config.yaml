@@ -62,7 +62,7 @@ onet:
 
 llm:
   temperature: 0.2
-  max_tokens: 2200
+  max_tokens: 4000   # includes reasoning tokens for gpt-oss models
 
 evaluation:
   retrieval_jds_per_category: 10

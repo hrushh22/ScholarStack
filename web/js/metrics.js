@@ -22,25 +22,46 @@ export function outputText(out) {
   return parts.filter(Boolean).join("\n");
 }
 
+/** Evidence at two granularities — each chunk and each line in it (as metrics.evidence_units in Python). */
+export function evidenceUnits(chunkTexts, minWords = 4) {
+  const units = [];
+  const owner = [];
+  chunkTexts.forEach((text, i) => {
+    units.push(text.split(/\s+/).filter(Boolean).join(" "));
+    owner.push(i);
+    const lines = text.split("\n").map((l) => l.replace(/^[\s\-•\t]+|[\s\-•\t]+$/g, ""));
+    if (lines.length > 1) {
+      for (const line of lines) {
+        if (line.split(/\s+/).filter(Boolean).length >= minWords) {
+          units.push(line);
+          owner.push(i);
+        }
+      }
+    }
+  });
+  return { units, owner };
+}
+
 /**
- * Groundedness: each statement's best cosine similarity against the retrieved
- * evidence. Supported when >= tau (same threshold as the offline evaluation).
+ * Fast grounding check: each statement's best cosine similarity with the evidence
+ * units. The threshold tau was calibrated offline to agree with an LLM verifier.
  */
 export async function groundedness(out, evidenceTexts, tau) {
   const sts = statements(out);
   if (!sts.length || !evidenceTexts.length) return { statements: sts, share: 0, support: [] };
-  const vecs = await embed([...sts.map((s) => s.text), ...evidenceTexts]);
+  const { units, owner } = evidenceUnits(evidenceTexts);
+  const vecs = await embed([...sts.map((s) => s.text), ...units]);
   const sv = vecs.slice(0, sts.length);
   const ev = vecs.slice(sts.length);
-  const support = sv.map((v) => Math.max(...ev.map((e) => dot(v, e))));
-  const best = sv.map((v) => {
+  const support = [];
+  sv.forEach((v, i) => {
     const scores = ev.map((e) => dot(v, e));
-    return scores.indexOf(Math.max(...scores));
-  });
-  sts.forEach((s, i) => {
-    s.support = support[i];
-    s.bestEvidence = best[i];
-    s.supported = support[i] >= tau;
+    const best = scores.indexOf(Math.max(...scores));
+    support.push(scores[best]);
+    sts[i].support = scores[best];
+    sts[i].bestEvidence = owner[best];
+    sts[i].bestLine = units[best];
+    sts[i].supported = scores[best] >= tau;
   });
   return { statements: sts, share: support.filter((x) => x >= tau).length / sts.length, support };
 }

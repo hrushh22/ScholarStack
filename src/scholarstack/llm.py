@@ -56,11 +56,20 @@ class SQLiteCache(BaseCache):
 
 
 _CACHE_SET = False
-_LIMITER = InMemoryRateLimiter(requests_per_second=0.4, check_every_n_seconds=0.2, max_bucket_size=2)
+# Free tier: 8k tokens/minute per model; a generation call is ~4k tokens -> about 2 calls/minute.
+# One limiter per model, so different models can be called in parallel.
+_LIMITERS: dict[str, InMemoryRateLimiter] = {}
+
+
+def _limiter(model: str, seconds_per_call: float) -> InMemoryRateLimiter:
+    if model not in _LIMITERS:
+        _LIMITERS[model] = InMemoryRateLimiter(requests_per_second=1 / seconds_per_call, check_every_n_seconds=0.25,
+                                               max_bucket_size=1)
+    return _LIMITERS[model]
 
 
 def chat_model(model: str | None = None, json_mode: bool = True, max_tokens: int | None = None,
-               with_fallback: bool = True):
+               with_fallback: bool = True, seconds_per_call: float = 25, reasoning_effort: str | None = None):
     global _CACHE_SET
     if not _CACHE_SET:
         set_llm_cache(SQLiteCache(path("cache") / "llm_cache.sqlite"))
@@ -68,15 +77,22 @@ def chat_model(model: str | None = None, json_mode: bool = True, max_tokens: int
     kwargs = dict(base_url=env("LLM_BASE_URL", "https://api.groq.com/openai/v1"),
                   api_key=env("GROQ_API_KEY", required=True),
                   temperature=CFG["llm"]["temperature"], max_tokens=max_tokens or CFG["llm"]["max_tokens"],
-                  max_retries=6, timeout=120, rate_limiter=_LIMITER)
+                  max_retries=6, timeout=180)
+    model_kwargs = {}
     if json_mode:
-        kwargs["model_kwargs"] = {"response_format": {"type": "json_object"}}
-    primary = ChatOpenAI(model=model or env("LLM_MODEL", "llama-3.3-70b-versatile"), **kwargs)
+        model_kwargs["response_format"] = {"type": "json_object"}
+    effort = reasoning_effort or env("LLM_REASONING_EFFORT")
+    if effort:
+        kwargs["extra_body"] = {"reasoning_effort": effort}
+    kwargs["model_kwargs"] = model_kwargs
+    name = model or env("LLM_MODEL", "openai/gpt-oss-120b")
+    primary = ChatOpenAI(model=name, rate_limiter=_limiter(name, seconds_per_call), **kwargs)
     fallback_name = env("LLM_FALLBACK_MODEL")
-    if with_fallback and fallback_name and fallback_name != (model or env("LLM_MODEL")):
-        return primary.with_fallbacks([ChatOpenAI(model=fallback_name, **kwargs)])
+    if with_fallback and fallback_name and fallback_name != name:
+        return primary.with_fallbacks([ChatOpenAI(model=fallback_name, rate_limiter=_limiter(fallback_name, seconds_per_call),
+                                                  **kwargs)])
     return primary
 
 
 def model_name(model: str | None = None) -> str:
-    return model or env("LLM_MODEL", "llama-3.3-70b-versatile")
+    return model or env("LLM_MODEL", "openai/gpt-oss-120b")

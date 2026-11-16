@@ -25,8 +25,24 @@ def reciprocal_rank(relevant: list[bool]) -> float:
     return 0.0
 
 
+def evidence_units(chunk_texts: list[str], min_words: int = 4) -> tuple[list[str], list[int]]:
+    """Evidence at two granularities: every chunk, and every line inside it.
+    A polished statement is compared with the resume line it paraphrases rather than
+    with a whole list-like chunk. Returns the unit texts and the chunk each came from."""
+    units, owner = [], []
+    for i, text in enumerate(chunk_texts):
+        units.append(" ".join(text.split()))
+        owner.append(i)
+        lines = [l.strip(" -•\t") for l in text.split("\n")]
+        for line in lines:
+            if len(line.split()) >= min_words and len(lines) > 1:
+                units.append(line)
+                owner.append(i)
+    return units, owner
+
+
 def statement_support(statements: list[str], evidence_vecs: np.ndarray, encode_fn) -> np.ndarray:
-    """Max cosine between each statement and the evidence pool."""
+    """Max cosine between each statement and the evidence units."""
     if not statements or evidence_vecs is None or len(evidence_vecs) == 0:
         return np.zeros(len(statements))
     s_vecs = encode_fn(statements)

@@ -2,8 +2,8 @@
 import { esc, pct, prettyCategory } from "./render.js";
 
 const COLORS = ["var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)", "#e87ba4"];
-const SYSTEM = { baseline: "TF-IDF keywords", llm_only: "LLM only", rag: "RAG (ours)", rag_no_onet: "RAG without O*NET",
-  rag_small: "RAG, 8B model", rag_k3: "RAG, k = 3", rag_k15: "RAG, k = 15" };
+const SYSTEM = { baseline: "TF-IDF keywords", llm_only: "LLM only (120B)", rag: "RAG (ours, 120B)", rag_small: "RAG, 20B model",
+  rag_small_no_onet: "RAG 20B, no O*NET", rag_small_k3: "RAG 20B, k = 3", rag_small_k15: "RAG 20B, k = 15" };
 const tip = () => document.getElementById("tooltip");
 
 function showTip(evt, html) {
@@ -122,7 +122,7 @@ export async function renderDashboard(root, res, api) {
       ${kpi("Resumes indexed", (eda.resumes_clean ?? 2480).toLocaleString(), "27,207 section chunks, 24 categories")}
       ${kpi("Job postings processed", (eda.postings_clean ?? 0).toLocaleString(), `of ${(eda.postings_raw ?? 0).toLocaleString()} raw (Dask)`)}
       ${kpi("Retrieval precision@8", dense ? pct(dense.precision_category) : "–", `vs ${tf ? pct(tf.precision_category) : "–"} for TF-IDF`)}
-      ${gen.rag ? kpi("Grounded statements", pct(gen.rag.grounded), `vs ${pct(gen.llm_only?.grounded)} without retrieval`)
+      ${gen.rag ? kpi("Statements verified in real resumes", pct(gen.rag.grounded), `vs ${pct(gen.llm_only?.grounded)} without retrieval`)
         : kpi("O*NET occupations", "1,016", "978 linked to LinkedIn demand")}
     </div>
 
@@ -134,8 +134,8 @@ export async function renderDashboard(root, res, api) {
     <div class="grid-2" style="margin-top:16px">${block("c-bycat")}${block("c-onet")}</div>
 
     <div class="section-title"><h2>Generation: grounded vs. generic</h2>
-      <p>One held-out job description per category. Grounded = the statement has cosine ≥ ${res.config?.groundedness_threshold ?? 0.55}
-      with a real resume excerpt retrieved for that job.</p></div>
+      <p>One held-out job description per category. Every generated statement is checked against real resume excerpts
+      retrieved for that job (the same evidence for every system).</p></div>
     <div id="gen-area"></div>
 
     <div class="section-title"><h2>Scale &amp; speed</h2><p>Vector search and embedding throughput (Apple M-series laptop, CPU search).</p></div>
@@ -198,29 +198,39 @@ export async function renderDashboard(root, res, api) {
   if (!res.generation?.length) {
     ga.innerHTML = `<div class="card empty">Generation results appear here after running <code>pipeline/10_eval_generation.py</code>.</div>`;
   } else {
-    ga.innerHTML = `<div class="grid-2">${block("c-gen")}${block("c-judge")}</div><div class="grid-2" style="margin-top:16px">${block("c-gen2")}${block("c-tau")}</div>`;
-    const order = ["baseline", "llm_only", "rag_small", "rag_no_onet", "rag_k3", "rag", "rag_k15"].filter((s) => gen[s]);
-    barChart(document.getElementById("c-gen"), {
-      title: "Grounded statements", fmt: (v) => (v == null ? "n/a" : pct(v)),
-      rows: order.filter((s) => s !== "baseline").map((s) => ({ label: SYSTEM[s], values: [{ name: "Grounded", value: gen[s].grounded, color: s === "rag" ? COLORS[0] : "#86b6ef" }] })),
+    ga.innerHTML = `<div class="grid-2">${block("c-gen")}${block("c-judge")}</div><div class="grid-2" style="margin-top:16px">${block("c-gen2")}${block("c-calib")}</div>`;
+    const order = ["llm_only", "rag_small", "rag", "rag_small_no_onet", "rag_small_k3", "rag_small_k15"].filter((s) => gen[s]);
+        barChart(document.getElementById("c-gen"), {
+      title: "Statements verified against real resumes",
+      note: "An independent verifier LLM checks each statement against the closest lines of real resumes retrieved for the job (same pool for every system).",
+      rows: order.filter((s) => gen[s]?.grounded != null).map((s) => ({ label: SYSTEM[s], values: [
+        { name: "Supported by this job's evidence", value: gen[s].grounded, color: COLORS[0] },
+        { name: "Chance level (unrelated job's evidence)", value: gen[s].chance_level ?? null, color: "var(--line-strong)" }] })),
+      fmt: (v) => pct(v),
     });
     barChart(document.getElementById("c-gen2"), {
       title: "Skill coverage",
-      rows: order.map((s) => ({ label: SYSTEM[s], values: [
-        { name: "JD skills", value: gen[s].jd_skill_coverage, color: COLORS[0] },
-        { name: "Market (O*NET-linked) skills", value: gen[s].market_skill_coverage, color: COLORS[1] }] })),
+      rows: ["baseline", ...order].filter((s) => gen[s]).map((s) => ({ label: SYSTEM[s], values: [
+        { name: "Job's hard skills", value: gen[s].jd_skill_coverage, color: COLORS[0] },
+        { name: "Occupation's in-demand skills", value: gen[s].market_skill_coverage, color: COLORS[1] }] })),
+      fmt: (v) => pct(v),
     });
-    const curve = res.groundedness_curve ?? [];
-    const taus = Object.keys(curve[0] ?? {}).filter((k) => k.startsWith("grounded@")).map((k) => Number(k.split("@")[1]));
-    lineChart(document.getElementById("c-tau"), {
-      title: "Groundedness vs. support threshold", xs: taus, xLabel: "cosine threshold",
-      series: ["rag", "rag_no_onet", "rag_small", "llm_only"].map((s, i) => [s, i]).filter(([s]) => curve.find((c) => c.system === s))
-        .map(([s, i]) => ({ name: SYSTEM[s], color: COLORS[i], points: taus.map((t) => ({ x: t, y: curve.find((c) => c.system === s)[`grounded@${t}`] })) })),
-    });
+    const c = res.calibration ?? {};
+    document.getElementById("c-calib").innerHTML = `<h3>Is the grounding check trustworthy?</h3>
+      <dl class="kv">
+        <dt>Verifier</dt><dd>${esc(c.verifier ?? "–")} (different model family than the generator)</dd>
+        <dt>Chance level</dt><dd>${pct(c.negative_control_supported)} of statements also “match” evidence from an unrelated job
+          (generic lines such as communication or degrees) — n = ${c.negative_control_n ?? 0}. Grounding is judged by the lift above this:
+          RAG ${pct(gen.rag?.grounding_lift)}, LLM only ${pct(gen.llm_only?.grounding_lift)}.</dd>
+        <dt>Citations</dt><dd>${pct(gen.rag?.citation_rate)} of RAG statements cite at least one retrieved excerpt; ids that were not retrieved are removed</dd>
+        <dt>Live check</dt><dd>embedding similarity ≥ ${c.embedding_tau ?? "–"} agrees with the verifier on
+          ${pct(c.embedding_agreement_with_verifier)} of ${c.n_statements_verified ?? 0} statements (AUC ${c.embedding_auc_vs_verifier ?? "–"})</dd>
+      </dl>
+      <p class="small muted" style="margin-top:8px">A sample of verdicts is in <code>reports/results/groundedness_audit.csv</code> for manual review.</p>`;
     const judge = (res.judge ?? []).filter((j) => j.criterion === "preferred");
     const pairs = [...new Set(judge.map((j) => j.pair))];
-    document.getElementById("c-judge").innerHTML = `<h3>LLM-judge preference</h3><p class="small muted">Pairwise comparison by a separate
-      LLM call acting as a career advisor; A/B order randomised to cancel position bias.</p>` + (pairs.length ? pairs.map((p) => {
+    document.getElementById("c-judge").innerHTML = `<h3>LLM-judge preference</h3><p class="small muted">A separate model acting as a
+      career advisor compares two outputs per job on specificity, actionability, alignment and realism; A/B order is randomised.</p>` + (pairs.length ? pairs.map((p) => {
       const rows = judge.filter((j) => j.pair === p);
       const [a, b] = p.split(" vs ");
       const share = (w) => rows.filter((r) => r.winner === w).length / rows.length;

@@ -17,7 +17,7 @@ const ONLINE = [
   ["Browser", "Skill extraction", "Same lexicon and rules as Python (verified identical on 100 held-out JDs)."],
   ["Browser", "Query embedding", "all-MiniLM-L6-v2 via transformers.js; vectors identical to the offline index."],
   ["Supabase", "Retrieval", "pgvector HNSW over 27,207 resume chunks + O*NET profiles with LinkedIn demand."],
-  ["Edge Function", "Generation", "Groq-hosted Llama, JSON output, every statement must cite retrieved chunk ids."],
+  ["Edge Function", "Generation", "Groq-hosted gpt-oss-120b (fallback gpt-oss-20b), JSON output; every statement must cite retrieved chunk ids."],
   ["Browser", "Verification", "Each statement re-embedded and compared with the evidence; invalid citations are dropped."],
 ];
 

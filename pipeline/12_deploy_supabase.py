@@ -79,7 +79,8 @@ if __name__ == "__main__":
     # 2. Edge Function secrets
     secrets = [{"name": n, "value": env(n, d)} for n, d in (
         ("GROQ_API_KEY", None), ("LLM_BASE_URL", "https://api.groq.com/openai/v1"),
-        ("LLM_MODEL", "llama-3.3-70b-versatile"), ("LLM_FALLBACK_MODEL", "llama-3.1-8b-instant"))]
+        ("LLM_MODEL", "openai/gpt-oss-120b"), ("LLM_FALLBACK_MODEL", "openai/gpt-oss-20b"),
+        ("LLM_REASONING_EFFORT", "low"))]
     if not secrets[0]["value"]:
         raise SystemExit("GROQ_API_KEY missing in .env")
     httpx.post(f"{API}/projects/{ref}/secrets", headers=headers, json=secrets, timeout=30).raise_for_status()

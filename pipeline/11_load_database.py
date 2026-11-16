@@ -18,12 +18,26 @@ from scholarstack.onet import load_market_stats
 from scholarstack.skills import SkillExtractor
 
 
+def normalise_dsn(dsn: str) -> str:
+    """Percent-encode the password if it was pasted raw (special characters break the URI)."""
+    import re
+    import urllib.parse
+
+    m = re.match(r"^(postgres(?:ql)?://)([^:/]+):(.*)@([^@]+)$", dsn.strip())
+    if not m:
+        return dsn.strip()
+    scheme, user, password, rest = m.groups()
+    if re.search(r"%[0-9A-Fa-f]{2}", password):  # already encoded
+        return dsn.strip()
+    return f"{scheme}{user}:{urllib.parse.quote(password, safe='')}@{rest}"
+
+
 def vec_literal(v: np.ndarray) -> str:
     return "[" + ",".join(f"{x:.6f}" for x in v) + "]"
 
 
 if __name__ == "__main__":
-    dsn = env("SUPABASE_DB_URL", required=True)
+    dsn = normalise_dsn(env("SUPABASE_DB_URL", required=True))
     strategy, model = CFG["chunking"]["serving_strategy"], CFG["embedding"]["serving_model"]
     chunks = load_chunks(strategy)
     vecs = load_embeddings(f"chunks_{strategy}", model)

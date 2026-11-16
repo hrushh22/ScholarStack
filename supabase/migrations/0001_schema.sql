@@ -78,8 +78,12 @@ alter table public.onet_occupations enable row level security;
 alter table public.runs             enable row level security;
 alter table public.feedback         enable row level security;
 
-grant usage on schema public to anon, authenticated;
+-- Explicit grants, so the schema works even when "automatically expose new tables" is off.
+grant usage on schema public to anon, authenticated, service_role;
+grant all on all tables in schema public to service_role;
+grant usage, select on all sequences in schema public to service_role;
 grant insert on public.feedback to anon, authenticated;
+grant usage, select on all sequences in schema public to anon, authenticated;
 drop policy if exists "anyone can rate" on public.feedback;
 create policy "anyone can rate" on public.feedback for insert to anon, authenticated with check (true);
 
@@ -95,6 +99,7 @@ returns table (chunk_id text, resume_id text, category text, resume_title text, 
                content text, skills text[], similarity float)
 language plpgsql stable security definer
 set search_path = public, extensions
+set hnsw.ef_search = 100   -- wider HNSW search: closer agreement with exact search, still ~ms
 as $$
 begin
     match_count := least(greatest(match_count, 1), 30);
