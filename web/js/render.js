@@ -111,7 +111,10 @@ export function renderGap({ out, resumeText, jdIds, marketIds, resumeIds, tfidf,
       ${g.weak_sections.map((w) => `<tr><td>${esc(w.section)}</td><td>${esc(w.issue)}</td><td>${esc(w.suggestion)}</td></tr>`).join("")}</tbody></table>` : ""}
     ${(g.bullet_rewrites ?? []).length ? `<h4 style="margin-top:16px">Bullet rewrites</h4><table class="data"><thead><tr><th>Before</th><th>After</th></tr></thead><tbody>
       ${g.bullet_rewrites.map((b) => `<tr><td>${esc(b.before)}</td><td>${esc(b.after)}</td></tr>`).join("")}</tbody></table>` : ""}`
-    : `<p class="small muted" style="margin-top:16px">The written gap analysis appears after generation.</p>`;
+    : out
+      ? `<div class="notice" style="margin-top:16px">The model did not return a written gap analysis this time. The skill
+         comparison above is complete; press <b>Generate</b> again for the advisor's notes.</div>`
+      : `<p class="small muted" style="margin-top:16px">The written gap analysis appears after generation.</p>`;
   return `<div class="tiles">
       <div class="tile"><div class="label">Job skills on your resume</div><div class="value">${pct(share(jdIds))}</div><div class="note">${jdIds.filter((i) => have.has(i)).length} of ${jdIds.length} detected skills</div></div>
       <div class="tile"><div class="label">In-demand skills (LinkedIn)</div><div class="value">${pct(share(marketIds))}</div><div class="note">top skills for the matched occupation</div></div>
