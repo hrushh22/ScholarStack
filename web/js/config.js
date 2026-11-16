@@ -2,11 +2,11 @@
 // publishable (anon) key are designed to be used in browsers; data access is limited by
 // row-level security and the RPC functions in supabase/migrations.
 export const CONFIG = {
-  "supabaseUrl": "",
-  "supabaseKey": "",
+  "supabaseUrl": "https://rfonxpiullejoufbbgos.supabase.co",
+  "supabaseKey": "sb_publishable_fJ2GllkUHNe7mA6SWFJ79Q_8UrYaekP",
   "embeddingModel": "Xenova/all-MiniLM-L6-v2",
   "embeddingDtype": "fp32",
   "queryVariant": "skills",
   "k": 8,
-  "groundednessThreshold": 0.55
+  "groundednessThreshold": 0.38
 };

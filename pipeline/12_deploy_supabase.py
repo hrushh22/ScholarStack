@@ -6,12 +6,15 @@
   4. checks the function responds, then regenerates web/js/config.js
 
 Needs SUPABASE_URL, SUPABASE_ACCESS_TOKEN and GROQ_API_KEY in .env.
+    python pipeline/12_deploy_supabase.py          # the CLI asks for confirmation before deploying
+    python pipeline/12_deploy_supabase.py --yes    # non-interactive
 """
 import os
 import platform
 import re
 import shutil
 import subprocess
+import sys
 import tarfile
 import urllib.parse
 
@@ -88,8 +91,10 @@ if __name__ == "__main__":
 
     # 3. deploy the function (no Docker needed with --use-api)
     cli = supabase_cli()
-    subprocess.run([cli, "functions", "deploy", "generate", "--project-ref", ref, "--no-verify-jwt", "--use-api"],
-                   cwd=ROOT, check=True, env={**os.environ, "SUPABASE_ACCESS_TOKEN": token})
+    cmd = [cli, "functions", "deploy", "generate", "--project-ref", ref, "--no-verify-jwt", "--use-api"]
+    if "--yes" in sys.argv:  # skip the CLI's confirmation prompt (non-interactive runs)
+        cmd.append("--yes")
+    subprocess.run(cmd, cwd=ROOT, check=True, env={**os.environ, "SUPABASE_ACCESS_TOKEN": token})
 
     # 4. health check + browser config
     url = f"{env('SUPABASE_URL').rstrip('/')}/functions/v1/generate"
