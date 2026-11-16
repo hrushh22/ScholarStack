@@ -77,6 +77,6 @@ export function renderMethod(root, res) {
   </div>
 
   <div class="card" style="margin-top:16px"><h2>Team</h2>
-    <p>BDA 696 · San Diego State University. Sonika Srinivas (lead), Hrushik Nimesh Mehta, Dhrumil Vinay Panchal,
+    <p>BDA 696 · San Diego State University. Hrushik Nimesh Mehta, Dhrumil Vinay Panchal, Sonika Srinivas,
     Parjanya Hebbale Krishna.</p></div>`;
 }
