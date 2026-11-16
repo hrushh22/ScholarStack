@@ -1,5 +1,5 @@
 # Publishes the static site in web/ to GitHub Pages on every push to main.
-# One-time setup: repository Settings -> Pages -> Source: "GitHub Actions".
+# One-time setup (done): repository Settings -> Pages -> Source: "GitHub Actions".
 name: Deploy site to GitHub Pages
 
 on:
