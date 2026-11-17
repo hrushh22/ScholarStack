@@ -1,5 +1,5 @@
 // Results page: SVG charts (hover tooltips, a table under each chart) built from data/results.json.
-import { esc, pct, prettyCategory } from "./render.js?v=202611161640";
+import { esc, pct, prettyCategory } from "./render.js?v=202611161641";
 
 const COLORS = ["var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)", "var(--s5)"];
 const SYSTEM = { baseline: "Keyword baseline", llm_only: "LLM only (120B)", rag: "ScholarStack (120B)", rag_small: "ScholarStack (20B)",
@@ -211,7 +211,7 @@ export async function renderDashboard(root, res, api) {
         resumes retrieved for the job.${showChance ? " The gray bar is the chance level: how often the same lines pass against an unrelated job's resumes." : ""}
         Checked so far: ${esc(checked)}.`,
       rows: order.filter((s) => gen[s]?.grounded != null).map((s) => ({ label: SYSTEM[s], values: [
-        { name: "Backed by this job's resumes", value: gen[s].grounded, color: COLORS[0] },
+        { name: "Backed by this job's resumes", value: gen[s].grounded, color: s === "rag" ? COLORS[0] : "var(--line-strong)" },
         ...(showChance ? [{ name: "Chance level", value: gen[s].chance_level ?? null, color: "var(--line-strong)" }] : [])] })),
       fmt: (v) => pct(v),
     });
