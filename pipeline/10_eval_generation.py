@@ -304,6 +304,9 @@ if __name__ == "__main__":
     summary["n"] = df.dropna(subset=["jd_skill_coverage"]).groupby("system").size()
     summary["errors"] = df.groupby("system")["error"].count() if "error" in df else 0
     summary["model"] = summary.index.map(lambda s: "tf-idf" if s == "baseline" else models[SYSTEMS[s][0]])
+    verified = st.dropna(subset=["verdict"])
+    summary["verified_statements"] = verified.groupby("system").size()
+    summary["verified_jobs"] = verified.groupby("system")["job_id"].nunique()
     for s_name, rate in calib["negative_control_by_system"].items():
         if s_name in summary.index:
             summary.loc[s_name, "chance_level"] = rate

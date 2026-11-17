@@ -1,0 +1,7 @@
+system,supported,supported_extra,unsupported
+llm_only,0.107,0.379,0.514
+rag,0.202,0.675,0.123
+rag_small,0.301,0.505,0.194
+rag_small_k15,0.329,0.411,0.26
+rag_small_k3,0.371,0.419,0.21
+rag_small_no_onet,0.548,0.323,0.129

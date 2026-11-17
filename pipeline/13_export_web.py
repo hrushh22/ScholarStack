@@ -77,6 +77,24 @@ def json_file(name: str):
     return json.loads(f.read_text()) if f.exists() else None
 
 
+def stamp_assets() -> str:
+    """Add ?v=<timestamp> to the stylesheet and every JS module import, so a new deploy is
+    never mixed with old files cached by the browser or GitHub Pages."""
+    from datetime import datetime
+
+    version = datetime.now().strftime("%Y%m%d%H%M")
+    web = ROOT / "web"
+    html = web / "index.html"
+    text = re.sub(r'(href="css/styles\.css|src="js/app\.js)(\?v=[^"]*)?"', rf'\1?v={version}"', html.read_text())
+    html.write_text(text)
+    for js in (web / "js").glob("*.js"):
+        src = js.read_text()
+        new = re.sub(r'(from "\./[\w-]+\.js)(\?v=[^"]*)?"', rf'\1?v={version}"', src)
+        if new != src:
+            js.write_text(new)
+    return version
+
+
 def live_threshold() -> float:
     """Embedding threshold calibrated against the LLM verifier (step 10), else the config default."""
     calib = json_file("groundedness_calibration.json") or {}
@@ -142,4 +160,4 @@ if __name__ == "__main__":
         "// publishable (anon) key are designed to be used in browsers; data access is limited by\n"
         "// row-level security and the RPC functions in supabase/migrations.\n"
         f"export const CONFIG = {json.dumps(cfg, indent=2)};\n")
-    log.info("web assets written to %s", web)
+    log.info("web assets written to %s (asset version %s)", web, stamp_assets())

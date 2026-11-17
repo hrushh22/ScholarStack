@@ -1,11 +1,15 @@
 {
   "verifier": "qwen/qwen3.8-27b",
-  "n_statements_verified": 103,
-  "positive_rate": 0.796,
-  "negative_control_supported": 0.536,
-  "negative_control_n": 28,
-  "embedding_tau": 0.38,
-  "embedding_balanced_accuracy": 0.706,
-  "embedding_agreement_with_verifier": 0.786,
-  "embedding_auc_vs_verifier": 0.746
+  "n_statements_verified": 591,
+  "positive_rate": 0.721,
+  "negative_control_supported": 0.0,
+  "negative_control_by_system": {
+    "llm_only": 0.0,
+    "rag": 0.0
+  },
+  "negative_control_n": 24,
+  "embedding_tau": 0.53,
+  "embedding_balanced_accuracy": 0.707,
+  "embedding_agreement_with_verifier": 0.687,
+  "embedding_auc_vs_verifier": 0.782
 }

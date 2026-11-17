@@ -8,5 +8,5 @@ export const CONFIG = {
   "embeddingDtype": "fp32",
   "queryVariant": "skills",
   "k": 8,
-  "groundednessThreshold": 0.38
+  "groundednessThreshold": 0.53
 };

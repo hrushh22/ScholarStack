@@ -3,6 +3,8 @@
 Run after the evaluation steps; figures for missing results are skipped.
 """
 
+import json
+
 import numpy as np
 import pandas as pd
 
@@ -136,13 +138,16 @@ def generation_figures():
     order = [x for x in ["llm_only", "rag_small", "rag", "rag_small_no_onet", "rag_small_k3", "rag_small_k15"] if x in s.index]
     fig, axes = plt.subplots(1, 2, figsize=(14, 3.9), gridspec_kw={"width_ratios": [1.1, 1]})
     ax = axes[0]
+    calib = json.loads((R / "groundedness_calibration.json").read_text()) if (R / "groundedness_calibration.json").exists() else {}
+    show_chance = calib.get("negative_control_n", 0) >= 100  # too few control lines -> don't draw a misleading tick
     rows = [o for o in order if not pd.isna(s.loc[o, "grounded"])]
     y = np.arange(len(rows))
     vals = [float(s.loc[o, "grounded"]) for o in rows]
     ax.barh(y, vals, height=0.6, color=[SERIES[0] if o == "rag" else NEUTRAL for o in rows])
     for yi, o, v in zip(y, rows, vals):
         ax.text(v + 0.01, yi, f"{v:.0%}", va="center", fontsize=8.5, color=INK_2)
-        chance = s.loc[o, "chance_level"] if "chance_level" in s and not pd.isna(s.loc[o, "chance_level"]) else None
+        chance = (s.loc[o, "chance_level"] if show_chance and "chance_level" in s and not pd.isna(s.loc[o, "chance_level"])
+                  else None)
         if chance is not None:
             ax.plot([chance, chance], [yi - 0.38, yi + 0.38], color="#0b0b0b", linewidth=2)
     ax.set_yticks(y, [SYSTEM_LABEL[o] for o in rows])
@@ -151,8 +156,9 @@ def generation_figures():
     ax.grid(axis="y", visible=False)
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0%}"))
     ax.set_title("Statements supported by real resumes for the job")
-    ax.text(0, -0.17, "Black tick = chance level: share also 'supported' by evidence from an unrelated job.",
-            transform=ax.transAxes, fontsize=8.5, color=INK_2)
+    if show_chance:
+        ax.text(0, -0.17, "Black tick = chance level: share also 'supported' by evidence from an unrelated job.",
+                transform=ax.transAxes, fontsize=8.5, color=INK_2)
     ax = axes[1]
     rows = ["baseline"] + order
     y = np.arange(len(rows))
@@ -170,7 +176,7 @@ def generation_figures():
     ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.12), ncol=2)
     fig.tight_layout(w_pad=3)
     savefig(fig, "results_generation", f"{int(s.loc['rag', 'n'])} held-out job descriptions (ablations on a subset). "
-            "Verifier: an independent LLM checks each statement against the 3 closest lines of the shared evidence pool.")
+            "A second LLM (different model family) checks each line against the 4 closest lines of real resumes retrieved for the job.")
 
     f = R / "judge_eval.csv"
     if f.exists():

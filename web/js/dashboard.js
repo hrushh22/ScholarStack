@@ -1,5 +1,5 @@
 // Results page: SVG charts (hover tooltips, a table under each chart) built from data/results.json.
-import { esc, pct, prettyCategory } from "./render.js";
+import { esc, pct, prettyCategory } from "./render.js?v=202611161631";
 
 const COLORS = ["var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)", "var(--s5)"];
 const SYSTEM = { baseline: "Keyword baseline", llm_only: "LLM only (120B)", rag: "ScholarStack (120B)", rag_small: "ScholarStack (20B)",
@@ -198,12 +198,18 @@ export async function renderDashboard(root, res, api) {
   } else {
     ga.innerHTML = `<div class="grid-2">${block("c-gen")}${block("c-judge")}</div><div class="grid-2" style="margin-top:16px">${block("c-gen2")}${block("c-calib")}</div>`;
     const order = ["llm_only", "rag_small", "rag", "rag_small_no_onet", "rag_small_k3", "rag_small_k15"].filter((s) => gen[s]);
+    const c0 = res.calibration ?? {};
+    const showChance = (c0.negative_control_n ?? 0) >= 100;
+    const checked = order.filter((s) => gen[s]?.verified_statements).map((s) =>
+      `${SYSTEM[s]}: ${gen[s].verified_statements} lines from ${gen[s].verified_jobs} jobs`).join("; ");
     barChart(document.getElementById("c-gen"), {
       title: "Lines backed by real resumes",
-      note: "A separate model (a different family than the writer) checks each line against the closest lines from real resumes retrieved for the job. The gray bar is the chance level: how often the same lines also pass against an unrelated job's resumes.",
+      note: `A separate model (a different family than the writer) checks each line against the closest lines from real
+        resumes retrieved for the job.${showChance ? " The gray bar is the chance level: how often the same lines pass against an unrelated job's resumes." : ""}
+        Checked so far: ${esc(checked)}.`,
       rows: order.filter((s) => gen[s]?.grounded != null).map((s) => ({ label: SYSTEM[s], values: [
         { name: "Backed by this job's resumes", value: gen[s].grounded, color: COLORS[0] },
-        { name: "Chance level", value: gen[s].chance_level ?? null, color: "var(--line-strong)" }] })),
+        ...(showChance ? [{ name: "Chance level", value: gen[s].chance_level ?? null, color: "var(--line-strong)" }] : [])] })),
       fmt: (v) => pct(v),
     });
     barChart(document.getElementById("c-gen2"), {
@@ -217,9 +223,8 @@ export async function renderDashboard(root, res, api) {
     document.getElementById("c-calib").innerHTML = `<h3>Can we trust the grounding check?</h3>
       <dl class="kv">
         <dt>Checker</dt><dd>${esc(c.verifier ?? "-")}, a different model family than the writer</dd>
-        <dt>Chance level</dt><dd>${pct(c.negative_control_supported)} of lines also pass against an unrelated job's resumes
-          (generic lines like "strong communicator" or a degree). So we look at the gap above that: ScholarStack ${pct(gen.rag?.grounding_lift)},
-          the LLM alone ${pct(gen.llm_only?.grounding_lift)}.</dd>
+        <dt>Chance level</dt><dd>We also check lines against resumes retrieved for an unrelated job. So far ${pct(c.negative_control_supported)}
+          of ${c.negative_control_n ?? 0} lines passed that way, which tells us the checker isn't just saying yes to everything.</dd>
         <dt>Citations</dt><dd>${pct(gen.rag?.citation_rate)} of ScholarStack's lines cite at least one excerpt. Citations to anything we didn't retrieve get removed.</dd>
         <dt>Live check</dt><dd>The quick check you see on the Generate page (embedding similarity of at least ${c.embedding_tau ?? "-"}) agrees with
           the checker on ${pct(c.embedding_agreement_with_verifier)} of ${c.n_statements_verified ?? 0} lines.</dd>
