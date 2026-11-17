@@ -11,16 +11,24 @@ Site: https://hrushh22.github.io/ScholarStack/
 - Pick light or dark mode with the Theme button (dark looks great on a projector).
 - Keep a few screenshots of a finished run as a backup in case the venue Wi-Fi is bad.
 
-## A 10 to 12 minute flow
+## The 15-minute talk
 
-| Time | Part | What to show |
-|---|---|---|
-| 1 min | The problem | Resume advice is usually generic keyword lists. We wanted advice backed by what people in the job actually wrote. |
-| 1.5 min | Data | Results tab, top tiles: 2,480 resumes in 24 categories, 123,849 LinkedIn postings cleaned to 106,291 with Dask, O*NET 31.0 with 1,016 occupations. Scroll to the EDA figures (category imbalance, skills in resumes vs postings). |
-| 2 min | How it works | How it works tab: the offline pipeline (download, clean, skills, chunk and embed, FAISS, O*NET linking, evaluation) and the live path (browser, Supabase, Groq). |
-| 4 min | Live demo | See the script below. |
-| 2.5 min | Results | Results tab: retrieval charts, "What we embed matters", the grounding chart, skill coverage, FAISS benchmark. |
-| 1 min | Limits and next steps | How it works tab, Limitations card. |
+The slides are in the shared Drive folder (ScholarStack_Final_Presentation_v2, 9 slides). Every member speaks, and the
+speaker notes on each slide have the script. Questions follow the talk.
+
+| Slide | Time | Speaker | Part |
+|---|---|---|---|
+| 1 | 1 min | Sonika Srinivas | Title, team, what ScholarStack does |
+| 2 | 1.5 min | Sonika Srinivas | The problem, our question, who it's for |
+| 3 | 2 min | Sonika Srinivas | Data sources, cleaning with Dask, what the EDA told us |
+| 4 | 2 min | Hrushik Mehta | Architecture: offline pipeline and the live path |
+| 5 | 3.5 min | Dhrumil Panchal | Live demo (script below) |
+| 6 | 2 min | Hrushik Mehta | Retrieval results and comparisons |
+| 7 | 2 min | Parjanya Hebbale Krishna | Generation results, baselines and ablations |
+| 8 | 1 min | Parjanya Hebbale Krishna | Takeaways, applications, limits and ethics, next steps |
+| 9 | - | - | Sources, left up during questions |
+
+The slide PDF is due on Canvas by Monday, December 7, 2026; the presentations are on Wednesday, December 9, in class.
 
 ## Demo script
 
