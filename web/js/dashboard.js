@@ -1,5 +1,5 @@
 // Results page: SVG charts (hover tooltips, a table under each chart) built from data/results.json.
-import { esc, pct, prettyCategory } from "./render.js?v=202611161638";
+import { esc, pct, prettyCategory } from "./render.js?v=202611161640";
 
 const COLORS = ["var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)", "var(--s5)"];
 const SYSTEM = { baseline: "Keyword baseline", llm_only: "LLM only (120B)", rag: "ScholarStack (120B)", rag_small: "ScholarStack (20B)",
@@ -196,7 +196,10 @@ export async function renderDashboard(root, res, api) {
   if (!res.generation?.length) {
     ga.innerHTML = `<div class="card empty reveal">Generation results show up here after running <code>pipeline/10_eval_generation.py</code>.</div>`;
   } else {
-    ga.innerHTML = `<div class="grid-2">${block("c-gen")}${block("c-judge")}</div><div class="grid-2" style="margin-top:16px">${block("c-gen2")}${block("c-calib")}</div>`;
+    const hasJudge = (res.judge ?? []).some((j) => j.criterion === "preferred");
+    ga.innerHTML = hasJudge
+      ? `<div class="grid-2">${block("c-gen")}${block("c-judge")}</div><div class="grid-2" style="margin-top:16px">${block("c-gen2")}${block("c-calib")}</div>`
+      : `<div class="grid-2">${block("c-gen")}${block("c-gen2")}</div><div class="grid-2" style="margin-top:16px">${block("c-calib")}</div>`;
     const order = ["llm_only", "rag_small", "rag", "rag_small_no_onet", "rag_small_k3", "rag_small_k15"].filter((s) => gen[s]);
     const c0 = res.calibration ?? {};
     const showChance = (c0.negative_control_n ?? 0) >= 100;
@@ -233,7 +236,7 @@ export async function renderDashboard(root, res, api) {
       <p class="small muted" style="margin-top:8px">A sample of the checker's calls is in <code>reports/results/groundedness_audit.csv</code> so we can review them by hand.</p>`;
     const judge = (res.judge ?? []).filter((j) => j.criterion === "preferred");
     const pairs = [...new Set(judge.map((j) => j.pair))];
-    document.getElementById("c-judge").innerHTML = `<h3>Which one would a career advisor pick?</h3><p class="small muted">A separate model plays
+    if (hasJudge) document.getElementById("c-judge").innerHTML = `<h3>Which one would a career advisor pick?</h3><p class="small muted">A separate model plays
       career advisor and compares two outputs for the same job on how specific, actionable, on-target and realistic they are. We shuffle
       which one it sees first.</p>` + (pairs.length ? pairs.map((p) => {
       const rows = judge.filter((j) => j.pair === p);
