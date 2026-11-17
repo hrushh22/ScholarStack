@@ -1,5 +1,5 @@
 // "How it works" page.
-import { esc } from "./render.js?v=202611161631";
+import { esc } from "./render.js?v=202611161638";
 
 const REPO = "https://github.com/hrushh22/ScholarStack/blob/main";
 

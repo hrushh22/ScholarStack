@@ -1,5 +1,5 @@
 // Supabase calls: retrieval RPCs (PostgREST), the generation Edge Function, feedback.
-import { CONFIG } from "./config.js?v=202611161631";
+import { CONFIG } from "./config.js?v=202611161638";
 
 function headers() {
   const h = { "Content-Type": "application/json", apikey: CONFIG.supabaseKey };

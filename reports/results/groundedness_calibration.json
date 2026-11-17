@@ -8,8 +8,12 @@
     "rag": 0.0
   },
   "negative_control_n": 24,
-  "embedding_tau": 0.53,
-  "embedding_balanced_accuracy": 0.707,
-  "embedding_agreement_with_verifier": 0.687,
-  "embedding_auc_vs_verifier": 0.782
+  "embedding_tau": 0.35,
+  "embedding_agreement_with_verifier": 0.694,
+  "embedding_auc_vs_verifier": 0.713,
+  "embedding_calibration": "live setting: each line vs. lines of the 8 retrieved chunks; tau maximises agreement with the verifier",
+  "embedding_pass_rate_at_tau": {
+    "rag": 0.877,
+    "llm_only": 0.751
+  }
 }

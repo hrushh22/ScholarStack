@@ -1,5 +1,5 @@
 // Results page: SVG charts (hover tooltips, a table under each chart) built from data/results.json.
-import { esc, pct, prettyCategory } from "./render.js?v=202611161631";
+import { esc, pct, prettyCategory } from "./render.js?v=202611161638";
 
 const COLORS = ["var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)", "var(--s5)"];
 const SYSTEM = { baseline: "Keyword baseline", llm_only: "LLM only (120B)", rag: "ScholarStack (120B)", rag_small: "ScholarStack (20B)",
@@ -226,8 +226,9 @@ export async function renderDashboard(root, res, api) {
         <dt>Chance level</dt><dd>We also check lines against resumes retrieved for an unrelated job. So far ${pct(c.negative_control_supported)}
           of ${c.negative_control_n ?? 0} lines passed that way, which tells us the checker isn't just saying yes to everything.</dd>
         <dt>Citations</dt><dd>${pct(gen.rag?.citation_rate)} of ScholarStack's lines cite at least one excerpt. Citations to anything we didn't retrieve get removed.</dd>
-        <dt>Live check</dt><dd>The quick check you see on the Generate page (embedding similarity of at least ${c.embedding_tau ?? "-"}) agrees with
-          the checker on ${pct(c.embedding_agreement_with_verifier)} of ${c.n_statements_verified ?? 0} lines.</dd>
+        <dt>Live check</dt><dd>The quick check on the Generate page (embedding similarity of at least ${c.embedding_tau ?? "-"} with one of the
+          retrieved lines) agrees with the checker ${pct(c.embedding_agreement_with_verifier)} of the time. It's a fast hint, not the real measure:
+          it's fair to ScholarStack but goes easy on the plain LLM.</dd>
       </dl>
       <p class="small muted" style="margin-top:8px">A sample of the checker's calls is in <code>reports/results/groundedness_audit.csv</code> so we can review them by hand.</p>`;
     const judge = (res.judge ?? []).filter((j) => j.criterion === "preferred");

@@ -166,6 +166,7 @@ if __name__ == "__main__":
         occ = ctx[(r.job_id, 8)]["occupation"]
         market = [s["id"] for s in (large.market.get(occ["code"]) or {}).get("top_skills", [])[:10]]
         P, N = pools[r.job_id], pools[negative_of[r.job_id]]
+        L = embed_units(ctx[(r.job_id, 8)]["chunks"]["text"].tolist())  # what the live site checks against
         for s in args.systems:
             rec = {"job_id": r.job_id, "category": r.category, "title": r.title, "system": s}
             if s == "baseline":
@@ -187,6 +188,7 @@ if __name__ == "__main__":
                 if sts:
                     sv = encode([x["text"] for x in sts])
                     sims, nsims = sv @ P["vecs"].T, sv @ N["vecs"].T
+                    lsup = (sv @ L["vecs"].T).max(axis=1)
                     for i_s, st in enumerate(sts):
                         order = np.argsort(-sims[i_s])
                         cand = [int(u) for u in order[:N_CANDIDATES]]
@@ -198,6 +200,7 @@ if __name__ == "__main__":
                         row = {"job_id": r.job_id, "category": r.category, "system": s, "part": st["part"],
                                "statement": st["text"], "n_sources": len(st["sources"]),
                                "emb_support": float(sims[i_s].max()), "emb_support_negative": float(nsims[i_s].max()),
+                               "emb_support_live": float(lsup[i_s]),
                                "candidates": [P["units"][u] for u in cand],
                                "candidate_cited": [bool(P["owner"][u] in cited_chunks) for u in cand],
                                "negative_candidates": [N["units"][u] for u in neg_order]}
@@ -261,15 +264,15 @@ if __name__ == "__main__":
     st["extra"] = st["extra"].astype("boolean")
     st["supported_strict"] = (st["supported"] & ~st["extra"]).astype("boolean")
 
-    # Calibrate the live embedding check against the verifier (maximise agreement).
-    lab = st.dropna(subset=["supported"])
+    # Calibrate the live embedding check against the verifier, in the live setting: each line vs. the
+    # lines of the 8 chunks the site retrieves. tau is the threshold that agrees with the verifier most often.
+    lab = st[st.system.isin(["rag", "llm_only"])].dropna(subset=["supported"])
     y = lab["supported"].astype(bool).values
-    grid = np.round(np.arange(0.30, 0.86, 0.01), 2)
-    # balanced accuracy, so the threshold does not collapse onto the majority class
-    acc = [0.5 * ((lab["emb_support"].values >= t)[y].mean() + (lab["emb_support"].values < t)[~y].mean())
-           if y.any() and (~y).any() else 0 for t in grid]
+    live = lab["emb_support_live"].values
+    grid = np.round(np.arange(0.30, 0.71, 0.01), 2)
+    acc = [((live >= t) == y).mean() for t in grid]
     tau = float(grid[int(np.argmax(acc))])
-    pos, negv = lab[y]["emb_support"].values, lab[~y]["emb_support"].values
+    pos, negv = live[y], live[~y]
     auc = float((pos[:, None] > negv[None, :]).mean()) if len(pos) and len(negv) else float("nan")
     neg_df = pd.DataFrame(neg_rows)
     calib = {
@@ -279,8 +282,8 @@ if __name__ == "__main__":
         "negative_control_by_system": (neg_df.groupby("system")["supported"].mean().round(3).to_dict()
                                        if len(neg_df) else {}),
         "negative_control_n": int(len(neg_df)),
-        "embedding_tau": tau, "embedding_balanced_accuracy": round(float(max(acc)), 3),
-        "embedding_agreement_with_verifier": round(float(((lab["emb_support"] >= tau).values == y).mean()), 3) if len(y) else None,
+        "embedding_tau": tau, "embedding_agreement_with_verifier": round(float(max(acc)), 3),
+        "embedding_calibration": "live setting: each line vs. lines of the 8 retrieved chunks; tau maximises agreement with the verifier",
         "embedding_auc_vs_verifier": round(auc, 3),
     }
     log.info("verification/calibration: %s", calib)
@@ -289,7 +292,7 @@ if __name__ == "__main__":
         grounded=("supported", "mean"), grounded_strict=("supported_strict", "mean"), added_specifics=("extra", "mean"),
         citation_rate=("n_sources", lambda x: (x > 0).mean()),
         citation_correct=("citation_correct", lambda x: x.dropna().astype(float).mean() if x.notna().any() else np.nan),
-        embedding_grounded=("emb_support", lambda x: (x >= tau).mean())).reset_index()
+        embedding_grounded=("emb_support_live", lambda x: (x >= tau).mean())).reset_index()
     df = pd.DataFrame(rows).merge(agg, on=["job_id", "system"], how="left")
     df.to_csv(path("results") / "generation_eval.csv", index=False)
     st.drop(columns=["candidates", "negative_candidates", "candidate_cited"]).to_csv(
