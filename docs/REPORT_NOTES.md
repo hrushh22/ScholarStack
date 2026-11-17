@@ -21,8 +21,8 @@ All figures are in `reports/figures/`, all tables in `reports/results/`. Re-runn
 ## Numbers worth quoting (retrieval, held-out 240 JDs)
 
 * Dense retrieval (MiniLM, section chunks, title + skills query): **category P@8 = 61.6%** vs **32.3% for TF-IDF**.
-* Query construction: title + extracted skills **61.6%** vs raw job ad **56.5%** (skill-overlap 60.3% vs 47.6%); embedding it is also 15× faster.
-* Embedding models at k = 8: MiniLM 61.6%, GTE-small 61.8%, BGE-small 57.8%, MiniLM served for speed (5× faster) and browser support.
+* Query construction: title + extracted skills **61.6%** vs raw job ad **56.5%** (skill-overlap 60.3% vs 47.6%); embedding it is also 13× faster (0.8 ms vs 11.3 ms).
+* Embedding models at k = 8: MiniLM 61.6%, GTE-small 61.8%, BGE-small 57.8%, MiniLM served for speed (6× faster per query, 0.8 ms vs 5.0 ms) and browser support.
 * Chunking: section 61.6% vs fixed windows 60.0% (fixed windows score higher on skill overlap because they are longer: 115 vs 70 words).
 * Easiest categories: Chef, Fitness (95%), Construction (88%); hardest: BPO (0%), Automobile (16%), Arts (29%), categories defined by
   broad keywords whose resumes span many occupations.

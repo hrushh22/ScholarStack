@@ -46,7 +46,7 @@ back to the smaller model if the big one is busy.
 - Retrieval: 62% of the top 8 excerpts come from the right job category, vs 32% for TF-IDF.
 - Embedding "title + extracted skills" beat embedding the whole job ad (61.6% vs 56.5%), because ads often open with
   company boilerplate and the model only reads 256 tokens.
-- MiniLM matched GTE-small at five times the speed, which is why it runs in the browser.
+- MiniLM matched GTE-small and embeds a query six times faster (0.8 ms vs 5.0 ms), which is why it runs in the browser.
 - FAISS on 106k postings: 1.96 ms per query exact, 0.25 ms with HNSW at 99.1% recall.
 - Grounding: 90% of ScholarStack's lines are backed by real resumes vs 52% for the same LLM without retrieval. On the
   12 postings where both were checked it's 88% vs 45%.

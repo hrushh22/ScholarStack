@@ -39,7 +39,7 @@ A few things we learned:
   but that measure is basically keyword matching, so it favors TF-IDF by design.
 - What you embed mattered more than which model you use. A lot of job ads start with a paragraph about the company,
   and the model only reads the first 256 tokens, so embedding "title + extracted skills" beat embedding the whole ad.
-- MiniLM did about as well as GTE-small and is five times faster, which is also why it can run in the browser.
+- MiniLM did about as well as GTE-small and embeds a query six times faster (0.8 ms vs 5.0 ms), which is also why it can run in the browser.
 - On all 106,291 posting vectors, exact FAISS search takes 1.96 ms per query. HNSW gets that down to 0.25 ms while
   still finding 99.1% of the same top-10 results.
 - The live Postgres search returns the same top 8 as FAISS exact search (we check this every time we load the data).

@@ -1,5 +1,5 @@
 // Results page: SVG charts (hover tooltips, a table under each chart) built from data/results.json.
-import { esc, pct, prettyCategory } from "./render.js?v=202611161641";
+import { esc, pct, prettyCategory } from "./render.js?v=202611170001";
 
 const COLORS = ["var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)", "var(--s5)"];
 const SYSTEM = { baseline: "Keyword baseline", llm_only: "LLM only (120B)", rag: "ScholarStack (120B)", rag_small: "ScholarStack (20B)",
@@ -167,7 +167,7 @@ export async function renderDashboard(root, res, api) {
   const models = [["all-MiniLM-L6-v2", "MiniLM-L6"], ["gte-small", "GTE-small"], ["bge-small-en-v1_5", "BGE-small"], ["tf-idf", "TF-IDF"]];
   barChart(document.getElementById("c-models"), {
     title: "Embedding model and chunking",
-    note: "Right category in the top 8. MiniLM is about as good as GTE-small and five times faster, so it's the one running on this site.",
+    note: "Right category in the top 8. MiniLM is about as good as GTE-small and six times faster at embedding a query (0.8 ms vs 5.0 ms), so it's the one running on this site.",
     rows: models.map(([mo, label]) => ({ label, values: [
       { name: "Section chunks", value: at("model_chunking", "section", mo)?.precision_category, color: COLORS[0] },
       { name: "Fixed windows", value: at("model_chunking", "fixed", mo)?.precision_category, color: COLORS[1] }] })),
