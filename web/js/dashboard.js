@@ -1,5 +1,5 @@
 // Results page: SVG charts (hover tooltips, a table under each chart) built from data/results.json.
-import { esc, pct, prettyCategory } from "./render.js?v=202611171703";
+import { esc, pct, prettyCategory } from "./render.js?v=202611171937";
 
 const COLORS = ["var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)", "var(--s5)"];
 const SYSTEM = { baseline: "Keyword baseline", llm_only: "LLM only (120B)", rag: "ScholarStack (120B)", rag_small: "ScholarStack (20B)",
@@ -243,9 +243,9 @@ export async function renderDashboard(root, res, api) {
       const rs = crit("rag vs llm_only", "realism", "rag"), rl = crit("rag vs llm_only", "realism", "llm_only");
       const ss = crit("rag vs llm_only", "specificity", "rag"), sl = crit("rag vs llm_only", "specificity", "llm_only");
       if (rs == null || rl == null || ss == null || sl == null) return "";
-      return `<p class="small muted" style="margin-top:12px">Average scores against the plain LLM, 1 to 5: realism ${rs.toFixed(1)} vs ${rl.toFixed(1)},
-        specificity ${ss.toFixed(1)} vs ${sl.toFixed(1)}. The judge rewards specific-sounding lines, including numbers the plain LLM made up,
-        so we read it as a measure of polish, not accuracy. "Lines backed by real resumes" is the accuracy measure.</p>`;
+      return `<p class="small muted" style="margin-top:12px">Against the plain LLM, the judge rated ScholarStack more realistic (${rs.toFixed(1)} vs ${rl.toFixed(1)} out of 5).
+        The plain LLM scores higher on specificity (${sl.toFixed(1)} vs ${ss.toFixed(1)}) because it adds numbers the retrieved resumes don't back up, and judges are
+        known to reward that, so "Lines backed by real resumes" is our accuracy measure.</p>`;
     };
     const pairs = [...new Set(judge.map((j) => j.pair))];
     if (hasJudge) document.getElementById("c-judge").innerHTML = `<h3>Which one would a career advisor pick?</h3><p class="small muted">A separate model plays

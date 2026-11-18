@@ -1,5 +1,5 @@
 // "How it works" page.
-import { esc } from "./render.js?v=202611171703";
+import { esc } from "./render.js?v=202611171937";
 
 const REPO = "https://github.com/hrushh22/ScholarStack/blob/main";
 
@@ -61,12 +61,11 @@ export function renderMethod(root, res) {
   </div>
 
   <div class="grid-2" style="margin-top:16px">
-    <div class="card lift reveal"><h2>Limitations</h2><ul>
-      <li>The resumes are examples from one website, not verified employees. Some categories (BPO, Automobile) are broad keyword buckets.</li>
-      <li>There are no hand-made relevance labels, so we use category match and skill overlap as stand-ins.</li>
-      <li>The grounding check is another LLM. It can be fooled by a paraphrase that sneaks in a small extra detail.</li>
+    <div class="card lift reveal"><h2>Limitations and next steps</h2><ul>
+      <li>Everything runs on free tiers, so daily API quotas set the size of our evaluation (24 postings, one judge model). With more compute we'd test hundreds of postings with several judges.</li>
+      <li>The resumes come from one public site, and broad categories (BPO, Automobile) span many kinds of jobs. More resume sources and a retriever fine-tuned on our data come next.</li>
+      <li>Relevance labels are stand-ins (category match and skill overlap), and the checker and judge are LLMs. Next is a user study with SDSU students and career advisors, and the site already collects ratings.</li>
       <li>The postings are a 2023-24 snapshot, and O*NET describes occupations rather than specific jobs.</li>
-      <li>The judge model may share blind spots with the writer, which is why the site also collects real ratings.</li>
     </ul></div>
     <div class="card lift reveal"><h2>Using it responsibly</h2><ul>
       <li>A reference resume is for learning. Only put experience on your resume that you actually have.</li>

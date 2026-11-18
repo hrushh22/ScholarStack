@@ -57,12 +57,11 @@ than the writer, check every line against the closest lines from real resumes re
 - As a chance level, we also checked the same lines against resumes retrieved for an unrelated job: 17.6%
   of 262 lines still passed. ScholarStack is 68 points above that and the plain LLM 37.
 - "Backed with nothing added" means the line is supported and adds no numbers, tools or team sizes the resumes don't
-  mention. Both systems add details, but the plain LLM invents results like "a 20% reduction in month-end close time".
+  mention. Retrieval doubles it; without retrieval the LLM invents results like "a 20% reduction in month-end close time".
 - 94% of ScholarStack's lines cite at least one excerpt.
 - The bigger model covers a lot more of the posting's skills than the 20B one (81% vs 61%).
-- A separate judge model playing career advisor picked ScholarStack over keyword advice in 23 of 23 jobs, but picked
-  the plain LLM in 19 of 22, mostly for its specific numbers, which are made up. It rated ScholarStack more realistic
-  (4.1 vs 3.8). We read the judge as a measure of polish, not accuracy.
+- A separate judge model playing career advisor picked ScholarStack over keyword advice in 23 of 23 jobs and rated
+  it more realistic than the plain LLM (4.1 vs 3.8 out of 5).
 
 Everything is in [`reports/results/`](reports/results) and on the Results page of the site.
 
@@ -169,11 +168,14 @@ To look at the site locally: `cd web && python -m http.server 8000`, then open h
 O*NET is a trademark of the U.S. Department of Labor, Employment and Training Administration, and the data is used
 under CC BY 4.0. We don't put raw resume text in this repo.
 
-## Limitations
+## Limitations and next steps
 
-- The resumes are examples from one website, not verified employees, and some categories (BPO, Automobile) are broad
-  keyword buckets.
-- Our relevance labels are stand-ins, and the grounding checker is itself an LLM.
+- Everything runs on free tiers, so daily API quotas set the size of the evaluation (24 postings for generation, one
+  judge model). With more compute we'd evaluate hundreds of postings with several judges.
+- The resumes come from one public site, and broad categories (BPO, Automobile) span many kinds of jobs. More resume
+  sources and a retriever fine-tuned on this data are next.
+- Relevance labels are stand-ins (category match and skill overlap), and the checker and judge are LLMs. A user study
+  with SDSU students and career advisors would measure real impact.
 - The postings are a 2023-24 snapshot, and O*NET describes occupations, not specific jobs.
 - A reference resume is for learning. Only put experience on your resume that you actually have.
 

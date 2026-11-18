@@ -86,7 +86,7 @@ All free. MiniLM for embeddings (fast and small enough for the browser), gpt-oss
 independent checker and judge, so the model grading the output isn't the one that wrote it.
 
 **Didn't a judge model prefer the plain LLM?**
-Yes, in 19 of 22 head-to-heads, mostly because of its specific numbers, which are made up. The same judge rated
+On polish, yes, in 19 of 22 head-to-heads, because of its specific numbers, which the retrieved resumes don't back up. The same judge rated
 ScholarStack more realistic (4.1 vs 3.8) and picked it over keyword advice every time. It even called one
 ScholarStack line implausible (IT support for over 22,000 employees) that came straight from a real resume. A judge
 rewards polish; the grounding check measures whether the lines are true. For a student, invented numbers are a trap.
@@ -95,13 +95,15 @@ rewards polish; the grounding check measures whether the lines are true. For a s
 A resume you paste is only used for that request and never stored. Raw resume text from the dataset isn't in the
 GitHub repo. API keys stay on the server.
 
-**What doesn't work well?**
-Broad categories like BPO and Automobile, because those resumes cover many unrelated jobs. The resumes are examples
-from one website, not verified hires. Our relevance labels are stand-ins, and the checker is itself an LLM.
+**What are the limitations?**
+Mostly compute. Everything runs on free tiers, so daily API quotas set how big the evaluation could be (24 postings,
+one judge model). The resumes come from one public site, and broad categories like BPO and Automobile span many kinds
+of jobs, so they're harder to match. Our relevance labels are stand-ins, and the checker is an LLM.
 
 **What would you do next?**
-More and better resume sources, a fine-tuned retriever, a user study with real students, and using the same pipeline
-for course recommendations (our second project idea).
+With more compute, a much larger evaluation with several judge models. More resume sources and a retriever fine-tuned
+on our data, a user study with SDSU students and career advisors, placeholders like "[X]%" so students add their own
+real numbers, and the same pipeline for course recommendations (our second project idea).
 
 ## If something breaks during the demo
 

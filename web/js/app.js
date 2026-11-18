@@ -1,13 +1,13 @@
 // ScholarStack web app: the Generate page, routing, theme and the small animations.
-import { CONFIG } from "./config.js?v=202611171703";
-import * as api from "./api.js?v=202611171703";
-import { renderDashboard } from "./dashboard.js?v=202611171703";
-import { embed, loadEmbedder } from "./embed.js?v=202611171703";
-import { renderMethod } from "./method.js?v=202611171703";
-import { coverage, groundedness, outputText, statements } from "./metrics.js?v=202611171703";
-import * as R from "./render.js?v=202611171703";
-import { buildQuery, SkillExtractor } from "./skills.js?v=202611171703";
-import { TfidfModel } from "./tfidf.js?v=202611171703";
+import { CONFIG } from "./config.js?v=202611171937";
+import * as api from "./api.js?v=202611171937";
+import { renderDashboard } from "./dashboard.js?v=202611171937";
+import { embed, loadEmbedder } from "./embed.js?v=202611171937";
+import { renderMethod } from "./method.js?v=202611171937";
+import { coverage, groundedness, outputText, statements } from "./metrics.js?v=202611171937";
+import * as R from "./render.js?v=202611171937";
+import { buildQuery, SkillExtractor } from "./skills.js?v=202611171937";
+import { TfidfModel } from "./tfidf.js?v=202611171937";
 
 const $ = (s) => document.querySelector(s);
 const state = { ex: null, tfidf: null, samples: null, results: null, run: null };

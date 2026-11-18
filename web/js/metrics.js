@@ -1,5 +1,5 @@
 // Live versions of the evaluation metrics in src/scholarstack/metrics.py.
-import { dot, embed } from "./embed.js?v=202611171703";
+import { dot, embed } from "./embed.js?v=202611171937";
 
 /** All factual statements of a generated resume, with their citations. */
 export function statements(out) {
