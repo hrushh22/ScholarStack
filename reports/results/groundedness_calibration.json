@@ -1,19 +1,15 @@
 {
   "verifier": "qwen/qwen3.8-27b",
-  "n_statements_verified": 591,
-  "positive_rate": 0.721,
-  "negative_control_supported": 0.0,
+  "n_statements_verified": 549,
+  "positive_rate": 0.667,
+  "negative_control_supported": 0.176,
   "negative_control_by_system": {
-    "llm_only": 0.0,
-    "rag": 0.0
+    "llm_only": 0.182,
+    "rag": 0.167
   },
-  "negative_control_n": 24,
-  "embedding_tau": 0.35,
-  "embedding_agreement_with_verifier": 0.694,
-  "embedding_auc_vs_verifier": 0.713,
+  "negative_control_n": 262,
+  "embedding_tau": 0.3,
+  "embedding_agreement_with_verifier": 0.709,
   "embedding_calibration": "live setting: each line vs. lines of the 8 retrieved chunks; tau maximises agreement with the verifier",
-  "embedding_pass_rate_at_tau": {
-    "rag": 0.877,
-    "llm_only": 0.751
-  }
+  "embedding_auc_vs_verifier": 0.701
 }

@@ -1,0 +1,226 @@
+job_id,category,pair,criterion,rag,baseline,winner,reason,flipped,llm_only
+3884808817,ACCOUNTANT,rag vs baseline,specificity,5.0,1.0,,,,
+3884808817,ACCOUNTANT,rag vs baseline,actionability,5.0,2.0,,,,
+3884808817,ACCOUNTANT,rag vs baseline,alignment,5.0,2.0,,,,
+3884808817,ACCOUNTANT,rag vs baseline,realism,4.0,1.0,,,,
+3884808817,ACCOUNTANT,rag vs baseline,preferred,,,rag,"Guidance A provides a tailored, realistic resume structure with specific achievements and relevant keywords, whereas Guidance B offers a nonsensical list of raw TF-IDF terms including irrelevant words like 'robert' and 'gen' that are not actionable for a student.",False,
+3884808817,ACCOUNTANT,rag vs llm_only,specificity,4.0,,,,,5.0
+3884808817,ACCOUNTANT,rag vs llm_only,actionability,4.0,,,,,5.0
+3884808817,ACCOUNTANT,rag vs llm_only,alignment,4.0,,,,,5.0
+3884808817,ACCOUNTANT,rag vs llm_only,realism,5.0,,,,,4.0
+3884808817,ACCOUNTANT,rag vs llm_only,preferred,,,llm_only,"Guidance A is superior because it explicitly targets the 'eCommerce' preference in the job description with specific, quantified achievements (e.g., 20% reduction in close time, $200M revenue scale) that demonstrate the strategic impact required for a Director-level role, whereas Guidance B is more generic and lacks the high-level strategic metrics.",True,
+3884854561,ADVOCATE,rag vs baseline,specificity,5.0,2.0,,,,
+3884854561,ADVOCATE,rag vs baseline,actionability,5.0,2.0,,,,
+3884854561,ADVOCATE,rag vs baseline,alignment,5.0,3.0,,,,
+3884854561,ADVOCATE,rag vs baseline,realism,4.0,4.0,,,,
+3884854561,ADVOCATE,rag vs baseline,preferred,,,rag,"Guidance B provides a complete, tailored resume example that directly mirrors the job description's specific requirements (e.g., E365 plans, RFP leadership, natural resources focus), whereas Guidance A offers a disjointed list of keywords that lacks context and strategic structure.",True,
+3884854561,ADVOCATE,rag vs llm_only,specificity,4.0,,,,,5.0
+3884854561,ADVOCATE,rag vs llm_only,actionability,4.0,,,,,4.0
+3884854561,ADVOCATE,rag vs llm_only,alignment,4.0,,,,,5.0
+3884854561,ADVOCATE,rag vs llm_only,realism,5.0,,,,,4.0
+3884854561,ADVOCATE,rag vs llm_only,preferred,,,llm_only,"Guidance A is superior because it includes specific, quantified achievements (e.g., $250M portfolio, 12% profitability increase) that demonstrate the high-level impact and seniority required for the Client Advocate role, whereas Guidance B remains more generic and qualitative.",True,
+3884834371,AGRICULTURE,rag vs baseline,specificity,5.0,2.0,,,,
+3884834371,AGRICULTURE,rag vs baseline,actionability,5.0,1.0,,,,
+3884834371,AGRICULTURE,rag vs baseline,alignment,4.0,2.0,,,,
+3884834371,AGRICULTURE,rag vs baseline,realism,5.0,1.0,,,,
+3884834371,AGRICULTURE,rag vs baseline,preferred,,,rag,"Guidance A provides a tailored, realistic resume example that directly addresses the job's requirements for agronomy and sales experience, whereas Guidance B offers nonsensical keyword stuffing including irrelevant terms like 'mother' and 'www linkedin'.",False,
+3884834371,AGRICULTURE,rag vs llm_only,specificity,3.0,,,,,5.0
+3884834371,AGRICULTURE,rag vs llm_only,actionability,3.0,,,,,5.0
+3884834371,AGRICULTURE,rag vs llm_only,alignment,3.0,,,,,5.0
+3884834371,AGRICULTURE,rag vs llm_only,realism,4.0,,,,,4.0
+3884834371,AGRICULTURE,rag vs llm_only,preferred,,,llm_only,"Guidance B is significantly superior because it mirrors the specific job title, location (Northwestern Illinois), and technical requirements (crop protection, retail accounts) of the job description, whereas Guidance A presents a generic agronomy profile with a mismatched degree (Business Management) and lacks the specific sales/territory focus required.",False,
+3887701642,APPAREL,rag vs baseline,specificity,5.0,2.0,,,,
+3887701642,APPAREL,rag vs baseline,actionability,4.0,2.0,,,,
+3887701642,APPAREL,rag vs baseline,alignment,5.0,3.0,,,,
+3887701642,APPAREL,rag vs baseline,realism,4.0,1.0,,,,
+3887701642,APPAREL,rag vs baseline,preferred,,,rag,"Guidance A provides a realistic, tailored resume example that directly addresses the volunteer tasks (sorting, swapping) and community values, whereas Guidance B offers a nonsensical list of keywords including irrelevant terms like 'software development' and 'inherent' that would harm a candidate's credibility.",False,
+3887701642,APPAREL,rag vs llm_only,specificity,4.0,,,,,4.0
+3887701642,APPAREL,rag vs llm_only,actionability,4.0,,,,,3.0
+3887701642,APPAREL,rag vs llm_only,alignment,4.0,,,,,5.0
+3887701642,APPAREL,rag vs llm_only,realism,4.0,,,,,2.0
+3887701642,APPAREL,rag vs llm_only,preferred,,,rag,"Guidance B is more realistic and actionable for a student, avoiding the inflated metrics and senior-level responsibilities (like managing teams and grant reporting) found in Guidance A, while still effectively highlighting the specific sorting and swap skills required by the job description.",True,
+3885106079,ARTS,rag vs baseline,specificity,4.0,2.0,,,,
+3885106079,ARTS,rag vs baseline,actionability,5.0,2.0,,,,
+3885106079,ARTS,rag vs baseline,alignment,4.0,3.0,,,,
+3885106079,ARTS,rag vs baseline,realism,4.0,4.0,,,,
+3885106079,ARTS,rag vs baseline,preferred,,,rag,"Guidance B provides a concrete, well-structured resume draft that directly addresses the job's requirements for pediatric music therapy and interdisciplinary collaboration, whereas Guidance A offers a disjointed list of keywords including irrelevant noise like 'ready make' and 'hear'.",True,
+3885106079,ARTS,rag vs llm_only,specificity,2.0,,,,,5.0
+3885106079,ARTS,rag vs llm_only,actionability,3.0,,,,,4.0
+3885106079,ARTS,rag vs llm_only,alignment,3.0,,,,,5.0
+3885106079,ARTS,rag vs llm_only,realism,4.0,,,,,4.0
+3885106079,ARTS,rag vs llm_only,preferred,,,llm_only,"Guidance A is significantly better because it directly mirrors the job description's requirements for board certification, pediatric autism experience, and interdisciplinary collaboration, whereas Guidance B suggests irrelevant experience (music teaching, art therapy) that does not meet the specific qualifications for a Board Certified Music Therapist.",True,
+3884914641,AUTOMOBILE,rag vs baseline,specificity,4.0,2.0,,,,
+3884914641,AUTOMOBILE,rag vs baseline,actionability,4.0,1.0,,,,
+3884914641,AUTOMOBILE,rag vs baseline,alignment,4.0,2.0,,,,
+3884914641,AUTOMOBILE,rag vs baseline,realism,4.0,1.0,,,,
+3884914641,AUTOMOBILE,rag vs baseline,preferred,,,rag,"Guidance B provides a coherent, realistic resume structure with relevant skills and experience examples, whereas Guidance A lists nonsensical keywords and fragments that are impossible to use effectively.",True,
+3884914641,AUTOMOBILE,rag vs llm_only,specificity,3.0,,,,,5.0
+3884914641,AUTOMOBILE,rag vs llm_only,actionability,3.0,,,,,5.0
+3884914641,AUTOMOBILE,rag vs llm_only,alignment,3.0,,,,,5.0
+3884914641,AUTOMOBILE,rag vs llm_only,realism,4.0,,,,,4.0
+3884914641,AUTOMOBILE,rag vs llm_only,preferred,,,llm_only,"Guidance B is significantly more specific to the Auto Glass Repair role, accurately reflecting key duties like chip/crack repair, MRM usage, and outdoor work, whereas Guidance A describes a generic automotive technician with unrelated mechanical experience.",False,
+3884929684,AVIATION,rag vs baseline,specificity,4.0,2.0,,,,
+3884929684,AVIATION,rag vs baseline,actionability,4.0,2.0,,,,
+3884929684,AVIATION,rag vs baseline,alignment,4.0,2.0,,,,
+3884929684,AVIATION,rag vs baseline,realism,3.0,2.0,,,,
+3884929684,AVIATION,rag vs baseline,preferred,,,rag,"Guidance B provides a coherent, tailored resume summary and skill set that directly addresses the job's physical and operational requirements, whereas Guidance A offers a disjointed list of keywords including irrelevant terms like 'compensation' and 'investigation'.",True,
+3884929684,AVIATION,rag vs llm_only,specificity,3.0,,,,,5.0
+3884929684,AVIATION,rag vs llm_only,actionability,2.0,,,,,5.0
+3884929684,AVIATION,rag vs llm_only,alignment,3.0,,,,,5.0
+3884929684,AVIATION,rag vs llm_only,realism,3.0,,,,,4.0
+3884929684,AVIATION,rag vs llm_only,preferred,,,llm_only,"Guidance A provides a complete, realistic, and highly specific resume summary and bullet points that directly mirror the job description's requirements for baggage handling, equipment operation, and safety, whereas Guidance B is fragmented, contains formatting errors, and lacks concrete examples.",True,
+3891076252,BANKING,rag vs baseline,specificity,5.0,2.0,,,,
+3891076252,BANKING,rag vs baseline,actionability,4.0,2.0,,,,
+3891076252,BANKING,rag vs baseline,alignment,5.0,3.0,,,,
+3891076252,BANKING,rag vs baseline,realism,5.0,1.0,,,,
+3891076252,BANKING,rag vs baseline,preferred,,,rag,"Guidance A provides a realistic, tailored resume draft that directly addresses the job's core responsibilities and qualifications, whereas Guidance B offers a disjointed list of keywords including nonsensical phrases like 'degree physical' and 'harbor' that are not actionable or professional.",False,
+3891076252,BANKING,rag vs llm_only,specificity,4.0,,,,,5.0
+3891076252,BANKING,rag vs llm_only,actionability,4.0,,,,,5.0
+3891076252,BANKING,rag vs llm_only,alignment,4.0,,,,,5.0
+3891076252,BANKING,rag vs llm_only,realism,4.0,,,,,4.0
+3891076252,BANKING,rag vs llm_only,preferred,,,llm_only,"Guidance B is superior because it explicitly addresses the 'SBA lending' preference mentioned in the job description, includes specific quantifiable metrics that demonstrate impact, and structures the skills section to mirror the job's core responsibilities more effectively.",False,
+3889772549,BPO,rag vs baseline,specificity,5.0,1.0,,,,
+3889772549,BPO,rag vs baseline,actionability,5.0,1.0,,,,
+3889772549,BPO,rag vs baseline,alignment,5.0,2.0,,,,
+3889772549,BPO,rag vs baseline,realism,4.0,1.0,,,,
+3889772549,BPO,rag vs baseline,preferred,,,rag,"Guidance B provides a complete, tailored resume draft that directly mirrors the job description's requirements and industry context, whereas Guidance A offers a nonsensical list of keywords including broken phrases like 'environmentability' and 'skillsability' that are unusable.",True,
+3889772549,BPO,rag vs llm_only,specificity,4.0,,,,,5.0
+3889772549,BPO,rag vs llm_only,actionability,4.0,,,,,5.0
+3889772549,BPO,rag vs llm_only,alignment,5.0,,,,,5.0
+3889772549,BPO,rag vs llm_only,realism,4.0,,,,,3.0
+3889772549,BPO,rag vs llm_only,preferred,,,llm_only,"Guidance B is more useful because it includes specific, quantifiable metrics and explicitly addresses niche requirements like BPU compliance and social media engagement, which are critical for this specific utility role, whereas Guidance A is slightly more generic.",False,
+3884857599,BUSINESS-DEVELOPMENT,rag vs baseline,specificity,5.0,2.0,,,,
+3884857599,BUSINESS-DEVELOPMENT,rag vs baseline,actionability,4.0,2.0,,,,
+3884857599,BUSINESS-DEVELOPMENT,rag vs baseline,alignment,5.0,3.0,,,,
+3884857599,BUSINESS-DEVELOPMENT,rag vs baseline,realism,4.0,3.0,,,,
+3884857599,BUSINESS-DEVELOPMENT,rag vs baseline,preferred,,,rag,"Guidance A provides a tailored, high-impact resume draft that directly mirrors the job's specific requirements for team leadership, channel partnerships, and SaaS sales, whereas Guidance B offers a generic list of keywords that lacks context and strategic value.",False,
+3884857599,BUSINESS-DEVELOPMENT,rag vs llm_only,specificity,4.0,,,,,5.0
+3884857599,BUSINESS-DEVELOPMENT,rag vs llm_only,actionability,5.0,,,,,4.0
+3884857599,BUSINESS-DEVELOPMENT,rag vs llm_only,alignment,4.0,,,,,5.0
+3884857599,BUSINESS-DEVELOPMENT,rag vs llm_only,realism,5.0,,,,,2.0
+3884857599,BUSINESS-DEVELOPMENT,rag vs llm_only,preferred,,,rag,"Guidance B is significantly more realistic and actionable for a student, whereas Guidance A contains fabricated specific metrics and claims (e.g., '$4.2M revenue', '38% target surpass') that are likely impossible for a typical candidate and would be flagged as dishonest or hallucinated.",True,
+3885813076,CHEF,rag vs baseline,specificity,5.0,2.0,,,,
+3885813076,CHEF,rag vs baseline,actionability,4.0,2.0,,,,
+3885813076,CHEF,rag vs baseline,alignment,5.0,3.0,,,,
+3885813076,CHEF,rag vs baseline,realism,4.0,3.0,,,,
+3885813076,CHEF,rag vs baseline,preferred,,,rag,"Guidance A provides a concrete, tailored resume structure with specific metrics and keywords that directly address the job's requirements for Asian cuisine expertise and supervisory experience, whereas Guidance B offers a generic and disjointed list of keywords that lacks context or actionable structure.",False,
+3885813076,CHEF,rag vs llm_only,specificity,4.0,,,,,5.0
+3885813076,CHEF,rag vs llm_only,actionability,4.0,,,,,5.0
+3885813076,CHEF,rag vs llm_only,alignment,4.0,,,,,5.0
+3885813076,CHEF,rag vs llm_only,realism,4.0,,,,,4.0
+3885813076,CHEF,rag vs llm_only,preferred,,,llm_only,"Guidance B is superior because it explicitly addresses the specific regulatory requirements (Illinois Gaming Board, background checks) and operational details (high-volume casino environment) mentioned in the job description, whereas Guidance A is more generic to the hospitality industry.",False,
+3885826860,CONSTRUCTION,rag vs baseline,specificity,5.0,2.0,,,,
+3885826860,CONSTRUCTION,rag vs baseline,actionability,5.0,1.0,,,,
+3885826860,CONSTRUCTION,rag vs baseline,alignment,5.0,2.0,,,,
+3885826860,CONSTRUCTION,rag vs baseline,realism,4.0,1.0,,,,
+3885826860,CONSTRUCTION,rag vs baseline,preferred,,,rag,"Guidance B provides a tailored, realistic resume structure with specific keywords and bullet points aligned to the job description, whereas Guidance A lists irrelevant corporate boilerplate terms and offers no actionable resume content.",True,
+3885826860,CONSTRUCTION,rag vs llm_only,specificity,4.0,,,,,5.0
+3885826860,CONSTRUCTION,rag vs llm_only,actionability,4.0,,,,,5.0
+3885826860,CONSTRUCTION,rag vs llm_only,alignment,4.0,,,,,5.0
+3885826860,CONSTRUCTION,rag vs llm_only,realism,4.0,,,,,4.0
+3885826860,CONSTRUCTION,rag vs llm_only,preferred,,,llm_only,"Guidance A is superior because it includes specific, quantifiable metrics (e.g., '98% on-time completion', '15% rework reduction') and explicitly mentions the 'Workfront' software and specific locations (Flagstaff/Lake Havasu) listed in the job description, making it more tailored and impactful than the more generic descriptions in Guidance B.",True,
+3901949104,CONSULTANT,rag vs baseline,specificity,5.0,2.0,,,,
+3901949104,CONSULTANT,rag vs baseline,actionability,5.0,3.0,,,,
+3901949104,CONSULTANT,rag vs baseline,alignment,5.0,3.0,,,,
+3901949104,CONSULTANT,rag vs baseline,realism,4.0,2.0,,,,
+3901949104,CONSULTANT,rag vs baseline,preferred,,,rag,"Guidance A provides a complete, realistic resume structure with specific, relevant bullet points that directly address the job's technical requirements, whereas Guidance B offers a disjointed list of keywords that lacks context and actionable structure.",False,
+3901949104,CONSULTANT,rag vs llm_only,specificity,4.0,,,,,5.0
+3901949104,CONSULTANT,rag vs llm_only,actionability,4.0,,,,,5.0
+3901949104,CONSULTANT,rag vs llm_only,alignment,4.0,,,,,5.0
+3901949104,CONSULTANT,rag vs llm_only,realism,4.0,,,,,4.0
+3901949104,CONSULTANT,rag vs llm_only,preferred,,,llm_only,"Guidance A provides a more comprehensive and realistic resume structure that explicitly addresses all key responsibilities (Payroll, Time, Absence, EIB, Reporting) with specific, high-impact bullet points, whereas Guidance B is slightly more generic and includes less relevant tools like Kronos.",True,
+3887879690,DESIGNER,rag vs baseline,specificity,5.0,2.0,,,,
+3887879690,DESIGNER,rag vs baseline,actionability,5.0,2.0,,,,
+3887879690,DESIGNER,rag vs baseline,alignment,5.0,3.0,,,,
+3887879690,DESIGNER,rag vs baseline,realism,4.0,4.0,,,,
+3887879690,DESIGNER,rag vs baseline,preferred,,,rag,"Guidance B provides a complete, tailored resume structure with specific bullet points and keywords that directly address the job's requirements for leadership, software proficiency, and project lifecycle experience, whereas Guidance A is merely a disorganized list of keywords.",True,
+3887879690,DESIGNER,rag vs llm_only,specificity,4.0,,,,,5.0
+3887879690,DESIGNER,rag vs llm_only,actionability,3.0,,,,,4.0
+3887879690,DESIGNER,rag vs llm_only,alignment,4.0,,,,,5.0
+3887879690,DESIGNER,rag vs llm_only,realism,5.0,,,,,4.0
+3887879690,DESIGNER,rag vs llm_only,preferred,,,llm_only,"Guidance A provides a more compelling and specific narrative with concrete metrics (e.g., 'LEED Silver on 80% of projects', 'teams of 10-15') that better demonstrates the 'high-impact' and leadership qualities required for a Senior role, whereas Guidance B is slightly more generic and lacks the quantifiable achievements that distinguish a senior candidate.",True,
+3894296396,DIGITAL-MEDIA,rag vs baseline,specificity,5.0,1.0,,,,
+3894296396,DIGITAL-MEDIA,rag vs baseline,actionability,5.0,2.0,,,,
+3894296396,DIGITAL-MEDIA,rag vs baseline,alignment,5.0,2.0,,,,
+3894296396,DIGITAL-MEDIA,rag vs baseline,realism,4.0,1.0,,,,
+3894296396,DIGITAL-MEDIA,rag vs baseline,preferred,,,rag,"Guidance A provides a concrete, well-structured resume draft that directly addresses the job's responsibilities and requirements, whereas Guidance B offers nonsensical keyword lists containing typos and irrelevant terms.",False,
+3894296396,DIGITAL-MEDIA,rag vs llm_only,specificity,3.0,,,,,5.0
+3894296396,DIGITAL-MEDIA,rag vs llm_only,actionability,3.0,,,,,5.0
+3894296396,DIGITAL-MEDIA,rag vs llm_only,alignment,4.0,,,,,5.0
+3894296396,DIGITAL-MEDIA,rag vs llm_only,realism,4.0,,,,,4.0
+3894296396,DIGITAL-MEDIA,rag vs llm_only,preferred,,,llm_only,"Guidance B is superior because it includes specific, quantifiable achievements (e.g., ROAS, follower growth percentages) and explicitly addresses key responsibilities like paid advertising and influencer engagement, whereas Guidance A remains generic and lacks concrete metrics.",False,
+3894298659,ENGINEERING,rag vs baseline,specificity,5.0,2.0,,,,
+3894298659,ENGINEERING,rag vs baseline,actionability,5.0,3.0,,,,
+3894298659,ENGINEERING,rag vs baseline,alignment,5.0,2.0,,,,
+3894298659,ENGINEERING,rag vs baseline,realism,4.0,2.0,,,,
+3894298659,ENGINEERING,rag vs baseline,preferred,,,rag,"Guidance A provides a tailored, professional resume structure with specific, relevant bullet points that directly address the job's technical requirements, whereas Guidance B offers a raw, unfiltered list of keywords including irrelevant terms like 'supervisory responsibility' and 'ba' that do not constitute actionable resume advice.",False,
+3894298659,ENGINEERING,rag vs llm_only,specificity,4.0,,,,,5.0
+3894298659,ENGINEERING,rag vs llm_only,actionability,4.0,,,,,5.0
+3894298659,ENGINEERING,rag vs llm_only,alignment,5.0,,,,,5.0
+3894298659,ENGINEERING,rag vs llm_only,realism,5.0,,,,,4.0
+3894298659,ENGINEERING,rag vs llm_only,preferred,,,llm_only,"Guidance B is more actionable and specific because it includes quantifiable achievements (e.g., 15% reduction, 98% yield) and explicitly mentions the Manufacturing Execution System (MES) and Electrical CAD tools, which are key requirements in the job description.",False,
+3862123581,FINANCE,rag vs baseline,specificity,5.0,2.0,,,,
+3862123581,FINANCE,rag vs baseline,actionability,5.0,2.0,,,,
+3862123581,FINANCE,rag vs baseline,alignment,5.0,3.0,,,,
+3862123581,FINANCE,rag vs baseline,realism,4.0,2.0,,,,
+3862123581,FINANCE,rag vs baseline,preferred,,,rag,"Guidance A provides a tailored, realistic resume structure with specific bullet points that directly address the job's requirements for business development and relationship management, whereas Guidance B offers a disjointed list of keywords that lacks context and actionable advice.",False,
+3862123581,FINANCE,rag vs llm_only,specificity,3.0,,,,,5.0
+3862123581,FINANCE,rag vs llm_only,actionability,3.0,,,,,5.0
+3862123581,FINANCE,rag vs llm_only,alignment,4.0,,,,,5.0
+3862123581,FINANCE,rag vs llm_only,realism,4.0,,,,,4.0
+3862123581,FINANCE,rag vs llm_only,preferred,,,llm_only,"Guidance B is superior because it includes specific, quantifiable achievements and relevant certifications (CFP, Series 7/66) that directly address the 'Independent' and 'Financial Professional' nature of the role, whereas Guidance A remains generic and lacks the necessary regulatory credentials.",False,
+3492110889,FITNESS,rag vs baseline,specificity,5.0,2.0,,,,
+3492110889,FITNESS,rag vs baseline,actionability,5.0,2.0,,,,
+3492110889,FITNESS,rag vs baseline,alignment,5.0,3.0,,,,
+3492110889,FITNESS,rag vs baseline,realism,4.0,1.0,,,,
+3492110889,FITNESS,rag vs baseline,preferred,,,rag,"Guidance B provides a concrete, well-structured resume example that directly addresses the job's requirements for group fitness instruction, customer service, and specific experience details, whereas Guidance A offers a disorganized list of keywords containing obvious parsing errors and no actionable structure.",True,
+3492110889,FITNESS,rag vs llm_only,specificity,3.0,,,,,5.0
+3492110889,FITNESS,rag vs llm_only,actionability,4.0,,,,,5.0
+3492110889,FITNESS,rag vs llm_only,alignment,4.0,,,,,5.0
+3492110889,FITNESS,rag vs llm_only,realism,4.0,,,,,4.0
+3492110889,FITNESS,rag vs llm_only,preferred,,,llm_only,"Guidance B is superior because it explicitly mirrors the job description's key details (45-minute classes, South Oklahoma City location, nutrition guidance, and community building) and provides concrete, quantifiable achievements that are more actionable for a student to emulate.",False,
+3885106247,HEALTHCARE,rag vs baseline,specificity,5.0,2.0,,,,
+3885106247,HEALTHCARE,rag vs baseline,actionability,4.0,2.0,,,,
+3885106247,HEALTHCARE,rag vs baseline,alignment,5.0,3.0,,,,
+3885106247,HEALTHCARE,rag vs baseline,realism,5.0,3.0,,,,
+3885106247,HEALTHCARE,rag vs baseline,preferred,,,rag,"Guidance A provides a tailored, realistic resume structure with specific bullet points that directly address the job's clinical and administrative requirements, whereas Guidance B offers a generic list of keywords that lacks context and actionable structure.",False,
+3885106247,HEALTHCARE,rag vs llm_only,specificity,4.0,,,,,5.0
+3885106247,HEALTHCARE,rag vs llm_only,actionability,4.0,,,,,5.0
+3885106247,HEALTHCARE,rag vs llm_only,alignment,4.0,,,,,5.0
+3885106247,HEALTHCARE,rag vs llm_only,realism,4.0,,,,,5.0
+3885106247,HEALTHCARE,rag vs llm_only,preferred,,,llm_only,"Guidance B is superior because it includes specific, quantifiable achievements (e.g., '15% reduction in symptom severity', '20+ new admissions weekly') and a comprehensive list of relevant certifications (DEA, ANCC, State License) that directly address the job's requirements for licensure, medication management, and clinical documentation, whereas Guidance A is more generic and lacks the depth of evidence-based results.",False,
+3884916322,HR,rag vs baseline,specificity,5.0,2.0,,,,
+3884916322,HR,rag vs baseline,actionability,5.0,2.0,,,,
+3884916322,HR,rag vs baseline,alignment,5.0,3.0,,,,
+3884916322,HR,rag vs baseline,realism,5.0,1.0,,,,
+3884916322,HR,rag vs baseline,preferred,,,rag,"Guidance A provides a tailored, realistic resume draft with specific bullet points aligned to the job description, whereas Guidance B offers a confusing and nonsensical list of keywords including irrelevant terms like 'ordinance' and 'harassment' that do not constitute actionable advice.",False,
+3884916322,HR,rag vs llm_only,specificity,4.0,,,,,4.0
+3884916322,HR,rag vs llm_only,actionability,4.0,,,,,4.0
+3884916322,HR,rag vs llm_only,alignment,5.0,,,,,4.0
+3884916322,HR,rag vs llm_only,realism,4.0,,,,,3.0
+3884916322,HR,rag vs llm_only,preferred,,,rag,"Guidance A aligns more closely with the specific HR transactional duties (referral bonuses, separations, file maintenance) and the 'High School Diploma required' education level, whereas Guidance B includes a second job that is less relevant (retail customer service) and suggests an Associate's degree which, while acceptable, is less targeted to the 'High School required' baseline than A's explicit mention.",False,
+3885856651,INFORMATION-TECHNOLOGY,rag vs baseline,specificity,5.0,1.0,,,,
+3885856651,INFORMATION-TECHNOLOGY,rag vs baseline,actionability,5.0,2.0,,,,
+3885856651,INFORMATION-TECHNOLOGY,rag vs baseline,alignment,5.0,2.0,,,,
+3885856651,INFORMATION-TECHNOLOGY,rag vs baseline,realism,4.0,1.0,,,,
+3885856651,INFORMATION-TECHNOLOGY,rag vs baseline,preferred,,,rag,"Guidance A provides a realistic, tailored resume draft that directly addresses the job's technical and soft skill requirements, whereas Guidance B suggests irrelevant and nonsensical keywords that would harm the application.",False,
+3885856651,INFORMATION-TECHNOLOGY,rag vs llm_only,specificity,4.0,,,,,5.0
+3885856651,INFORMATION-TECHNOLOGY,rag vs llm_only,actionability,4.0,,,,,5.0
+3885856651,INFORMATION-TECHNOLOGY,rag vs llm_only,alignment,4.0,,,,,5.0
+3885856651,INFORMATION-TECHNOLOGY,rag vs llm_only,realism,2.0,,,,,5.0
+3885856651,INFORMATION-TECHNOLOGY,rag vs llm_only,preferred,,,llm_only,"Guidance A is significantly more realistic and aligned with the entry-level/experienced nature of the role, whereas Guidance B contains an implausible claim of supporting 22,000 employees for a single IT Support Specialist.",True,
+3886898403,PUBLIC-RELATIONS,rag vs baseline,specificity,5.0,1.0,,,,
+3886898403,PUBLIC-RELATIONS,rag vs baseline,actionability,5.0,1.0,,,,
+3886898403,PUBLIC-RELATIONS,rag vs baseline,alignment,5.0,2.0,,,,
+3886898403,PUBLIC-RELATIONS,rag vs baseline,realism,4.0,1.0,,,,
+3886898403,PUBLIC-RELATIONS,rag vs baseline,preferred,,,rag,"Guidance B provides a complete, realistic resume structure with specific, quantified examples that directly address the job's requirements for tools and skills, whereas Guidance A offers a nonsensical list of keywords including irrelevant terms like 'robert' and 'huge'.",True,
+3886898403,PUBLIC-RELATIONS,rag vs llm_only,specificity,3.0,,,,,5.0
+3886898403,PUBLIC-RELATIONS,rag vs llm_only,actionability,4.0,,,,,5.0
+3886898403,PUBLIC-RELATIONS,rag vs llm_only,alignment,4.0,,,,,5.0
+3886898403,PUBLIC-RELATIONS,rag vs llm_only,realism,4.0,,,,,4.0
+3886898403,PUBLIC-RELATIONS,rag vs llm_only,preferred,,,llm_only,"Guidance A is superior because it explicitly mirrors the job's specific constraints (Hartford, CT, part-time, 20 hrs/week) and provides more detailed, quantifiable metrics that demonstrate the required project management and engagement skills.",True,
+3885840983,TEACHER,rag vs baseline,specificity,5.0,1.0,,,,
+3885840983,TEACHER,rag vs baseline,actionability,5.0,1.0,,,,
+3885840983,TEACHER,rag vs baseline,alignment,5.0,2.0,,,,
+3885840983,TEACHER,rag vs baseline,realism,4.0,1.0,,,,
+3885840983,TEACHER,rag vs baseline,preferred,,,rag,"Guidance B provides a concrete, tailored resume example that aligns with the job's requirements for middle school tutoring and online platforms, whereas Guidance A lists irrelevant keywords (like state names) and offers no actionable resume structure.",True,

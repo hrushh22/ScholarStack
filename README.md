@@ -19,7 +19,7 @@ a chatbot. If you paste your own resume too, it tells you what's missing.
 
 We compare it against two baselines: plain TF-IDF keyword advice, and the same LLM with no retrieval.
 
-## Results so far
+## Results
 
 All of this was measured on 240 LinkedIn postings (10 per resume category) that we set aside at the start and never
 used for tuning.
@@ -47,20 +47,22 @@ A few things we learned:
 For generation we used one held-out posting per category (24 total) and had a second model, from a different family
 than the writer, check every line against the closest lines from real resumes retrieved for that posting:
 
-| System | Lines backed by real resumes | Posting's skills covered | Occupation's top skills covered |
-|---|---|---|---|
-| ScholarStack (gpt-oss-120b) | 89.7% | 81.3% | 45.2% |
-| Same LLM, no retrieval | 51.8% | 68.2% | 38.7% |
-| ScholarStack with the smaller gpt-oss-20b | 81.2% | 61.7% | 43.6% |
-| TF-IDF keyword advice | n/a | 30.2% | 9.1% |
+| System | Lines backed by real resumes | Backed with nothing added | Posting's skills covered | Occupation's top skills covered |
+|---|---|---|---|---|
+| ScholarStack (gpt-oss-120b) | 84.6% | 33.4% | 81.3% | 45.2% |
+| Same LLM, no retrieval | 55.6% | 15.6% | 68.2% | 38.7% |
+| ScholarStack with the smaller gpt-oss-20b | 78.9% | 24.4% | 60.9% | 43.0% |
+| TF-IDF keyword advice | n/a | n/a | 30.2% | 9.1% |
 
-- Looking only at the 12 postings where both were checked, 87.7% of ScholarStack's lines were backed by real resumes
-  compared with 45.3% for the LLM on its own. The plain LLM writes confident, generic lines that nobody's resume
-  actually says.
+- As a chance level, we also checked the same lines against resumes retrieved for an unrelated job: 17.6%
+  of 262 lines still passed. ScholarStack is 68 points above that and the plain LLM 37.
+- "Backed with nothing added" means the line is supported and adds no numbers, tools or team sizes the resumes don't
+  mention. Both systems add details, but the plain LLM invents results like "a 20% reduction in month-end close time".
 - 94% of ScholarStack's lines cite at least one excerpt.
-- The bigger model covers a lot more of the posting's skills than the 20B one (81% vs 62%).
-- The checker ran out of free daily quota halfway, so some outputs aren't checked yet (the Results page lists how many
-  were). Re-running `pipeline/10_eval_generation.py` finishes the rest, since every finished call is cached.
+- The bigger model covers a lot more of the posting's skills than the 20B one (81% vs 61%).
+- A separate judge model playing career advisor picked ScholarStack over keyword advice in 23 of 23 jobs, but picked
+  the plain LLM in 19 of 22, mostly for its specific numbers, which are made up. It rated ScholarStack more realistic
+  (4.1 vs 3.8). We read the judge as a measure of polish, not accuracy.
 
 Everything is in [`reports/results/`](reports/results) and on the Results page of the site.
 

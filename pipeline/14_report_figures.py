@@ -200,7 +200,7 @@ def generation_figures():
             ax.set_yticks([])
             ax.grid(False)
             ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0%}"))
-            ax.set_title("LLM-judge preference (randomised A/B order)")
+            ax.set_title("LLM-judge preference (randomized A/B order)")
             from matplotlib.patches import Patch
 
             ax.legend(handles=[Patch(color=SERIES[0], label="RAG (ours) preferred"), Patch(color="#c3c2b7", label="Tie"),

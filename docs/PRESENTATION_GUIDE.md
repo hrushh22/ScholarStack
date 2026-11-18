@@ -13,7 +13,7 @@ Site: https://hrushh22.github.io/ScholarStack/
 
 ## The 15-minute talk
 
-The slides are in the shared Drive folder (ScholarStack_Final_Presentation_v2, 9 slides). Every member speaks, and the
+The slides are in the shared Drive folder (ScholarStack_Final_Presentation, 9 slides). Every member speaks, and the
 speaker notes on each slide have the script. Questions follow the talk.
 
 | Slide | Time | Speaker | Part |
@@ -56,8 +56,9 @@ back to the smaller model if the big one is busy.
   company boilerplate and the model only reads 256 tokens.
 - MiniLM matched GTE-small and embeds a query six times faster (0.8 ms vs 5.0 ms), which is why it runs in the browser.
 - FAISS on 106k postings: 1.96 ms per query exact, 0.25 ms with HNSW at 99.1% recall.
-- Grounding: 90% of ScholarStack's lines are backed by real resumes vs 52% for the same LLM without retrieval. On the
-  12 postings where both were checked it's 88% vs 45%.
+- Grounding: 85% of ScholarStack's lines are backed by real resumes vs 56% for the same LLM without
+  retrieval. The chance level (lines checked against an unrelated job's resumes) is 18%, so ScholarStack is
+  68 points above chance and the plain LLM 37.
 - Skill coverage: ScholarStack covers 81% of the posting's skills vs 68% for the plain LLM and 30% for TF-IDF.
 - The live database search returns the same top 8 as FAISS exact search.
 
@@ -65,8 +66,8 @@ back to the smaller model if the big one is busy.
 
 **How do you know it isn't just making things up?**
 Every line has to cite the resume excerpts it used, and citations to anything we didn't retrieve are removed. Then a
-second model from a different family checks each line against the actual resume text. 90% passed for ScholarStack
-vs 52% for the LLM alone.
+second model from a different family checks each line against the actual resume text. 85% passed for ScholarStack
+vs 56% for the LLM alone, and only 18% pass against an unrelated job's resumes.
 
 **Why not just ask ChatGPT?**
 That's our "LLM only" baseline. It writes fluent but generic lines that real resumes mostly don't back up, and it
@@ -83,6 +84,12 @@ indexed with FAISS. We benchmarked exact vs HNSW vs IVF indexes.
 **Why these models?**
 All free. MiniLM for embeddings (fast and small enough for the browser), gpt-oss-120b on Groq for writing, Qwen as an
 independent checker and judge, so the model grading the output isn't the one that wrote it.
+
+**Didn't a judge model prefer the plain LLM?**
+Yes, in 19 of 22 head-to-heads, mostly because of its specific numbers, which are made up. The same judge rated
+ScholarStack more realistic (4.1 vs 3.8) and picked it over keyword advice every time. It even called one
+ScholarStack line implausible (IT support for over 22,000 employees) that came straight from a real resume. A judge
+rewards polish; the grounding check measures whether the lines are true. For a student, invented numbers are a trap.
 
 **What about privacy?**
 A resume you paste is only used for that request and never stored. Raw resume text from the dataset isn't in the

@@ -1,5 +1,5 @@
 // Results page: SVG charts (hover tooltips, a table under each chart) built from data/results.json.
-import { esc, pct, prettyCategory } from "./render.js?v=202611170001";
+import { esc, pct, prettyCategory } from "./render.js?v=202611171703";
 
 const COLORS = ["var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)", "var(--s5)"];
 const SYSTEM = { baseline: "Keyword baseline", llm_only: "LLM only (120B)", rag: "ScholarStack (120B)", rag_small: "ScholarStack (20B)",
@@ -209,7 +209,7 @@ export async function renderDashboard(root, res, api) {
       title: "Lines backed by real resumes",
       note: `A separate model (a different family than the writer) checks each line against the closest lines from real
         resumes retrieved for the job.${showChance ? " The gray bar is the chance level: how often the same lines pass against an unrelated job's resumes." : ""}
-        Checked so far: ${esc(checked)}.`,
+        Checked: ${esc(checked)}.`,
       rows: order.filter((s) => gen[s]?.grounded != null).map((s) => ({ label: SYSTEM[s], values: [
         { name: "Backed by this job's resumes", value: gen[s].grounded, color: s === "rag" ? COLORS[0] : "var(--line-strong)" },
         ...(showChance ? [{ name: "Chance level", value: gen[s].chance_level ?? null, color: "var(--line-strong)" }] : [])] })),
@@ -226,8 +226,8 @@ export async function renderDashboard(root, res, api) {
     document.getElementById("c-calib").innerHTML = `<h3>Can we trust the grounding check?</h3>
       <dl class="kv">
         <dt>Checker</dt><dd>${esc(c.verifier ?? "-")}, a different model family than the writer</dd>
-        <dt>Chance level</dt><dd>We also check lines against resumes retrieved for an unrelated job. So far ${pct(c.negative_control_supported)}
-          of ${c.negative_control_n ?? 0} lines passed that way, which tells us the checker isn't just saying yes to everything.</dd>
+        <dt>Chance level</dt><dd>We also check the same lines against resumes retrieved for an unrelated job: ${pct(c.negative_control_supported)}
+          of ${c.negative_control_n ?? 0} lines still pass. That's the chance level, so what counts is how far each system is above it.</dd>
         <dt>Citations</dt><dd>${pct(gen.rag?.citation_rate)} of ScholarStack's lines cite at least one excerpt. Citations to anything we didn't retrieve get removed.</dd>
         <dt>Live check</dt><dd>The quick check on the Generate page (embedding similarity of at least ${c.embedding_tau ?? "-"} with one of the
           retrieved lines) agrees with the checker ${pct(c.embedding_agreement_with_verifier)} of the time. It's a fast hint, not the real measure:
@@ -235,6 +235,18 @@ export async function renderDashboard(root, res, api) {
       </dl>
       <p class="small muted" style="margin-top:8px">A sample of the checker's calls is in <code>reports/results/groundedness_audit.csv</code> so we can review them by hand.</p>`;
     const judge = (res.judge ?? []).filter((j) => j.criterion === "preferred");
+    const crit = (p, k, sys) => {
+      const v = (res.judge ?? []).filter((j) => j.pair === p && j.criterion === k).map((j) => Number(j[sys])).filter((x) => !Number.isNaN(x));
+      return v.length ? v.reduce((a, b) => a + b, 0) / v.length : null;
+    };
+    const judgeNote = () => {
+      const rs = crit("rag vs llm_only", "realism", "rag"), rl = crit("rag vs llm_only", "realism", "llm_only");
+      const ss = crit("rag vs llm_only", "specificity", "rag"), sl = crit("rag vs llm_only", "specificity", "llm_only");
+      if (rs == null || rl == null || ss == null || sl == null) return "";
+      return `<p class="small muted" style="margin-top:12px">Average scores against the plain LLM, 1 to 5: realism ${rs.toFixed(1)} vs ${rl.toFixed(1)},
+        specificity ${ss.toFixed(1)} vs ${sl.toFixed(1)}. The judge rewards specific-sounding lines, including numbers the plain LLM made up,
+        so we read it as a measure of polish, not accuracy. "Lines backed by real resumes" is the accuracy measure.</p>`;
+    };
     const pairs = [...new Set(judge.map((j) => j.pair))];
     if (hasJudge) document.getElementById("c-judge").innerHTML = `<h3>Which one would a career advisor pick?</h3><p class="small muted">A separate model plays
       career advisor and compares two outputs for the same job on how specific, actionable, on-target and realistic they are. We shuffle
@@ -246,7 +258,7 @@ export async function renderDashboard(root, res, api) {
         <div class="bars"><div class="bar-row"><span>Picked ${esc(SYSTEM[a])}</span><span class="track"><span class="fill" style="width:${share(a) * 100}%"></span></span><span class="v">${pct(share(a))}</span></div>
         <div class="bar-row"><span>Tie</span><span class="track"><span class="fill" style="background:var(--line-strong);width:${share("tie") * 100}%"></span></span><span class="v">${pct(share("tie"))}</span></div>
         <div class="bar-row"><span>Picked ${esc(SYSTEM[b])}</span><span class="track"><span class="fill" style="background:var(--s2);width:${share(b) * 100}%"></span></span><span class="v">${pct(share(b))}</span></div></div>`;
-    }).join("") : "<p class='muted'>No judge results.</p>");
+    }).join("") + judgeNote() : "<p class='muted'>No judge results.</p>");
   }
 
   // --- scale

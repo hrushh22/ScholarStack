@@ -19,7 +19,7 @@ Groundedness (claim-level verification, as in RAGAS "faithfulness")
   Citation correctness: the supporting line comes from a chunk the statement cited.
   Negative control: some outputs are re-verified against evidence for an unrelated job.
   The live site's fast embedding check is calibrated to agree with these verdicts.
-Also: JD / market skill coverage, pairwise LLM judge (randomised A/B order), latency, tokens.
+Also: JD / market skill coverage, pairwise LLM judge (randomized A/B order), latency, tokens.
 
 All LLM responses are cached: stop and re-run freely; finished calls are not repeated.
 """
@@ -347,7 +347,7 @@ if __name__ == "__main__":
     if args.no_judge:
         raise SystemExit
 
-    # ---- phase D: pairwise LLM judge (different model family, randomised order) -----------
+    # ---- phase D: pairwise LLM judge (different model family, randomized order) -----------
     judge = chat_model(judge_model, json_mode=True, max_tokens=700, with_fallback=False, seconds_per_call=15,
                        reasoning_effort="none")
     rng = random.Random(CFG["seed"])
